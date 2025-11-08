@@ -28,17 +28,53 @@
 
   --blue-overlay-12: color-mix(in srgb, var(--brand-blue) 12%, transparent);
   --blue-overlay-14: color-mix(in srgb, var(--brand-blue) 14%, transparent);
-  --blue-surface-10: color-mix(in srgb, var(--brand-blue) 10%, var(--brand-white));
-  --blue-surface-12: color-mix(in srgb, var(--brand-blue) 12%, var(--brand-white));
-  --blue-surface-20: color-mix(in srgb, var(--brand-blue) 20%, var(--brand-white));
-  --blue-border-tint-14: color-mix(in srgb, var(--brand-blue) 14%, var(--brand-white));
+  --blue-surface-10: color-mix(
+    in srgb,
+    var(--brand-blue) 10%,
+    var(--brand-white)
+  );
+  --blue-surface-12: color-mix(
+    in srgb,
+    var(--brand-blue) 12%,
+    var(--brand-white)
+  );
+  --blue-surface-20: color-mix(
+    in srgb,
+    var(--brand-blue) 20%,
+    var(--brand-white)
+  );
+  --blue-border-tint-14: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    var(--brand-white)
+  );
   --blue-border-40: color-mix(in srgb, var(--brand-blue) 40%, transparent);
   --blue-border-55: color-mix(in srgb, var(--brand-blue) 55%, transparent);
-  --blue-text-strong: color-mix(in srgb, var(--brand-blue) 80%, var(--brand-dark) 20%);
-  --yellow-surface-20: color-mix(in srgb, var(--brand-yellow) 20%, var(--brand-white));
-  --yellow-surface-24: color-mix(in srgb, var(--brand-yellow) 24%, var(--brand-white));
-  --yellow-text-strong: color-mix(in srgb, var(--brand-dark) 80%, var(--brand-yellow) 20%);
-  --yellow-text-soft: color-mix(in srgb, var(--brand-dark) 75%, var(--brand-yellow) 25%);
+  --blue-text-strong: color-mix(
+    in srgb,
+    var(--brand-blue) 80%,
+    var(--brand-dark) 20%
+  );
+  --yellow-surface-20: color-mix(
+    in srgb,
+    var(--brand-yellow) 20%,
+    var(--brand-white)
+  );
+  --yellow-surface-24: color-mix(
+    in srgb,
+    var(--brand-yellow) 24%,
+    var(--brand-white)
+  );
+  --yellow-text-strong: color-mix(
+    in srgb,
+    var(--brand-dark) 80%,
+    var(--brand-yellow) 20%
+  );
+  --yellow-text-soft: color-mix(
+    in srgb,
+    var(--brand-dark) 75%,
+    var(--brand-yellow) 25%
+  );
 
   --blue-shadow-soft: 0 8px 18px rgba(0, 91, 187, 0.12);
 
@@ -60,7 +96,14 @@ body {
   padding: 0;
 }
 body {
-  font: 16px/1.6 "Manrope", "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+  font:
+    16px/1.6 "Manrope",
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
   background: var(--brand-white);
   color: var(--brand-dark);
@@ -276,15 +319,11 @@ body {
 }
 
 .price-card__meta {
-  display: grid;
-  gap: 8px;
-  font-size: 14px;
-}
+  display: flex;
+  flex-direction: column;
 
-@media (min-width: 720px) {
-  .price-card__meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 .price-card__meta-item {
@@ -393,7 +432,9 @@ body {
   cursor: pointer;
   font: inherit;
   color: var(--brand-dark);
-  transition: background 0.12s ease, color 0.12s ease;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
 }
 
 .combo-option-title {
@@ -475,7 +516,10 @@ body {
   background: #fff;
   color: var(--brand-blue);
   cursor: pointer;
-  transition: background 0.12s ease, box-shadow 0.12s ease, transform 0.06s ease,
+  transition:
+    background 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
     border-color 0.12s ease;
 }
 
@@ -807,7 +851,9 @@ body {
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 6px;
-  padding-bottom: calc(6px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(
+    6px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -914,7 +960,9 @@ body {
   background: var(--surface);
   box-shadow: var(--shadow);
   padding: 8px;
-  padding-bottom: calc(8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(
+    8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -923,10 +971,18 @@ body {
   font-size: 18px;
   margin-bottom: 8px;
   padding-bottom: 6px;
-  border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--brand-blue) 18%, transparent);
   color: var(--brand-blue);
   display: inline-block;
-  font-family: "Montserrat", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+  font-family:
+    "Montserrat",
+    "Manrope",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
 }
 .page-section h2::after {
@@ -957,7 +1013,10 @@ ul.sublist {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.06s ease, box-shadow 0.12s ease, border-color 0.12s ease,
+  transition:
+    transform 0.06s ease,
+    box-shadow 0.12s ease,
+    border-color 0.12s ease,
     background 0.12s ease;
 }
 .item:hover {
@@ -988,7 +1047,9 @@ ul.sublist {
   color: var(--brand-muted);
   margin-top: 4px;
   text-align: center;
-  margin-bottom: calc(16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  margin-bottom: calc(
+    16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
 }
 .status.success {
   color: #0a7f2e;
@@ -1119,7 +1180,11 @@ ul.sublist {
 .progress-bar-fill {
   height: 100%;
   width: 0;
-  background: linear-gradient(120deg, var(--brand-blue), var(--brand-blue-dark));
+  background: linear-gradient(
+    120deg,
+    var(--brand-blue),
+    var(--brand-blue-dark)
+  );
   border-radius: inherit;
   transition: width 0.3s ease;
 }
@@ -1140,7 +1205,8 @@ ul.sublist {
 .plan-table td {
   padding: 10px 12px;
   text-align: left;
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 8%, var(--border));
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--brand-blue) 8%, var(--border));
 }
 .plan-table thead th {
   background: color-mix(in srgb, var(--brand-blue) 6%, var(--surface));
@@ -1210,7 +1276,11 @@ ul.sublist {
   background: var(--brand-white);
   color: var(--brand-blue);
   text-decoration: none;
-  transition: background 0.12s ease, color 0.12s ease, box-shadow 0.12s ease, transform 0.06s ease,
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
     filter 0.12s ease;
 }
 .btn:hover {
@@ -1274,7 +1344,9 @@ textarea {
   background: var(--brand-white);
   color: inherit;
   outline: none;
-  transition: box-shadow 0.12s ease, border-color 0.12s ease;
+  transition:
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
 }
 input:focus,
 select:focus,
@@ -1290,11 +1362,15 @@ textarea:focus {
     padding-right: 6px;
     padding-top: 6px;
     gap: 12px;
-    padding-bottom: calc(6px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(
+      6px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+    );
   }
   .page-surface {
     padding: 16px;
-    padding-bottom: calc(16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(
+      16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+    );
   }
   .bottombar {
     padding: 10px 12px;
