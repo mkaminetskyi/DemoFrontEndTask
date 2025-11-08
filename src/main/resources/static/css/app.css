@@ -42,6 +42,8 @@
 
   --blue-shadow-soft: 0 8px 18px rgba(0, 91, 187, 0.12);
 
+  --tg-viewport-height: 100vh;
+
   color-scheme: light;
 }
 

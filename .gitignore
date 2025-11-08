@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+src/main/resources/static/images/to-do.png
+src/main/resources/static/images/screen-now.png
