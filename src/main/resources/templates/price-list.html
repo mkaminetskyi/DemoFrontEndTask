@@ -4,20 +4,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 <title>Прайс-лист</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script th:src="@{/js/telegram-web-app.js}" defer></script>
 <link rel="stylesheet" href="/css/app.css" />
+<link rel="stylesheet" href="/css/price-list.css">
 </head>
 
 <body>
   <div class="app-shell">
-    <!-- кастомний хедер тільки для телеграму -->
-    <header class="telegram-header is-hidden" id="telegramHeader">
-      <button class="telegram-header__btn" id="closeTelegramBtn">×</button>
-      <button class="telegram-header__btn" id="menuTelegramBtn">⋮</button>
-    </header>
-
-    <main class="page-surface">
-      <section class="page-section" id="priceListSection" data-data-endpoint="/price-list-data"
+    <main class="page-surface price-list-page">
+      <section class="page-section price-list-content" id="priceListSection" data-data-endpoint="/price-list-data"
         th:data-has-session="${hasSession}">
         <h2>Прайс-лист</h2>
 

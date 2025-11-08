@@ -70,7 +70,11 @@
 
   if (tg) {
     try {
+      tg.ready();
       tg.expand();
+      tg.requestFullscreen(); // той самий метод який робить хедер на весь екран
+      tg.setHeaderColor('#ffffff') // для кращого контрасту кольорів (щоб текст і іконки були чорними)
+      tg.disableVerticalSwipes(); // заборонення свайпу вниз (щоб не було випадкового закриття)
     } catch (error) {
       /* ignore */
     }
