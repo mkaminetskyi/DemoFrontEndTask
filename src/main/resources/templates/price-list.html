@@ -1,73 +1,73 @@
-<!doctype html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org"
-      th:with="appVersion=${@environment.getProperty('app.version')}">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Прайс-лист</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="/css/app.css"/>
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org" <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+<title>Прайс-лист</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="/css/app.css" />
+<link rel="stylesheet" href="/css/price-list.css">
 </head>
+
 <body>
-<div class="app-shell">
-    <main class="page-surface">
-        <section class="page-section" id="priceListSection"
-                 data-data-endpoint="/price-list-data"
-                 th:data-has-session="${hasSession}">
-            <h2>Прайс-лист</h2>
+  <div class="app-shell">
+    <main class="page-surface price-list-page">
+      <section class="page-section price-list-content" id="priceListSection" data-data-endpoint="/price-list-data"
+        th:data-has-session="${hasSession}">
+        <h2>Прайс-лист</h2>
 
-            <div id="authWarning" class="status error" th:if="${!hasSession}">
-                Потрібна авторизація через Telegram.
+        <div id="authWarning" class="status error" th:if="${!hasSession}">
+          Потрібна авторизація через Telegram.
+        </div>
+
+        <div id="priceControls" class="toolbar is-hidden">
+          <div class="toolbar-grid">
+            <div class="field full-width">
+              <label for="priceNameFilter">Пошук за назвою</label>
+              <input type="search" id="priceNameFilter" placeholder="Введіть назву" autocomplete="off" />
             </div>
-
-            <div id="priceControls" class="toolbar is-hidden">
-                <div class="toolbar-grid">
-                    <div class="field full-width">
-                        <label for="priceNameFilter">Пошук за назвою</label>
-                        <input type="search" id="priceNameFilter" placeholder="Введіть назву" autocomplete="off"/>
-                    </div>
-                    <div class="field">
-                        <label for="priceBrandFilter">Бренд</label>
-                        <select id="priceBrandFilter">
-                            <option value="">Усі бренди</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="priceSort">Сортування</label>
-                        <select id="priceSort">
-                            <option value="none">Без сортування</option>
-                            <option value="name">За назвою (А→Я)</option>
-                            <option value="brand">За брендом (А→Я)</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="priceResultsSummary" class="price-results-summary is-hidden">
-                    <span id="priceResultsText" class="price-results-summary__text"></span>
-                    <div id="priceActiveFilters" class="price-results-summary__filters pill-list is-hidden"></div>
-                </div>
+            <div class="field">
+              <label for="priceBrandFilter">Бренд</label>
+              <select id="priceBrandFilter">
+                <option value="">Усі бренди</option>
+              </select>
             </div>
-
-            <div class="zoombar card compact is-hidden" id="priceZoomBar">
-                <div class="zoom-group">
-                    <button class="btn-zoom" id="priceZoomOut" aria-label="Зменшити масштаб">−</button>
-                    <span class="zoom-label" id="priceZoomLabel">100%</span>
-                    <button class="btn-zoom" id="priceZoomIn" aria-label="Збільшити масштаб">+</button>
-                </div>
-                <button class="btn-zoom btn-zoom-reset" id="priceZoomReset" aria-label="Скинути масштаб">
-                    <span>Скинути</span>
-                </button>
+            <div class="field">
+              <label for="priceSort">Сортування</label>
+              <select id="priceSort">
+                <option value="none">Без сортування</option>
+                <option value="name">За назвою (А→Я)</option>
+                <option value="brand">За брендом (А→Я)</option>
+              </select>
             </div>
+          </div>
+          <div id="priceResultsSummary" class="price-results-summary is-hidden">
+            <span id="priceResultsText" class="price-results-summary__text"></span>
+            <div id="priceActiveFilters" class="price-results-summary__filters pill-list is-hidden"></div>
+          </div>
+        </div>
 
-            <div id="priceLoading" class="status">Отримую дані…</div>
-            <div id="priceTableContainer" class="table-container table-container--flush is-hidden"></div>
-            <div id="priceError" class="status error is-hidden"></div>
-        </section>
+        <div class="zoombar card compact is-hidden" id="priceZoomBar">
+          <div class="zoom-group">
+            <button class="btn-zoom" id="priceZoomOut" aria-label="Зменшити масштаб">−</button>
+            <span class="zoom-label" id="priceZoomLabel">100%</span>
+            <button class="btn-zoom" id="priceZoomIn" aria-label="Збільшити масштаб">+</button>
+          </div>
+          <button class="btn-zoom btn-zoom-reset" id="priceZoomReset" aria-label="Скинути масштаб">
+            <span>Скинути</span>
+          </button>
+        </div>
+
+        <div id="priceLoading" class="status">Отримую дані…</div>
+        <div id="priceTableContainer" class="table-container table-container--flush is-hidden"></div>
+        <div id="priceError" class="status error is-hidden"></div>
+      </section>
     </main>
-</div>
+  </div>
 
-<div th:replace="~{fragments/bottombar :: bottombar}"></div>
+  <div th:replace="~{fragments/bottombar :: bottombar}"></div>
 
-<script src="/js/app.js"></script>
-<script src="/js/catalog-price-list.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/catalog-price-list.js"></script>
 </body>
+
 </html>

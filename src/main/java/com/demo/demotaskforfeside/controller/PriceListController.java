@@ -18,7 +18,14 @@ import java.util.Map;
 public class PriceListController {
     private final PriceListService priceListService;
 
-    @GetMapping
+
+// без цього не запускалось і видавало помилку:
+// Whitelabel Error Page
+//This application has no explicit mapping for /error, so you are seeing this as a fallback.
+//There was an unexpected error (type=Not Found, status=404).
+
+// @GetMapping
+    @GetMapping({"/", "/price-list"}) // без цього не запускалось
     public String priceListPage(Model model) {
         model.addAttribute("hasSession", true);
 
