@@ -1,0 +1,1602 @@
+[
+  {
+    "article": "LUM-0001",
+    "name": "Lumber Structural Timber Standard 16mm x 3m",
+    "storageUnit": "kg",
+    "brand": "NordicMix",
+    "price": 706.24,
+    "priceText": "706.24 UAH per kg"
+  },
+  {
+    "article": "FLO-0002",
+    "name": "Flooring Ceramic Floor Tile Premium 50mm x 5m",
+    "storageUnit": "m3",
+    "brand": "BuildPro",
+    "price": 111.67,
+    "priceText": "111.67 UAH per m3"
+  },
+  {
+    "article": "ROO-0003",
+    "name": "Roofing Metal Roofing Sheets RapidSet 50mm x 2m",
+    "storageUnit": "kg",
+    "brand": "TerraTile",
+    "price": 413.06,
+    "priceText": "413.06 UAH per kg"
+  },
+  {
+    "article": "ELE-0004",
+    "name": "Electrical Cable Tray System NanoCoat 16mm x 10m",
+    "storageUnit": "m3",
+    "brand": "NordicMix",
+    "price": 670.78,
+    "priceText": "670.78 UAH per m3"
+  },
+  {
+    "article": "HVA-0005",
+    "name": "HVAC Air Handling Unit High-Density 10mm x 3m",
+    "storageUnit": "roll",
+    "brand": "Structura",
+    "price": 110.79,
+    "priceText": "110.79 UAH per roll"
+  },
+  {
+    "article": "LUM-0006",
+    "name": "Lumber Structural Timber WeatherGuard 20mm x 6m",
+    "storageUnit": "set",
+    "brand": "BuildPro",
+    "price": 700.0,
+    "priceText": "700.00 UAH per set"
+  },
+  {
+    "article": "FLO-0007",
+    "name": "Flooring Ceramic Floor Tile Premium 24mm x 2m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 844.04,
+    "priceText": "844.04 UAH per set"
+  },
+  {
+    "article": "HVA-0008",
+    "name": "HVAC Air Handling Unit NanoCoat 12mm x 8m",
+    "storageUnit": "m2",
+    "brand": "BuildPro",
+    "price": 636.67,
+    "priceText": "636.67 UAH per m2"
+  },
+  {
+    "article": "INS-0009",
+    "name": "Insulation Thermal Insulation Panels Premium 12mm x 10m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 282.13,
+    "priceText": "282.13 UAH per m2"
+  },
+  {
+    "article": "HVA-0010",
+    "name": "HVAC Air Handling Unit Industrial 20mm x 4m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 674.18,
+    "priceText": "674.18 UAH per kg"
+  },
+  {
+    "article": "LUM-0011",
+    "name": "Lumber Structural Timber NanoCoat 10mm x 6m",
+    "storageUnit": "kg",
+    "brand": "NordicMix",
+    "price": 452.59,
+    "priceText": "452.59 UAH per kg"
+  },
+  {
+    "article": "INS-0012",
+    "name": "Insulation Thermal Insulation Panels RapidSet 12mm x 8m",
+    "storageUnit": "roll",
+    "brand": "BuildPro",
+    "price": 236.87,
+    "priceText": "236.87 UAH per roll"
+  },
+  {
+    "article": "CON-0013",
+    "name": "Concrete Ready-Mix Concrete WeatherGuard 24mm x 4m",
+    "storageUnit": "m2",
+    "brand": "DeltaBeam",
+    "price": 869.65,
+    "priceText": "869.65 UAH per m2"
+  },
+  {
+    "article": "FIN-0014",
+    "name": "Finishing Interior Paint WeatherGuard 12mm x 8m",
+    "storageUnit": "unit",
+    "brand": "HydroLine",
+    "price": 843.33,
+    "priceText": "843.33 UAH per unit"
+  },
+  {
+    "article": "ELE-0015",
+    "name": "Electrical Cable Tray System Industrial 16mm x 3m",
+    "storageUnit": "kg",
+    "brand": "TerraTile",
+    "price": 523.55,
+    "priceText": "523.55 UAH per kg"
+  },
+  {
+    "article": "FIN-0016",
+    "name": "Finishing Interior Paint Acoustic 50mm x 5m",
+    "storageUnit": "roll",
+    "brand": "DeltaBeam",
+    "price": 947.53,
+    "priceText": "947.53 UAH per roll"
+  },
+  {
+    "article": "MAS-0017",
+    "name": "Masonry Clay Bricks RapidSet 32mm x 2m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 166.38,
+    "priceText": "166.38 UAH per m3"
+  },
+  {
+    "article": "MAS-0018",
+    "name": "Masonry Clay Bricks Acoustic 50mm x 2m",
+    "storageUnit": "bundle",
+    "brand": "HydroLine",
+    "price": 576.2,
+    "priceText": "576.20 UAH per bundle"
+  },
+  {
+    "article": "ELE-0019",
+    "name": "Electrical Cable Tray System RapidSet 16mm x 6m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 655.58,
+    "priceText": "655.58 UAH per m3"
+  },
+  {
+    "article": "FLO-0020",
+    "name": "Flooring Ceramic Floor Tile High-Density 20mm x 2m",
+    "storageUnit": "set",
+    "brand": "HydroLine",
+    "price": 171.3,
+    "priceText": "171.30 UAH per set"
+  },
+  {
+    "article": "CON-0021",
+    "name": "Concrete Ready-Mix Concrete High-Density 40mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "TerraTile",
+    "price": 869.18,
+    "priceText": "869.18 UAH per pcs"
+  },
+  {
+    "article": "INS-0022",
+    "name": "Insulation Thermal Insulation Panels RapidSet 50mm x 3m",
+    "storageUnit": "pcs",
+    "brand": "AeroFlow",
+    "price": 730.32,
+    "priceText": "730.32 UAH per pcs"
+  },
+  {
+    "article": "FLO-0023",
+    "name": "Flooring Ceramic Floor Tile RapidSet 6mm x 6m",
+    "storageUnit": "roll",
+    "brand": "VoltGuard",
+    "price": 43.02,
+    "priceText": "43.02 UAH per roll"
+  },
+  {
+    "article": "HVA-0024",
+    "name": "HVAC Air Handling Unit High-Density 12mm x 2m",
+    "storageUnit": "kg",
+    "brand": "ColorVista",
+    "price": 900.93,
+    "priceText": "900.93 UAH per kg"
+  },
+  {
+    "article": "LUM-0025",
+    "name": "Lumber Structural Timber FireShield 8mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "NordicMix",
+    "price": 635.27,
+    "priceText": "635.27 UAH per pcs"
+  },
+  {
+    "article": "FLO-0026",
+    "name": "Flooring Ceramic Floor Tile Industrial 16mm x 6m",
+    "storageUnit": "bundle",
+    "brand": "DeltaBeam",
+    "price": 884.24,
+    "priceText": "884.24 UAH per bundle"
+  },
+  {
+    "article": "ROO-0027",
+    "name": "Roofing Metal Roofing Sheets High-Density 24mm x 8m",
+    "storageUnit": "roll",
+    "brand": "VoltGuard",
+    "price": 857.14,
+    "priceText": "857.14 UAH per roll"
+  },
+  {
+    "article": "ELE-0028",
+    "name": "Electrical Cable Tray System Premium 12mm x 3m",
+    "storageUnit": "m2",
+    "brand": "AeroFlow",
+    "price": 44.46,
+    "priceText": "44.46 UAH per m2"
+  },
+  {
+    "article": "FLO-0029",
+    "name": "Flooring Ceramic Floor Tile Lightweight 50mm x 3m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 679.75,
+    "priceText": "679.75 UAH per m3"
+  },
+  {
+    "article": "CON-0030",
+    "name": "Concrete Ready-Mix Concrete Lightweight 8mm x 2m",
+    "storageUnit": "roll",
+    "brand": "Structura",
+    "price": 500.59,
+    "priceText": "500.59 UAH per roll"
+  },
+  {
+    "article": "INS-0031",
+    "name": "Insulation Thermal Insulation Panels FireShield 12mm x 6m",
+    "storageUnit": "pcs",
+    "brand": "ColorVista",
+    "price": 558.0,
+    "priceText": "558.00 UAH per pcs"
+  },
+  {
+    "article": "ROO-0032",
+    "name": "Roofing Metal Roofing Sheets FireShield 24mm x 3m",
+    "storageUnit": "m2",
+    "brand": "Structura",
+    "price": 634.56,
+    "priceText": "634.56 UAH per m2"
+  },
+  {
+    "article": "HVA-0033",
+    "name": "HVAC Air Handling Unit Acoustic 24mm x 5m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 81.07,
+    "priceText": "81.07 UAH per m3"
+  },
+  {
+    "article": "HVA-0034",
+    "name": "HVAC Air Handling Unit Premium 12mm x 3m",
+    "storageUnit": "kg",
+    "brand": "TerraTile",
+    "price": 439.97,
+    "priceText": "439.97 UAH per kg"
+  },
+  {
+    "article": "PLU-0035",
+    "name": "Plumbing Copper Pipe Industrial 16mm x 5m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 434.9,
+    "priceText": "434.90 UAH per kg"
+  },
+  {
+    "article": "FLO-0036",
+    "name": "Flooring Ceramic Floor Tile Premium 6mm x 8m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 881.89,
+    "priceText": "881.89 UAH per m3"
+  },
+  {
+    "article": "ROO-0037",
+    "name": "Roofing Metal Roofing Sheets Industrial 24mm x 5m",
+    "storageUnit": "unit",
+    "brand": "DeltaBeam",
+    "price": 824.8,
+    "priceText": "824.80 UAH per unit"
+  },
+  {
+    "article": "CON-0038",
+    "name": "Concrete Ready-Mix Concrete Industrial 24mm x 2m",
+    "storageUnit": "bundle",
+    "brand": "EcoTherm",
+    "price": 882.03,
+    "priceText": "882.03 UAH per bundle"
+  },
+  {
+    "article": "ELE-0039",
+    "name": "Electrical Cable Tray System High-Density 24mm x 8m",
+    "storageUnit": "unit",
+    "brand": "NordicMix",
+    "price": 200.66,
+    "priceText": "200.66 UAH per unit"
+  },
+  {
+    "article": "ROO-0040",
+    "name": "Roofing Metal Roofing Sheets Standard 50mm x 8m",
+    "storageUnit": "m3",
+    "brand": "AeroFlow",
+    "price": 77.88,
+    "priceText": "77.88 UAH per m3"
+  },
+  {
+    "article": "FIN-0041",
+    "name": "Finishing Interior Paint FireShield 40mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "BuildPro",
+    "price": 913.72,
+    "priceText": "913.72 UAH per pcs"
+  },
+  {
+    "article": "LUM-0042",
+    "name": "Lumber Structural Timber Industrial 8mm x 6m",
+    "storageUnit": "m2",
+    "brand": "DeltaBeam",
+    "price": 398.49,
+    "priceText": "398.49 UAH per m2"
+  },
+  {
+    "article": "FIN-0043",
+    "name": "Finishing Interior Paint Lightweight 50mm x 6m",
+    "storageUnit": "m3",
+    "brand": "ColorVista",
+    "price": 100.83,
+    "priceText": "100.83 UAH per m3"
+  },
+  {
+    "article": "FIN-0044",
+    "name": "Finishing Interior Paint NanoCoat 40mm x 4m",
+    "storageUnit": "set",
+    "brand": "DeltaBeam",
+    "price": 644.5,
+    "priceText": "644.50 UAH per set"
+  },
+  {
+    "article": "HVA-0045",
+    "name": "HVAC Air Handling Unit Lightweight 16mm x 5m",
+    "storageUnit": "pcs",
+    "brand": "EcoTherm",
+    "price": 447.93,
+    "priceText": "447.93 UAH per pcs"
+  },
+  {
+    "article": "LUM-0046",
+    "name": "Lumber Structural Timber Standard 32mm x 6m",
+    "storageUnit": "m2",
+    "brand": "Structura",
+    "price": 522.31,
+    "priceText": "522.31 UAH per m2"
+  },
+  {
+    "article": "FLO-0047",
+    "name": "Flooring Ceramic Floor Tile High-Density 10mm x 4m",
+    "storageUnit": "m2",
+    "brand": "DeltaBeam",
+    "price": 366.81,
+    "priceText": "366.81 UAH per m2"
+  },
+  {
+    "article": "MAS-0048",
+    "name": "Masonry Clay Bricks FireShield 40mm x 8m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 935.06,
+    "priceText": "935.06 UAH per set"
+  },
+  {
+    "article": "FLO-0049",
+    "name": "Flooring Ceramic Floor Tile Standard 40mm x 4m",
+    "storageUnit": "m2",
+    "brand": "NordicMix",
+    "price": 269.63,
+    "priceText": "269.63 UAH per m2"
+  },
+  {
+    "article": "LUM-0050",
+    "name": "Lumber Structural Timber RapidSet 10mm x 4m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 219.83,
+    "priceText": "219.83 UAH per set"
+  },
+  {
+    "article": "HVA-0051",
+    "name": "HVAC Air Handling Unit Lightweight 16mm x 6m",
+    "storageUnit": "unit",
+    "brand": "EcoTherm",
+    "price": 862.44,
+    "priceText": "862.44 UAH per unit"
+  },
+  {
+    "article": "CON-0052",
+    "name": "Concrete Ready-Mix Concrete Premium 24mm x 10m",
+    "storageUnit": "set",
+    "brand": "BuildPro",
+    "price": 28.28,
+    "priceText": "28.28 UAH per set"
+  },
+  {
+    "article": "MAS-0053",
+    "name": "Masonry Clay Bricks High-Density 10mm x 8m",
+    "storageUnit": "unit",
+    "brand": "TerraTile",
+    "price": 677.74,
+    "priceText": "677.74 UAH per unit"
+  },
+  {
+    "article": "FLO-0054",
+    "name": "Flooring Ceramic Floor Tile Standard 8mm x 2m",
+    "storageUnit": "pcs",
+    "brand": "TerraTile",
+    "price": 58.33,
+    "priceText": "58.33 UAH per pcs"
+  },
+  {
+    "article": "HVA-0055",
+    "name": "HVAC Air Handling Unit NanoCoat 40mm x 3m",
+    "storageUnit": "bundle",
+    "brand": "NordicMix",
+    "price": 63.69,
+    "priceText": "63.69 UAH per bundle"
+  },
+  {
+    "article": "HVA-0056",
+    "name": "HVAC Air Handling Unit Standard 20mm x 3m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 352.15,
+    "priceText": "352.15 UAH per kg"
+  },
+  {
+    "article": "FLO-0057",
+    "name": "Flooring Ceramic Floor Tile Acoustic 50mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "DeltaBeam",
+    "price": 824.76,
+    "priceText": "824.76 UAH per pcs"
+  },
+  {
+    "article": "MAS-0058",
+    "name": "Masonry Clay Bricks Acoustic 6mm x 3m",
+    "storageUnit": "roll",
+    "brand": "HydroLine",
+    "price": 767.07,
+    "priceText": "767.07 UAH per roll"
+  },
+  {
+    "article": "ROO-0059",
+    "name": "Roofing Metal Roofing Sheets High-Density 10mm x 10m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 831.75,
+    "priceText": "831.75 UAH per m2"
+  },
+  {
+    "article": "ELE-0060",
+    "name": "Electrical Cable Tray System Lightweight 12mm x 10m",
+    "storageUnit": "unit",
+    "brand": "AeroFlow",
+    "price": 307.3,
+    "priceText": "307.30 UAH per unit"
+  },
+  {
+    "article": "ROO-0061",
+    "name": "Roofing Metal Roofing Sheets Lightweight 6mm x 8m",
+    "storageUnit": "kg",
+    "brand": "HydroLine",
+    "price": 328.64,
+    "priceText": "328.64 UAH per kg"
+  },
+  {
+    "article": "LUM-0062",
+    "name": "Lumber Structural Timber High-Density 20mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "TerraTile",
+    "price": 331.31,
+    "priceText": "331.31 UAH per bundle"
+  },
+  {
+    "article": "CON-0063",
+    "name": "Concrete Ready-Mix Concrete Premium 16mm x 3m",
+    "storageUnit": "set",
+    "brand": "BuildPro",
+    "price": 125.27,
+    "priceText": "125.27 UAH per set"
+  },
+  {
+    "article": "PLU-0064",
+    "name": "Plumbing Copper Pipe WeatherGuard 20mm x 5m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 857.04,
+    "priceText": "857.04 UAH per m2"
+  },
+  {
+    "article": "ROO-0065",
+    "name": "Roofing Metal Roofing Sheets High-Density 6mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "BuildPro",
+    "price": 505.93,
+    "priceText": "505.93 UAH per bundle"
+  },
+  {
+    "article": "FLO-0066",
+    "name": "Flooring Ceramic Floor Tile Lightweight 20mm x 5m",
+    "storageUnit": "m2",
+    "brand": "AeroFlow",
+    "price": 601.42,
+    "priceText": "601.42 UAH per m2"
+  },
+  {
+    "article": "LUM-0067",
+    "name": "Lumber Structural Timber High-Density 40mm x 4m",
+    "storageUnit": "bundle",
+    "brand": "AeroFlow",
+    "price": 397.22,
+    "priceText": "397.22 UAH per bundle"
+  },
+  {
+    "article": "INS-0068",
+    "name": "Insulation Thermal Insulation Panels RapidSet 10mm x 3m",
+    "storageUnit": "bundle",
+    "brand": "HydroLine",
+    "price": 651.52,
+    "priceText": "651.52 UAH per bundle"
+  },
+  {
+    "article": "MAS-0069",
+    "name": "Masonry Clay Bricks NanoCoat 50mm x 4m",
+    "storageUnit": "bundle",
+    "brand": "TerraTile",
+    "price": 796.2,
+    "priceText": "796.20 UAH per bundle"
+  },
+  {
+    "article": "INS-0070",
+    "name": "Insulation Thermal Insulation Panels High-Density 12mm x 5m",
+    "storageUnit": "roll",
+    "brand": "VoltGuard",
+    "price": 433.65,
+    "priceText": "433.65 UAH per roll"
+  },
+  {
+    "article": "ROO-0071",
+    "name": "Roofing Metal Roofing Sheets RapidSet 32mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "Structura",
+    "price": 287.5,
+    "priceText": "287.50 UAH per pcs"
+  },
+  {
+    "article": "FIN-0072",
+    "name": "Finishing Interior Paint WeatherGuard 8mm x 10m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 232.79,
+    "priceText": "232.79 UAH per kg"
+  },
+  {
+    "article": "ROO-0073",
+    "name": "Roofing Metal Roofing Sheets Industrial 6mm x 2m",
+    "storageUnit": "kg",
+    "brand": "VoltGuard",
+    "price": 590.43,
+    "priceText": "590.43 UAH per kg"
+  },
+  {
+    "article": "LUM-0074",
+    "name": "Lumber Structural Timber FireShield 24mm x 8m",
+    "storageUnit": "kg",
+    "brand": "HydroLine",
+    "price": 482.3,
+    "priceText": "482.30 UAH per kg"
+  },
+  {
+    "article": "ROO-0075",
+    "name": "Roofing Metal Roofing Sheets Industrial 6mm x 10m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 227.43,
+    "priceText": "227.43 UAH per m2"
+  },
+  {
+    "article": "FLO-0076",
+    "name": "Flooring Ceramic Floor Tile FireShield 6mm x 6m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 447.23,
+    "priceText": "447.23 UAH per kg"
+  },
+  {
+    "article": "ELE-0077",
+    "name": "Electrical Cable Tray System RapidSet 40mm x 6m",
+    "storageUnit": "roll",
+    "brand": "VoltGuard",
+    "price": 591.7,
+    "priceText": "591.70 UAH per roll"
+  },
+  {
+    "article": "FLO-0078",
+    "name": "Flooring Ceramic Floor Tile Acoustic 40mm x 5m",
+    "storageUnit": "pcs",
+    "brand": "VoltGuard",
+    "price": 441.31,
+    "priceText": "441.31 UAH per pcs"
+  },
+  {
+    "article": "ROO-0079",
+    "name": "Roofing Metal Roofing Sheets High-Density 40mm x 5m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 431.88,
+    "priceText": "431.88 UAH per kg"
+  },
+  {
+    "article": "INS-0080",
+    "name": "Insulation Thermal Insulation Panels Lightweight 16mm x 4m",
+    "storageUnit": "roll",
+    "brand": "TerraTile",
+    "price": 99.53,
+    "priceText": "99.53 UAH per roll"
+  },
+  {
+    "article": "MAS-0081",
+    "name": "Masonry Clay Bricks Lightweight 24mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "DeltaBeam",
+    "price": 84.41,
+    "priceText": "84.41 UAH per pcs"
+  },
+  {
+    "article": "PLU-0082",
+    "name": "Plumbing Copper Pipe WeatherGuard 40mm x 5m",
+    "storageUnit": "bundle",
+    "brand": "BuildPro",
+    "price": 216.32,
+    "priceText": "216.32 UAH per bundle"
+  },
+  {
+    "article": "PLU-0083",
+    "name": "Plumbing Copper Pipe Acoustic 50mm x 8m",
+    "storageUnit": "m3",
+    "brand": "ColorVista",
+    "price": 376.85,
+    "priceText": "376.85 UAH per m3"
+  },
+  {
+    "article": "CON-0084",
+    "name": "Concrete Ready-Mix Concrete WeatherGuard 16mm x 10m",
+    "storageUnit": "bundle",
+    "brand": "HydroLine",
+    "price": 522.85,
+    "priceText": "522.85 UAH per bundle"
+  },
+  {
+    "article": "FLO-0085",
+    "name": "Flooring Ceramic Floor Tile NanoCoat 12mm x 5m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 428.15,
+    "priceText": "428.15 UAH per kg"
+  },
+  {
+    "article": "CON-0086",
+    "name": "Concrete Ready-Mix Concrete Acoustic 20mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "NordicMix",
+    "price": 802.47,
+    "priceText": "802.47 UAH per bundle"
+  },
+  {
+    "article": "MAS-0087",
+    "name": "Masonry Clay Bricks NanoCoat 40mm x 2m",
+    "storageUnit": "bundle",
+    "brand": "ColorVista",
+    "price": 547.06,
+    "priceText": "547.06 UAH per bundle"
+  },
+  {
+    "article": "CON-0088",
+    "name": "Concrete Ready-Mix Concrete Premium 24mm x 3m",
+    "storageUnit": "unit",
+    "brand": "NordicMix",
+    "price": 71.51,
+    "priceText": "71.51 UAH per unit"
+  },
+  {
+    "article": "PLU-0089",
+    "name": "Plumbing Copper Pipe WeatherGuard 12mm x 5m",
+    "storageUnit": "roll",
+    "brand": "AeroFlow",
+    "price": 729.14,
+    "priceText": "729.14 UAH per roll"
+  },
+  {
+    "article": "PLU-0090",
+    "name": "Plumbing Copper Pipe High-Density 24mm x 4m",
+    "storageUnit": "m2",
+    "brand": "VoltGuard",
+    "price": 42.93,
+    "priceText": "42.93 UAH per m2"
+  },
+  {
+    "article": "FLO-0091",
+    "name": "Flooring Ceramic Floor Tile Standard 20mm x 3m",
+    "storageUnit": "m2",
+    "brand": "BuildPro",
+    "price": 722.67,
+    "priceText": "722.67 UAH per m2"
+  },
+  {
+    "article": "ROO-0092",
+    "name": "Roofing Metal Roofing Sheets Lightweight 6mm x 6m",
+    "storageUnit": "pcs",
+    "brand": "DeltaBeam",
+    "price": 141.75,
+    "priceText": "141.75 UAH per pcs"
+  },
+  {
+    "article": "LUM-0093",
+    "name": "Lumber Structural Timber NanoCoat 12mm x 5m",
+    "storageUnit": "set",
+    "brand": "AeroFlow",
+    "price": 180.2,
+    "priceText": "180.20 UAH per set"
+  },
+  {
+    "article": "FIN-0094",
+    "name": "Finishing Interior Paint Premium 10mm x 4m",
+    "storageUnit": "m2",
+    "brand": "ColorVista",
+    "price": 48.75,
+    "priceText": "48.75 UAH per m2"
+  },
+  {
+    "article": "INS-0095",
+    "name": "Insulation Thermal Insulation Panels NanoCoat 24mm x 5m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 572.69,
+    "priceText": "572.69 UAH per kg"
+  },
+  {
+    "article": "ROO-0096",
+    "name": "Roofing Metal Roofing Sheets Premium 16mm x 10m",
+    "storageUnit": "m2",
+    "brand": "ColorVista",
+    "price": 748.94,
+    "priceText": "748.94 UAH per m2"
+  },
+  {
+    "article": "HVA-0097",
+    "name": "HVAC Air Handling Unit RapidSet 24mm x 8m",
+    "storageUnit": "roll",
+    "brand": "Structura",
+    "price": 493.01,
+    "priceText": "493.01 UAH per roll"
+  },
+  {
+    "article": "HVA-0098",
+    "name": "HVAC Air Handling Unit Standard 24mm x 10m",
+    "storageUnit": "unit",
+    "brand": "Structura",
+    "price": 426.01,
+    "priceText": "426.01 UAH per unit"
+  },
+  {
+    "article": "HVA-0099",
+    "name": "HVAC Air Handling Unit FireShield 10mm x 5m",
+    "storageUnit": "pcs",
+    "brand": "TerraTile",
+    "price": 918.06,
+    "priceText": "918.06 UAH per pcs"
+  },
+  {
+    "article": "INS-0100",
+    "name": "Insulation Thermal Insulation Panels NanoCoat 40mm x 10m",
+    "storageUnit": "unit",
+    "brand": "VoltGuard",
+    "price": 427.91,
+    "priceText": "427.91 UAH per unit"
+  },
+  {
+    "article": "FIN-0101",
+    "name": "Finishing Interior Paint High-Density 20mm x 10m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 283.01,
+    "priceText": "283.01 UAH per kg"
+  },
+  {
+    "article": "ELE-0102",
+    "name": "Electrical Cable Tray System Lightweight 32mm x 6m",
+    "storageUnit": "bundle",
+    "brand": "AeroFlow",
+    "price": 51.55,
+    "priceText": "51.55 UAH per bundle"
+  },
+  {
+    "article": "HVA-0103",
+    "name": "HVAC Air Handling Unit Industrial 32mm x 3m",
+    "storageUnit": "roll",
+    "brand": "EcoTherm",
+    "price": 339.81,
+    "priceText": "339.81 UAH per roll"
+  },
+  {
+    "article": "FIN-0104",
+    "name": "Finishing Interior Paint High-Density 40mm x 2m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 248.25,
+    "priceText": "248.25 UAH per kg"
+  },
+  {
+    "article": "PLU-0105",
+    "name": "Plumbing Copper Pipe FireShield 40mm x 10m",
+    "storageUnit": "kg",
+    "brand": "VoltGuard",
+    "price": 622.46,
+    "priceText": "622.46 UAH per kg"
+  },
+  {
+    "article": "ELE-0106",
+    "name": "Electrical Cable Tray System FireShield 6mm x 2m",
+    "storageUnit": "set",
+    "brand": "DeltaBeam",
+    "price": 399.07,
+    "priceText": "399.07 UAH per set"
+  },
+  {
+    "article": "ROO-0107",
+    "name": "Roofing Metal Roofing Sheets High-Density 50mm x 4m",
+    "storageUnit": "unit",
+    "brand": "TerraTile",
+    "price": 516.1,
+    "priceText": "516.10 UAH per unit"
+  },
+  {
+    "article": "PLU-0108",
+    "name": "Plumbing Copper Pipe RapidSet 20mm x 4m",
+    "storageUnit": "unit",
+    "brand": "EcoTherm",
+    "price": 308.63,
+    "priceText": "308.63 UAH per unit"
+  },
+  {
+    "article": "ROO-0109",
+    "name": "Roofing Metal Roofing Sheets Premium 12mm x 4m",
+    "storageUnit": "m2",
+    "brand": "TerraTile",
+    "price": 904.56,
+    "priceText": "904.56 UAH per m2"
+  },
+  {
+    "article": "MAS-0110",
+    "name": "Masonry Clay Bricks Lightweight 12mm x 8m",
+    "storageUnit": "unit",
+    "brand": "EcoTherm",
+    "price": 695.24,
+    "priceText": "695.24 UAH per unit"
+  },
+  {
+    "article": "FLO-0111",
+    "name": "Flooring Ceramic Floor Tile NanoCoat 16mm x 2m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 235.42,
+    "priceText": "235.42 UAH per kg"
+  },
+  {
+    "article": "MAS-0112",
+    "name": "Masonry Clay Bricks High-Density 6mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "EcoTherm",
+    "price": 67.1,
+    "priceText": "67.10 UAH per pcs"
+  },
+  {
+    "article": "CON-0113",
+    "name": "Concrete Ready-Mix Concrete RapidSet 16mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "VoltGuard",
+    "price": 119.89,
+    "priceText": "119.89 UAH per pcs"
+  },
+  {
+    "article": "CON-0114",
+    "name": "Concrete Ready-Mix Concrete NanoCoat 16mm x 5m",
+    "storageUnit": "unit",
+    "brand": "VoltGuard",
+    "price": 340.15,
+    "priceText": "340.15 UAH per unit"
+  },
+  {
+    "article": "CON-0115",
+    "name": "Concrete Ready-Mix Concrete High-Density 32mm x 2m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 479.87,
+    "priceText": "479.87 UAH per m2"
+  },
+  {
+    "article": "FIN-0116",
+    "name": "Finishing Interior Paint Standard 10mm x 3m",
+    "storageUnit": "set",
+    "brand": "Structura",
+    "price": 944.37,
+    "priceText": "944.37 UAH per set"
+  },
+  {
+    "article": "LUM-0117",
+    "name": "Lumber Structural Timber RapidSet 24mm x 6m",
+    "storageUnit": "kg",
+    "brand": "TerraTile",
+    "price": 376.85,
+    "priceText": "376.85 UAH per kg"
+  },
+  {
+    "article": "ELE-0118",
+    "name": "Electrical Cable Tray System High-Density 50mm x 5m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 599.45,
+    "priceText": "599.45 UAH per set"
+  },
+  {
+    "article": "FIN-0119",
+    "name": "Finishing Interior Paint Premium 12mm x 8m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 635.9,
+    "priceText": "635.90 UAH per kg"
+  },
+  {
+    "article": "MAS-0120",
+    "name": "Masonry Clay Bricks Lightweight 10mm x 6m",
+    "storageUnit": "m2",
+    "brand": "NordicMix",
+    "price": 27.48,
+    "priceText": "27.48 UAH per m2"
+  },
+  {
+    "article": "ELE-0121",
+    "name": "Electrical Cable Tray System NanoCoat 32mm x 4m",
+    "storageUnit": "m3",
+    "brand": "DeltaBeam",
+    "price": 291.5,
+    "priceText": "291.50 UAH per m3"
+  },
+  {
+    "article": "INS-0122",
+    "name": "Insulation Thermal Insulation Panels FireShield 8mm x 8m",
+    "storageUnit": "kg",
+    "brand": "EcoTherm",
+    "price": 753.74,
+    "priceText": "753.74 UAH per kg"
+  },
+  {
+    "article": "FIN-0123",
+    "name": "Finishing Interior Paint Lightweight 24mm x 2m",
+    "storageUnit": "kg",
+    "brand": "NordicMix",
+    "price": 865.28,
+    "priceText": "865.28 UAH per kg"
+  },
+  {
+    "article": "MAS-0124",
+    "name": "Masonry Clay Bricks Premium 6mm x 3m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 717.79,
+    "priceText": "717.79 UAH per set"
+  },
+  {
+    "article": "FIN-0125",
+    "name": "Finishing Interior Paint High-Density 32mm x 2m",
+    "storageUnit": "unit",
+    "brand": "EcoTherm",
+    "price": 672.25,
+    "priceText": "672.25 UAH per unit"
+  },
+  {
+    "article": "INS-0126",
+    "name": "Insulation Thermal Insulation Panels RapidSet 40mm x 5m",
+    "storageUnit": "unit",
+    "brand": "Structura",
+    "price": 578.18,
+    "priceText": "578.18 UAH per unit"
+  },
+  {
+    "article": "PLU-0127",
+    "name": "Plumbing Copper Pipe WeatherGuard 50mm x 4m",
+    "storageUnit": "m3",
+    "brand": "Structura",
+    "price": 236.76,
+    "priceText": "236.76 UAH per m3"
+  },
+  {
+    "article": "FIN-0128",
+    "name": "Finishing Interior Paint NanoCoat 6mm x 10m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 62.21,
+    "priceText": "62.21 UAH per set"
+  },
+  {
+    "article": "MAS-0129",
+    "name": "Masonry Clay Bricks FireShield 40mm x 8m",
+    "storageUnit": "unit",
+    "brand": "EcoTherm",
+    "price": 192.88,
+    "priceText": "192.88 UAH per unit"
+  },
+  {
+    "article": "FIN-0130",
+    "name": "Finishing Interior Paint Acoustic 32mm x 2m",
+    "storageUnit": "unit",
+    "brand": "AeroFlow",
+    "price": 402.72,
+    "priceText": "402.72 UAH per unit"
+  },
+  {
+    "article": "HVA-0131",
+    "name": "HVAC Air Handling Unit Premium 10mm x 4m",
+    "storageUnit": "bundle",
+    "brand": "VoltGuard",
+    "price": 291.6,
+    "priceText": "291.60 UAH per bundle"
+  },
+  {
+    "article": "PLU-0132",
+    "name": "Plumbing Copper Pipe RapidSet 6mm x 5m",
+    "storageUnit": "m2",
+    "brand": "AeroFlow",
+    "price": 258.47,
+    "priceText": "258.47 UAH per m2"
+  },
+  {
+    "article": "LUM-0133",
+    "name": "Lumber Structural Timber Acoustic 40mm x 10m",
+    "storageUnit": "m3",
+    "brand": "TerraTile",
+    "price": 452.33,
+    "priceText": "452.33 UAH per m3"
+  },
+  {
+    "article": "CON-0134",
+    "name": "Concrete Ready-Mix Concrete Lightweight 40mm x 4m",
+    "storageUnit": "unit",
+    "brand": "VoltGuard",
+    "price": 727.99,
+    "priceText": "727.99 UAH per unit"
+  },
+  {
+    "article": "ROO-0135",
+    "name": "Roofing Metal Roofing Sheets High-Density 40mm x 3m",
+    "storageUnit": "set",
+    "brand": "VoltGuard",
+    "price": 839.78,
+    "priceText": "839.78 UAH per set"
+  },
+  {
+    "article": "ELE-0136",
+    "name": "Electrical Cable Tray System Premium 6mm x 8m",
+    "storageUnit": "kg",
+    "brand": "NordicMix",
+    "price": 312.44,
+    "priceText": "312.44 UAH per kg"
+  },
+  {
+    "article": "CON-0137",
+    "name": "Concrete Ready-Mix Concrete RapidSet 24mm x 2m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 451.84,
+    "priceText": "451.84 UAH per kg"
+  },
+  {
+    "article": "LUM-0138",
+    "name": "Lumber Structural Timber Industrial 32mm x 8m",
+    "storageUnit": "set",
+    "brand": "TerraTile",
+    "price": 677.51,
+    "priceText": "677.51 UAH per set"
+  },
+  {
+    "article": "PLU-0139",
+    "name": "Plumbing Copper Pipe FireShield 32mm x 3m",
+    "storageUnit": "unit",
+    "brand": "TerraTile",
+    "price": 158.79,
+    "priceText": "158.79 UAH per unit"
+  },
+  {
+    "article": "ROO-0140",
+    "name": "Roofing Metal Roofing Sheets NanoCoat 40mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "Structura",
+    "price": 280.53,
+    "priceText": "280.53 UAH per pcs"
+  },
+  {
+    "article": "PLU-0141",
+    "name": "Plumbing Copper Pipe WeatherGuard 40mm x 4m",
+    "storageUnit": "m3",
+    "brand": "EcoTherm",
+    "price": 696.6,
+    "priceText": "696.60 UAH per m3"
+  },
+  {
+    "article": "FIN-0142",
+    "name": "Finishing Interior Paint NanoCoat 32mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "VoltGuard",
+    "price": 523.19,
+    "priceText": "523.19 UAH per pcs"
+  },
+  {
+    "article": "HVA-0143",
+    "name": "HVAC Air Handling Unit WeatherGuard 40mm x 10m",
+    "storageUnit": "bundle",
+    "brand": "VoltGuard",
+    "price": 887.89,
+    "priceText": "887.89 UAH per bundle"
+  },
+  {
+    "article": "ROO-0144",
+    "name": "Roofing Metal Roofing Sheets Lightweight 50mm x 5m",
+    "storageUnit": "kg",
+    "brand": "HydroLine",
+    "price": 65.37,
+    "priceText": "65.37 UAH per kg"
+  },
+  {
+    "article": "ELE-0145",
+    "name": "Electrical Cable Tray System Acoustic 24mm x 8m",
+    "storageUnit": "pcs",
+    "brand": "VoltGuard",
+    "price": 917.46,
+    "priceText": "917.46 UAH per pcs"
+  },
+  {
+    "article": "MAS-0146",
+    "name": "Masonry Clay Bricks RapidSet 50mm x 4m",
+    "storageUnit": "m2",
+    "brand": "VoltGuard",
+    "price": 117.23,
+    "priceText": "117.23 UAH per m2"
+  },
+  {
+    "article": "ELE-0147",
+    "name": "Electrical Cable Tray System Standard 10mm x 5m",
+    "storageUnit": "pcs",
+    "brand": "Structura",
+    "price": 459.28,
+    "priceText": "459.28 UAH per pcs"
+  },
+  {
+    "article": "INS-0148",
+    "name": "Insulation Thermal Insulation Panels WeatherGuard 50mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "Structura",
+    "price": 812.88,
+    "priceText": "812.88 UAH per bundle"
+  },
+  {
+    "article": "FLO-0149",
+    "name": "Flooring Ceramic Floor Tile Acoustic 20mm x 8m",
+    "storageUnit": "unit",
+    "brand": "TerraTile",
+    "price": 58.21,
+    "priceText": "58.21 UAH per unit"
+  },
+  {
+    "article": "LUM-0150",
+    "name": "Lumber Structural Timber Lightweight 16mm x 3m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 929.96,
+    "priceText": "929.96 UAH per m2"
+  },
+  {
+    "article": "LUM-0151",
+    "name": "Lumber Structural Timber FireShield 10mm x 8m",
+    "storageUnit": "set",
+    "brand": "BuildPro",
+    "price": 67.54,
+    "priceText": "67.54 UAH per set"
+  },
+  {
+    "article": "CON-0152",
+    "name": "Concrete Ready-Mix Concrete High-Density 20mm x 4m",
+    "storageUnit": "bundle",
+    "brand": "NordicMix",
+    "price": 250.88,
+    "priceText": "250.88 UAH per bundle"
+  },
+  {
+    "article": "PLU-0153",
+    "name": "Plumbing Copper Pipe NanoCoat 10mm x 3m",
+    "storageUnit": "pcs",
+    "brand": "Structura",
+    "price": 588.78,
+    "priceText": "588.78 UAH per pcs"
+  },
+  {
+    "article": "PLU-0154",
+    "name": "Plumbing Copper Pipe NanoCoat 12mm x 5m",
+    "storageUnit": "pcs",
+    "brand": "DeltaBeam",
+    "price": 451.56,
+    "priceText": "451.56 UAH per pcs"
+  },
+  {
+    "article": "INS-0155",
+    "name": "Insulation Thermal Insulation Panels FireShield 16mm x 8m",
+    "storageUnit": "m3",
+    "brand": "VoltGuard",
+    "price": 858.62,
+    "priceText": "858.62 UAH per m3"
+  },
+  {
+    "article": "FLO-0156",
+    "name": "Flooring Ceramic Floor Tile Industrial 8mm x 5m",
+    "storageUnit": "roll",
+    "brand": "ColorVista",
+    "price": 301.72,
+    "priceText": "301.72 UAH per roll"
+  },
+  {
+    "article": "PLU-0157",
+    "name": "Plumbing Copper Pipe High-Density 32mm x 10m",
+    "storageUnit": "set",
+    "brand": "DeltaBeam",
+    "price": 949.42,
+    "priceText": "949.42 UAH per set"
+  },
+  {
+    "article": "ELE-0158",
+    "name": "Electrical Cable Tray System Premium 12mm x 5m",
+    "storageUnit": "roll",
+    "brand": "ColorVista",
+    "price": 298.68,
+    "priceText": "298.68 UAH per roll"
+  },
+  {
+    "article": "INS-0159",
+    "name": "Insulation Thermal Insulation Panels Standard 24mm x 4m",
+    "storageUnit": "m3",
+    "brand": "ColorVista",
+    "price": 825.19,
+    "priceText": "825.19 UAH per m3"
+  },
+  {
+    "article": "CON-0160",
+    "name": "Concrete Ready-Mix Concrete NanoCoat 32mm x 10m",
+    "storageUnit": "set",
+    "brand": "DeltaBeam",
+    "price": 586.54,
+    "priceText": "586.54 UAH per set"
+  },
+  {
+    "article": "HVA-0161",
+    "name": "HVAC Air Handling Unit Lightweight 12mm x 6m",
+    "storageUnit": "set",
+    "brand": "NordicMix",
+    "price": 606.13,
+    "priceText": "606.13 UAH per set"
+  },
+  {
+    "article": "CON-0162",
+    "name": "Concrete Ready-Mix Concrete High-Density 32mm x 2m",
+    "storageUnit": "roll",
+    "brand": "NordicMix",
+    "price": 108.37,
+    "priceText": "108.37 UAH per roll"
+  },
+  {
+    "article": "INS-0163",
+    "name": "Insulation Thermal Insulation Panels WeatherGuard 24mm x 3m",
+    "storageUnit": "kg",
+    "brand": "NordicMix",
+    "price": 752.52,
+    "priceText": "752.52 UAH per kg"
+  },
+  {
+    "article": "HVA-0164",
+    "name": "HVAC Air Handling Unit RapidSet 40mm x 4m",
+    "storageUnit": "pcs",
+    "brand": "EcoTherm",
+    "price": 870.5,
+    "priceText": "870.50 UAH per pcs"
+  },
+  {
+    "article": "ELE-0165",
+    "name": "Electrical Cable Tray System High-Density 20mm x 10m",
+    "storageUnit": "m2",
+    "brand": "VoltGuard",
+    "price": 915.68,
+    "priceText": "915.68 UAH per m2"
+  },
+  {
+    "article": "MAS-0166",
+    "name": "Masonry Clay Bricks Lightweight 24mm x 10m",
+    "storageUnit": "roll",
+    "brand": "Structura",
+    "price": 756.38,
+    "priceText": "756.38 UAH per roll"
+  },
+  {
+    "article": "CON-0167",
+    "name": "Concrete Ready-Mix Concrete High-Density 40mm x 2m",
+    "storageUnit": "unit",
+    "brand": "AeroFlow",
+    "price": 647.37,
+    "priceText": "647.37 UAH per unit"
+  },
+  {
+    "article": "INS-0168",
+    "name": "Insulation Thermal Insulation Panels NanoCoat 24mm x 10m",
+    "storageUnit": "roll",
+    "brand": "Structura",
+    "price": 649.22,
+    "priceText": "649.22 UAH per roll"
+  },
+  {
+    "article": "ELE-0169",
+    "name": "Electrical Cable Tray System Standard 50mm x 6m",
+    "storageUnit": "roll",
+    "brand": "ColorVista",
+    "price": 229.76,
+    "priceText": "229.76 UAH per roll"
+  },
+  {
+    "article": "LUM-0170",
+    "name": "Lumber Structural Timber FireShield 16mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "Structura",
+    "price": 154.29,
+    "priceText": "154.29 UAH per bundle"
+  },
+  {
+    "article": "CON-0171",
+    "name": "Concrete Ready-Mix Concrete High-Density 32mm x 2m",
+    "storageUnit": "m2",
+    "brand": "DeltaBeam",
+    "price": 845.71,
+    "priceText": "845.71 UAH per m2"
+  },
+  {
+    "article": "MAS-0172",
+    "name": "Masonry Clay Bricks Acoustic 32mm x 4m",
+    "storageUnit": "bundle",
+    "brand": "ColorVista",
+    "price": 711.6,
+    "priceText": "711.60 UAH per bundle"
+  },
+  {
+    "article": "MAS-0173",
+    "name": "Masonry Clay Bricks Acoustic 8mm x 10m",
+    "storageUnit": "unit",
+    "brand": "ColorVista",
+    "price": 402.51,
+    "priceText": "402.51 UAH per unit"
+  },
+  {
+    "article": "INS-0174",
+    "name": "Insulation Thermal Insulation Panels Standard 20mm x 3m",
+    "storageUnit": "unit",
+    "brand": "VoltGuard",
+    "price": 904.26,
+    "priceText": "904.26 UAH per unit"
+  },
+  {
+    "article": "HVA-0175",
+    "name": "HVAC Air Handling Unit Premium 20mm x 6m",
+    "storageUnit": "roll",
+    "brand": "BuildPro",
+    "price": 393.28,
+    "priceText": "393.28 UAH per roll"
+  },
+  {
+    "article": "ROO-0176",
+    "name": "Roofing Metal Roofing Sheets Premium 32mm x 2m",
+    "storageUnit": "kg",
+    "brand": "ColorVista",
+    "price": 923.26,
+    "priceText": "923.26 UAH per kg"
+  },
+  {
+    "article": "CON-0177",
+    "name": "Concrete Ready-Mix Concrete WeatherGuard 12mm x 3m",
+    "storageUnit": "kg",
+    "brand": "Structura",
+    "price": 792.58,
+    "priceText": "792.58 UAH per kg"
+  },
+  {
+    "article": "FLO-0178",
+    "name": "Flooring Ceramic Floor Tile Lightweight 50mm x 3m",
+    "storageUnit": "kg",
+    "brand": "AeroFlow",
+    "price": 741.29,
+    "priceText": "741.29 UAH per kg"
+  },
+  {
+    "article": "FIN-0179",
+    "name": "Finishing Interior Paint Standard 16mm x 10m",
+    "storageUnit": "pcs",
+    "brand": "NordicMix",
+    "price": 524.7,
+    "priceText": "524.70 UAH per pcs"
+  },
+  {
+    "article": "MAS-0180",
+    "name": "Masonry Clay Bricks Premium 6mm x 3m",
+    "storageUnit": "m3",
+    "brand": "AeroFlow",
+    "price": 755.74,
+    "priceText": "755.74 UAH per m3"
+  },
+  {
+    "article": "ROO-0181",
+    "name": "Roofing Metal Roofing Sheets NanoCoat 20mm x 2m",
+    "storageUnit": "pcs",
+    "brand": "EcoTherm",
+    "price": 73.47,
+    "priceText": "73.47 UAH per pcs"
+  },
+  {
+    "article": "PLU-0182",
+    "name": "Plumbing Copper Pipe RapidSet 8mm x 8m",
+    "storageUnit": "m2",
+    "brand": "VoltGuard",
+    "price": 439.65,
+    "priceText": "439.65 UAH per m2"
+  },
+  {
+    "article": "HVA-0183",
+    "name": "HVAC Air Handling Unit RapidSet 50mm x 2m",
+    "storageUnit": "unit",
+    "brand": "TerraTile",
+    "price": 229.93,
+    "priceText": "229.93 UAH per unit"
+  },
+  {
+    "article": "FIN-0184",
+    "name": "Finishing Interior Paint Standard 40mm x 4m",
+    "storageUnit": "unit",
+    "brand": "BuildPro",
+    "price": 81.26,
+    "priceText": "81.26 UAH per unit"
+  },
+  {
+    "article": "ELE-0185",
+    "name": "Electrical Cable Tray System Acoustic 24mm x 8m",
+    "storageUnit": "m2",
+    "brand": "VoltGuard",
+    "price": 683.97,
+    "priceText": "683.97 UAH per m2"
+  },
+  {
+    "article": "ELE-0186",
+    "name": "Electrical Cable Tray System Premium 8mm x 4m",
+    "storageUnit": "pcs",
+    "brand": "Structura",
+    "price": 141.73,
+    "priceText": "141.73 UAH per pcs"
+  },
+  {
+    "article": "FIN-0187",
+    "name": "Finishing Interior Paint NanoCoat 40mm x 8m",
+    "storageUnit": "roll",
+    "brand": "HydroLine",
+    "price": 945.03,
+    "priceText": "945.03 UAH per roll"
+  },
+  {
+    "article": "FLO-0188",
+    "name": "Flooring Ceramic Floor Tile High-Density 32mm x 6m",
+    "storageUnit": "bundle",
+    "brand": "Structura",
+    "price": 758.61,
+    "priceText": "758.61 UAH per bundle"
+  },
+  {
+    "article": "LUM-0189",
+    "name": "Lumber Structural Timber RapidSet 12mm x 5m",
+    "storageUnit": "unit",
+    "brand": "DeltaBeam",
+    "price": 407.78,
+    "priceText": "407.78 UAH per unit"
+  },
+  {
+    "article": "ELE-0190",
+    "name": "Electrical Cable Tray System Acoustic 24mm x 8m",
+    "storageUnit": "m2",
+    "brand": "AeroFlow",
+    "price": 419.76,
+    "priceText": "419.76 UAH per m2"
+  },
+  {
+    "article": "INS-0191",
+    "name": "Insulation Thermal Insulation Panels WeatherGuard 10mm x 8m",
+    "storageUnit": "unit",
+    "brand": "Structura",
+    "price": 109.38,
+    "priceText": "109.38 UAH per unit"
+  },
+  {
+    "article": "LUM-0192",
+    "name": "Lumber Structural Timber Premium 24mm x 2m",
+    "storageUnit": "roll",
+    "brand": "NordicMix",
+    "price": 539.64,
+    "priceText": "539.64 UAH per roll"
+  },
+  {
+    "article": "FIN-0193",
+    "name": "Finishing Interior Paint RapidSet 40mm x 4m",
+    "storageUnit": "m2",
+    "brand": "HydroLine",
+    "price": 352.08,
+    "priceText": "352.08 UAH per m2"
+  },
+  {
+    "article": "PLU-0194",
+    "name": "Plumbing Copper Pipe Standard 16mm x 6m",
+    "storageUnit": "set",
+    "brand": "AeroFlow",
+    "price": 120.83,
+    "priceText": "120.83 UAH per set"
+  },
+  {
+    "article": "FLO-0195",
+    "name": "Flooring Ceramic Floor Tile Lightweight 10mm x 8m",
+    "storageUnit": "unit",
+    "brand": "DeltaBeam",
+    "price": 808.73,
+    "priceText": "808.73 UAH per unit"
+  },
+  {
+    "article": "HVA-0196",
+    "name": "HVAC Air Handling Unit RapidSet 20mm x 2m",
+    "storageUnit": "set",
+    "brand": "ColorVista",
+    "price": 234.2,
+    "priceText": "234.20 UAH per set"
+  },
+  {
+    "article": "PLU-0197",
+    "name": "Plumbing Copper Pipe RapidSet 50mm x 6m",
+    "storageUnit": "m3",
+    "brand": "ColorVista",
+    "price": 884.4,
+    "priceText": "884.40 UAH per m3"
+  },
+  {
+    "article": "INS-0198",
+    "name": "Insulation Thermal Insulation Panels Standard 10mm x 4m",
+    "storageUnit": "set",
+    "brand": "AeroFlow",
+    "price": 349.7,
+    "priceText": "349.70 UAH per set"
+  },
+  {
+    "article": "MAS-0199",
+    "name": "Masonry Clay Bricks Industrial 50mm x 8m",
+    "storageUnit": "bundle",
+    "brand": "Structura",
+    "price": 156.23,
+    "priceText": "156.23 UAH per bundle"
+  },
+  {
+    "article": "CON-0200",
+    "name": "Concrete Ready-Mix Concrete Premium 40mm x 3m",
+    "storageUnit": "bundle",
+    "brand": "HydroLine",
+    "price": 444.62,
+    "priceText": "444.62 UAH per bundle"
+  }
+]
