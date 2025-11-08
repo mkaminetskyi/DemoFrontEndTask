@@ -1,0 +1,23 @@
+<div th:fragment="bottombar">
+    <script th:inline="javascript">
+        window.__APP_CONTEXT__ = {
+            authenticated: [[${authenticated}]],
+            displayName: /*[[${fallbackName}]]*/ 'Користувач',
+            userRole: /*[[${userRole}]]*/ 'ANONYMOUS'
+        };
+    </script>
+    <footer class="bottombar">
+        <div class="userinfo">
+            <div class="avatar" id="avatar">
+                <span id="initials">?</span>
+            </div>
+            <div class="name-role">
+                <div class="name" id="name" th:text="${fallbackName}">Користувач</div>
+                <div class="role" id="role">Роль: невідома</div>
+            </div>
+        </div>
+        <button class="btn ghost bottombar__menu" data-nav="home" aria-label="В меню">
+            <img th:src="@{/images/icon-menu.svg}" src="/images/icon-menu.svg" alt="" aria-hidden="true">
+        </button>
+    </footer>
+</div>
