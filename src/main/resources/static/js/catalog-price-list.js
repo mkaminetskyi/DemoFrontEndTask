@@ -14,14 +14,6 @@
    * @property {PriceListItem[]} items - array of price list items
    */
 
-  /**
-   * @typedef {Object} ActiveFilter
-   * @property {string} label - filter category label (e.g., "Назва", "Бренд")
-   * @property {string} value - filter value to display
-   * @property {boolean} [removable] - whether the filter can be removed by clicking
-   * @poperty {Function} [onRemove] - callback when filter is removed
-   */
-
   const section = document.getElementById("priceListContent");
   if (!section) {
     return;
@@ -36,7 +28,6 @@
   );
   const controls = document.getElementById("price-list-controls");
   const searchInput = document.getElementById("search-input");
-  /** @type {HTMLSelectElement | null} */
   const brandFilterSelect = document.getElementById("brand-filter");
   const sortSelect = document.getElementById("sort-select");
   const resultsSummary = document.getElementById(
@@ -76,8 +67,9 @@
 
   /** @type {PriceListItem[]} */
   let allItems = [];
-  /** @type {Set<string>} */
-  let selectedBrands = new Set();
+
+  // let selectedBrands = new Set();
+
   let zoom = 1;
 
   function show(el) {
@@ -296,8 +288,13 @@
 
   /**
    * @param {Object} filters - current filter values
-   * @param {string} [filters.name] - search query for product name
-   */
+  * @param {string} [filters.name] - search uery for product name
+  * @param {string} [filters.brandLabel] - display label of selected brand
+  
+  
+  
+  
+  */
   function updateActiveFilters(filters) {
     if (!activeFiltersContainer) {
       return;
@@ -525,18 +522,31 @@
       });
     }
 
-    if (selectedBrands.size > 0) {
+    // видалити з 5 завданням
+    if (brandValue) {
+      const brandQuery = brandValue.toLocaleLowerCase("uk");
+
+      // // завдання 5 недороблене
+      // if (selectedBrands.size > 0) {
+
       filtered = filtered.filter(item => {
         const brand = item?.brand;
         if (brand == null) {
           return false;
         }
 
-        const brandKey = brand
-          .toString()
-          .trim()
-          .toLocaleLowerCase("uk");
-        return selectedBrands.has(brandKey);
+        // видалити з 5 завданням
+        return (
+          brand.toString().trim().toLocaleLowerCase("uk") ===
+          brandQuery
+        );
+
+        // // завдання 5 недороблене
+        // const brandKey = brand
+        //   .toString()
+        //   .trim()
+        //   .toLocaleLowerCase("uk");
+        // return selectedBrands.has(brandKey);
       });
     }
 
@@ -591,20 +601,21 @@
   });
 
   brandFilterSelect?.addEventListener("change", event => {
-    /** @type {string} */
-    const selectedValue = event.target.value.trim();
+    // завдання 5 недороблене
+    // /** @type {string} */
+    // const selectedValue = event.target.value.trim();
 
-    if (!selectedValue) return;
+    // if (!selectedValue) return;
 
-    const brandKey = selectedValue.toLocaleLowerCase("uk");
+    // const brandKey = selectedValue.toLocaleLowerCase("uk");
 
-    if (selectedBrands.has(brandKey)) {
-      selectedBrands.delete(brandKey);
-    } else {
-      selectedBrands.add(brandKey);
-    }
+    // if (selectedBrands.has(brandKey)) {
+    //   selectedBrands.delete(brandKey);
+    // } else {
+    //   selectedBrands.add(brandKey);
+    // }
 
-    event.target.value = "";
+    // event.target.value = "";
 
     applyFilters();
   });
