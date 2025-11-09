@@ -79,6 +79,12 @@
   grid-column: 1 / -1; // перший елемент на 100% по ширині
 }
 
+.price-list__label {
+  font-size: 13px;
+  color: var(--brand-muted);
+  font-weight: 600;
+}
+
 .price-list__field-container {
   display: flex;
   gap: 14px;
