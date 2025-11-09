@@ -9,7 +9,9 @@
   background: var(--surface);
   box-shadow: var(--shadow);
   padding: 8px;
-  padding-bottom: calc(8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(
+    8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
   overflow-y: auto;
   overflow-x: hidden;
   /* } */
@@ -58,7 +60,14 @@
   /* border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent); */
   color: var(--brand-blue);
   display: inline-block;
-  font-family: "Montserrat", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+  font-family:
+    "Montserrat",
+    "Manrope",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
     sans-serif;
 }
 
@@ -76,7 +85,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  grid-column: 1 / -1; // перший елемент на 100% по ширині
+  grid-column: 1 / -1; /* перший елемент на 100% по ширині */
 }
 
 .price-list__label {

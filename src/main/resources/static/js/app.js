@@ -1,5 +1,5 @@
 (function () {
-  const byId = (id) => document.getElementById(id);
+  const byId = id => document.getElementById(id);
   const tg = window.Telegram?.WebApp;
   const ctx = window.__APP_CONTEXT__ || {};
 
@@ -23,7 +23,8 @@
       return;
     }
 
-    roleEl.textContent = ROLE_TITLES[roleCode] || ROLE_TITLES.ANONYMOUS;
+    roleEl.textContent =
+      ROLE_TITLES[roleCode] || ROLE_TITLES.ANONYMOUS;
   }
 
   function setAvatar(photoUrl, firstName, username) {
@@ -47,7 +48,11 @@
       };
     } else if (initialsEl) {
       initialsEl.textContent =
-        (firstName || username || "U").toString().trim().charAt(0).toUpperCase() || "U";
+        (firstName || username || "U")
+          .toString()
+          .trim()
+          .charAt(0)
+          .toUpperCase() || "U";
     }
   }
 
@@ -65,7 +70,11 @@
     nameEl.textContent = contextName;
   }
 
-  const contextRole = (ctx.userRole || ctx.userRoleName || "ANONYMOUS").toString();
+  const contextRole = (
+    ctx.userRole ||
+    ctx.userRoleName ||
+    "ANONYMOUS"
+  ).toString();
   applyRole(contextRole);
 
   if (tg) {
@@ -73,7 +82,7 @@
       tg.ready();
       tg.expand();
       tg.requestFullscreen(); // той самий метод який робить хедер на весь екран
-      tg.setHeaderColor('#ffffff') // для кращого контрасту кольорів (щоб текст і іконки були чорними)
+      tg.setHeaderColor("#ffffff"); // для кращого контрасту кольорів (щоб текст і іконки були чорними)
       tg.disableVerticalSwipes(); // заборонення свайпу вниз (щоб не було випадкового закриття)
     } catch (error) {
       /* ignore */
@@ -113,7 +122,7 @@
     });
   }
 
-  document.querySelectorAll('[data-nav="home"]').forEach((button) => {
+  document.querySelectorAll('[data-nav="home"]').forEach(button => {
     button.addEventListener("click", () => {
       window.location.href = "/home";
     });
