@@ -1,6 +1,116 @@
-.price-list-page {
+.price-list__page {
+  /* .page-surface { */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 8px;
+  padding-bottom: calc(8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* } */
 }
 
-.price-list-content {
-  margin-top: 80px;
+.price-list__content {
+  /* .page-section h2 { */
+
+  /* } */
+  /* .page-section h2::after { */
+
+  /* } */
+}
+
+/* CSS Nesting підтримується тільки в сучасних браузерах:
+  - Chrome 120+ (серпень 2023)
+  - Safari 16.5+ (травень 2023)
+  - Firefox 117+ (серпень 2023) */
+/* .price-list__main-heading {
+  font-size: 18px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  color: var(--brand-blue);
+  display: inline-block;
+  font-family: "Montserrat", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 6px;
+    background: var(--brand-yellow);
+    border-radius: 3px;
+  }
+} */
+
+.price-list__main-heading {
+  font-size: 18px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+
+  /* забрав нижній відступ бо виглядало погано */
+  /* border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent); */
+  color: var(--brand-blue);
+  display: inline-block;
+  font-family: "Montserrat", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}
+
+.price-list__main-heading::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 6px;
+  background: var(--brand-yellow);
+  border-radius: 3px;
+}
+
+.price-list__search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  grid-column: 1 / -1; // перший елемент на 100% по ширині
+}
+
+.price-list__field-container {
+  display: flex;
+  gap: 14px;
+}
+
+.price-list__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.price-list__search-input label {
+  font-size: 13px;
+  color: var(--brand-muted);
+  font-weight: 600;
+}
+
+.search-results-summary {
+  font-size: 13px;
+  color: var(--brand-muted-dark);
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+  margin: 14px 0;
+}
+
+.search-results-summary__text {
+  font-weight: 600;
+  color: var(--brand-muted-dark);
+}
+
+.search-results-summary__filters {
+  gap: 8px;
 }

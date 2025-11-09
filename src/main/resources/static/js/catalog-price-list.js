@@ -1,5 +1,5 @@
 (function () {
-    const section = document.getElementById("priceListSection");
+    const section = document.getElementById("priceListContent");
     if (!section) {
         return;
     }
@@ -9,19 +9,24 @@
     const loadingEl = document.getElementById("priceLoading");
     const errorEl = document.getElementById("priceError");
     const tableContainer = document.getElementById("priceTableContainer");
-    const controls = document.getElementById("priceControls");
-    const nameFilterInput = document.getElementById("priceNameFilter");
-    const brandFilterSelect = document.getElementById("priceBrandFilter");
-    const sortSelect = document.getElementById("priceSort");
-    const resultsSummary = document.getElementById("priceResultsSummary");
-    const resultsSummaryText = document.getElementById("priceResultsText");
-    const activeFiltersContainer = document.getElementById("priceActiveFilters");
+    const controls = document.getElementById("price-list-controls");
+    const searchInput = document.getElementById("search-input");
+    const brandFilterSelect = document.getElementById("brand-filter");
+    const sortSelect = document.getElementById("sort-select");
+    const resultsSummary = document.getElementById("search-results-summary");
+    const resultsSummaryText = document.getElementById("search-results-summary-text");
+    const activeFiltersContainer = document.getElementById("search-active-filters");
     const zoomBar = document.getElementById("priceZoomBar");
     const zoomLabel = document.getElementById("priceZoomLabel");
     const zoomInBtn = document.getElementById("priceZoomIn");
     const zoomOutBtn = document.getElementById("priceZoomOut");
     const zoomResetBtn = document.getElementById("priceZoomReset");
     const tg = window.Telegram?.WebApp;
+
+    // Додаємо відступ тільки в Telegram версії
+    if (tg && tg.initDataUnsafe && Object.keys(tg.initDataUnsafe).length > 0 && section) {
+        section.style.marginTop = "80px";
+    }
 
     if (!hasSession) {
         hide(loadingEl);
@@ -356,7 +361,7 @@
     }
 
     function applyFilters() {
-        const nameQueryRaw = nameFilterInput?.value ?? "";
+        const nameQueryRaw = searchInput?.value ?? "";
         const nameQuery = nameQueryRaw.trim();
         const brandValueRaw = brandFilterSelect?.value ?? "";
         const brandValue = brandValueRaw.trim();
@@ -438,7 +443,7 @@
         }
     }
 
-    nameFilterInput?.addEventListener("input", () => {
+    searchInput?.addEventListener("input", () => {
         applyFilters();
     });
 
