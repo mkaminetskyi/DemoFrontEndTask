@@ -207,6 +207,12 @@
         return row;
     }
 
+    /**
+     * Extracts unique brands from items and populates the brand fillter dropdown.
+     * Preserves the previously selected brand if it still exists after repopulation
+     *
+     * @param {PriceListItem[]} items - array of price list items to extract brands from
+     */
     function populateBrandFilterOptions(items) {
         if (!brandFilterSelect) {
             return;
@@ -270,6 +276,11 @@
         brandFilterSelect.disabled = brands.length === 0;
     }
 
+    /**
+     * @param {Object} filters - current filter values
+     * @param {string} [filters.name] - search uery for product name
+     * @param {string} [filters.brandLabel] - display label of selected brand
+     */
     function updateActiveFilters(filters) {
         if (!activeFiltersContainer) {
             return;
@@ -431,6 +442,10 @@
         };
     }
 
+    /**
+     * Applies all active filters (search, brand, sorting) to the price list.
+     * Creates a filtered copy of allItems and renders the results
+     */
     function applyFilters() {
         const nameQueryRaw = searchInput?.value ?? "";
         const nameQuery = nameQueryRaw.trim();
