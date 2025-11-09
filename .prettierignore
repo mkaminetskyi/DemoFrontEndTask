@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+target/
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Maven
+.mvn/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/

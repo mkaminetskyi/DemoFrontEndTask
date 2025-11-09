@@ -32,6 +32,7 @@ build/
 ### VS Code ###
 .vscode/
 
+node_modules
 
 src/main/resources/static/images/to-do.png
 src/main/resources/static/images/screen-now.png

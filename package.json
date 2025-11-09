@@ -1,0 +1,13 @@
+{
+  "name": "demo-frontend-task",
+  "version": "1.0.0",
+  "description": "Spring Boot + Thymeleaf project",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{html,css,js}\"",
+    "format:check": "prettier --check \"src/**/*.{html,css,js}\""
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  },
+  "private": true
+}
