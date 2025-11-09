@@ -14,6 +14,14 @@
      * @property {PriceListItem[]} items - array of price list items
      */
 
+    /**
+     * @typedef {Object} ActiveFilter
+     * @property {string} label - filter category label (e.g., "Назва", "Бренд")
+     * @property {string} value - filter value to display
+     * @property {boolean} [removable] - whether the filter can be removed by clicking
+     * @poperty {Function} [onRemove] - callback when filter is removed
+     */
+
     const section = document.getElementById("priceListContent");
     if (!section) {
         return;
@@ -26,6 +34,7 @@
     const tableContainer = document.getElementById("priceTableContainer");
     const controls = document.getElementById("price-list-controls");
     const searchInput = document.getElementById("search-input");
+    /** @type {HTMLSelectElement | null} */
     const brandFilterSelect = document.getElementById("brand-filter");
     const sortSelect = document.getElementById("sort-select");
     const resultsSummary = document.getElementById("search-results-summary");
@@ -63,6 +72,8 @@
 
     /** @type {PriceListItem[]} */
     let allItems = [];
+    /** @type {Set<string>} */
+    let selectedBrands = new Set();
     let zoom = 1;
 
     function show(el) {
@@ -207,6 +218,12 @@
         return row;
     }
 
+    /**
+     * Extracts unique brands from items and populates the brand fillter dropdown.
+     * Preserves the previously selected brand if it still exists after repopulation
+     *
+     * @param {PriceListItem[]} items - array of price list items to extract brands from
+     */
     function populateBrandFilterOptions(items) {
         if (!brandFilterSelect) {
             return;
@@ -270,6 +287,10 @@
         brandFilterSelect.disabled = brands.length === 0;
     }
 
+    /**
+     * @param {Object} filters - current filter values
+     * @param {string} [filters.name] - search query for product name
+     */
     function updateActiveFilters(filters) {
         if (!activeFiltersContainer) {
             return;
@@ -277,6 +298,7 @@
 
         activeFiltersContainer.innerHTML = "";
 
+        /** @type {ActiveFilter[]} */
         const active = [];
         const nameValue =
             typeof filters?.name === "string" ? filters.name.trim() : "";
@@ -431,6 +453,10 @@
         };
     }
 
+    /**
+     * Applies all active filters (search, brand, sorting) to the price list.
+     * Creates a filtered copy of allItems and renders the results
+     */
     function applyFilters() {
         const nameQueryRaw = searchInput?.value ?? "";
         const nameQuery = nameQueryRaw.trim();
@@ -473,14 +499,15 @@
             });
         }
 
-        if (brandValue) {
-            const brandQuery = brandValue.toLocaleLowerCase("uk");
+        if (selectedBrands.size > 0) {
             filtered = filtered.filter((item) => {
                 const brand = item?.brand;
                 if (brand == null) {
                     return false;
                 }
-                return brand.toString().trim().toLocaleLowerCase("uk") === brandQuery;
+
+                const brandKey = brand.toString().trim().toLocaleLowerCase("uk");
+                return selectedBrands.has(brandKey);
             });
         }
 
@@ -534,7 +561,22 @@
         applyFilters();
     });
 
-    brandFilterSelect?.addEventListener("change", () => {
+    brandFilterSelect?.addEventListener("change", (event) => {
+        /** @type {string} */
+        const selectedValue = event.target.value.trim();
+
+        if (!selectedValue) return;
+
+        const brandKey = selectedValue.toLocaleLowerCase("uk");
+
+        if (selectedBrands.has(brandKey)) {
+            selectedBrands.delete(brandKey);
+        } else {
+            selectedBrands.add(brandKey);
+        }
+
+        event.target.value = "";
+
         applyFilters();
     });
 
