@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Slf4j
 @Controller
-@RequestMapping("/api/accounts-with-clients/overdue-debts")
 public class AccountsOverdueDebtsController {
     private final ExcelToHtmlService excelToHtmlService;
 
@@ -18,17 +17,17 @@ public class AccountsOverdueDebtsController {
         this.excelToHtmlService = excelToHtmlService;
     }
 
-    @GetMapping
+    @GetMapping(value = "/overdue-debts")
     public String overdueDebtsPage() {
-        return "mobile/accounts/overdue-debts";
+        return "overdue-debts";
     }
 
-    @GetMapping(value = "/data", produces = "text/html; charset=UTF-8")
+    @GetMapping(value = "/overdue-debts/data", produces = "text/html; charset=UTF-8")
     public String getOverdueDebtsFragment(Model model,
                                           @RequestParam(value = "contractor", required = false) String contractor) throws Exception {
 
-        model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(""));
+        model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(null));
 
-        return "mobile/fragments/excel-table :: table";
+        return "fragments/excel-table :: table";
     }
 }
