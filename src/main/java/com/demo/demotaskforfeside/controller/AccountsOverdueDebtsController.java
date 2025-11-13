@@ -2,11 +2,13 @@ package com.demo.demotaskforfeside.controller;
 
 import com.demo.demotaskforfeside.service.ExcelToHtmlService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.InputStream;
 
 @Slf4j
 @Controller
@@ -26,7 +28,13 @@ public class AccountsOverdueDebtsController {
     public String getOverdueDebtsFragment(Model model,
                                           @RequestParam(value = "contractor", required = false) String contractor) throws Exception {
 
-        model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(null));
+        ClassPathResource excelResource = new ClassPathResource("Test.xlsx");
+        byte[] excelData;
+        try (InputStream inputStream = excelResource.getInputStream()) {
+            excelData = inputStream.readAllBytes();
+        }
+
+        model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(excelData));
 
         return "fragments/excel-table :: table";
     }

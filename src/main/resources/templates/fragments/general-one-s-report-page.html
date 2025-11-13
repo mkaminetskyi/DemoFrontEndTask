@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title th:text="${pageTitle}"></title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="/mobile/css/app.css"
-          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+    <link
+            rel="stylesheet"
+            href="/css/app.css"
+    />
 </head>
 <body>
 <div class="app-shell">
@@ -73,11 +75,9 @@
     </main>
 </div>
 
-<div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+<div th:replace="~{fragments/bottombar :: bottombar}"></div>
 
-  <script src="/mobile/js/app.js" defer
-          th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
-<script src="/mobile/js/general-one-s.js"
-        th:src="@{/mobile/js/general-one-s.js(v=${appVersion})}"></script>
+  <script src="/js/app.js"></script>
+<script src="/js/general-one-s.js"></script>
 </body>
 </html>
