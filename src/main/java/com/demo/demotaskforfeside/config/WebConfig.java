@@ -9,7 +9,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/fragments-js/**")
+        // Static resources for fragments
+        registry.addResourceHandler("/fragments/**")
                 .addResourceLocations("classpath:/templates/fragments/");
+
+        // Static resources for pages
+        registry.addResourceHandler("/pages/**")
+                .addResourceLocations("classpath:/templates/pages/");
     }
 }
