@@ -137,6 +137,17 @@ body {
   display: none !important;
 }
 
+.border-neutral {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+  min-height: 36px;
+  line-height: 1;
+  min-width: 0;
+}
+
 /* ================== shared components ================== */
 .card {
   background: var(--brand-white);

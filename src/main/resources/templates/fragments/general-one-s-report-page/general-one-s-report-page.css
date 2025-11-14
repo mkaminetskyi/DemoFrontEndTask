@@ -1,19 +1,37 @@
+.s__toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+@media (min-width: 600px) {
+  .toolbar-actions {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
 .s__zoom-group {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  height: 100%;
 }
 
-.s__btn-zoom {
+.s__btn-neutral {
   border: 1px solid var(--border);
   background: #fff;
-  padding: 6px 10px;
+  padding: 6px 6px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 700;
-  min-height: 36px;
   line-height: 1;
-  min-width: 0;
+  min-width: 5px;
+  min-height: 5px;
+  height: 100%;
+  aspect-ratio: 1;
 }
 
 .s__btn-zoom:active {
@@ -26,4 +44,43 @@
   min-width: 46px;
   text-align: center;
   font-variant-numeric: tabular-nums;
+}
+
+.s__btn-get-report {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 12px;
+  padding: 1px 4px;
+  height: 100%;
+  min-height: 42px;
+  max-width: 150px;
+  margin-left: auto;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--brand-white);
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
+    filter 0.12s ease;
+
+  background: var(--brand-blue);
+  color: var(--brand-white);
+  border-color: var(--brand-blue);
+}
+
+.s__btn-get-report:hover {
+  background: color-mix(in srgb, var(--brand-blue) 88%, black 0%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.s__btn-get-report:active {
+  background: color-mix(in srgb, var(--brand-blue) 80%, black 0%);
+  transform: translateY(1px);
 }
