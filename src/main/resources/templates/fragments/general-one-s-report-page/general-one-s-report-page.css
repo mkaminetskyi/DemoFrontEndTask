@@ -1,0 +1,29 @@
+.s__zoom-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.s__btn-zoom {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 36px;
+  line-height: 1;
+  min-width: 0;
+}
+
+.s__btn-zoom:active {
+  transform: translateY(1px);
+}
+
+.s__zoom-label {
+  font-size: 13px;
+  color: var(--brand-muted);
+  min-width: 46px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}

@@ -632,12 +632,14 @@ body {
   padding: 6px 10px;
 }
 
+/* можна видалити якщо це використовується тільки на general-one-s-report-page.html */
 .zoombar .zoom-group {
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
+/* можна видалити якщо це використовується тільки на general-one-s-report-page.html */
 .zoombar .btn-zoom {
   border: 1px solid var(--border);
   background: #fff;
@@ -650,6 +652,7 @@ body {
   min-width: 0;
 }
 
+/* можна видалити якщо це використовується тільки на general-one-s-report-page.html */
 .zoombar .btn-zoom:active {
   transform: translateY(1px);
 }
@@ -668,6 +671,7 @@ body {
   display: block;
 }
 
+/* можна видалити якщо це використовується тільки на general-one-s-report-page.html */
 .zoombar .zoom-label {
   font-size: 13px;
   color: var(--brand-muted);

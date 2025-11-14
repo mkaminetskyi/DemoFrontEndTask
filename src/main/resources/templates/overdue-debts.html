@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/general-one-s-report-page :: page(
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/general-one-s-report-page/general-one-s-report-page :: page(
         'Протерміновані борги',
         'Протерміновані борги',
         '/overdue-debts/data',
         '/overdue-debts/export',
         false,
         true
-      )}">
-</html>
+      )}"
+></html>
