@@ -1,3 +1,21 @@
+import {
+  show,
+  hide,
+  showAlert,
+  toggle,
+} from "./utils/dom-helpers.js";
+import {
+  normaliseValue,
+  toDisplayString,
+  DEFAULT_CONTRACTOR_VALUE,
+  isDefaultContractor,
+} from "./utils/string.helpers.js";
+import {
+  toISODateLocal,
+  setDefaultRange,
+} from "./utils/date-helpers.js";
+import { createZoomController } from "./controllers/zoom-controller.js";
+
 (function () {
   const section = document.getElementById(
     "accountsWithClientsSection",
@@ -20,34 +38,9 @@
   const dateFromEl = $("dateFrom");
   const dateToEl = $("dateTo");
   const hasDateRange = !!dateFromEl || !!dateToEl;
-  function toISODateLocal(d) {
-    const tz = d.getTimezoneOffset() * 60000;
-    const local = new Date(d.getTime() - tz);
-    return local.toISOString().slice(0, 10);
-  }
-  function setDefaultRange() {
-    const now = new Date();
-    const shouldUseRollingMonth =
-      typeof dataEndpoint === "string" &&
-      (dataEndpoint.includes("accounts-reconciliation") ||
-        dataEndpoint.includes("cash-registers"));
-    const start = shouldUseRollingMonth
-      ? (() => {
-          const date = new Date(now);
-          date.setMonth(date.getMonth() - 1);
-          return date;
-        })()
-      : new Date(now.getFullYear(), now.getMonth(), 1);
-    const end = shouldUseRollingMonth
-      ? now
-      : new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    if (dateFromEl && !dateFromEl.value)
-      dateFromEl.value = toISODateLocal(start);
-    if (dateToEl && !dateToEl.value)
-      dateToEl.value = toISODateLocal(end);
-  }
+
   if (hasDateRange) {
-    setDefaultRange();
+    setDefaultRange(dateFromEl, dateToEl, dataEndpoint);
   }
   const loading = $("loading");
   const box = $("tableContainer");
@@ -63,10 +56,6 @@
   const analysisLoading = $("analysisLoading");
   const analysisError = $("analysisError");
   const analysisResult = $("analysisResult");
-  const DEFAULT_CONTRACTOR_VALUE = "всі клієнти";
-  const normaliseValue = value => (value || "").trim();
-  const isDefaultContractor = value =>
-    normaliseValue(value).toLowerCase() === DEFAULT_CONTRACTOR_VALUE;
 
   if (contractorInput && !normaliseValue(contractorInput.value)) {
     contractorInput.value = DEFAULT_CONTRACTOR_VALUE;
@@ -84,19 +73,16 @@
     }
   });
   const searchBtn = $("searchContractor");
-  let zoom = 1;
-  const show = el => el && el.classList.remove("is-hidden");
-  const hide = el => el && el.classList.add("is-hidden");
-  const toggle = (el, shouldShow) =>
-    shouldShow ? show(el) : hide(el);
-  const showAlert = message => {
-    if (!message) return;
-    if (tg && typeof tg.showAlert === "function") {
-      tg.showAlert(message);
-    } else {
-      alert(message);
-    }
-  };
+
+  const zoomController = createZoomController({
+    tableContainer: box,
+    zoomOutBtn,
+    zoomInBtn,
+    zoomLabel,
+  });
+
+  zoomController.init();
+
   if (analysisButton && !analysisButton.dataset.originalText) {
     const initialText = analysisButton.textContent?.trim();
     if (initialText) {
@@ -160,34 +146,16 @@
       ? box.querySelector("#tableZoomTarget")
       : null;
     toggle(zoombar, !!zoomTarget);
-    zoom = 1;
-    applyZoom();
+
+    // можна видалити наступну строчку якщо хочете, щоб зум не відновлювався до 100% після того, як користувач виведе інший звіт
+    zoomController.reset();
+
     if (analysisSection && aiEndpoint) {
       resetAnalysis();
       show(analysisSection);
     }
   }
-  function applyZoom() {
-    const zoomTarget = box
-      ? box.querySelector("#tableZoomTarget")
-      : null;
-    if (!zoomTarget) return;
-    zoomTarget.style.transform = `scale(${zoom})`;
-    if (zoomLabel)
-      zoomLabel.textContent = Math.round(zoom * 100) + "%";
-  }
-  zoomInBtn?.addEventListener("click", () => {
-    zoom = Math.min(2, zoom + 0.1);
-    applyZoom();
-  });
-  zoomOutBtn?.addEventListener("click", () => {
-    zoom = Math.max(0.5, zoom - 0.1);
-    applyZoom();
-  });
-  zoomResetBtn?.addEventListener("click", () => {
-    zoom = 1;
-    applyZoom();
-  });
+
   const shouldUsePartnerSearch =
     typeof dataEndpoint === "string" &&
     (dataEndpoint.includes("overdue-debts") ||
@@ -209,13 +177,6 @@
   let suggestionItems = [];
   let highlightedSuggestionIndex = -1;
   let suggestionsRenderId = 0;
-
-  const toDisplayString = value => {
-    if (value == null) return "";
-    if (typeof value === "string") return value.trim();
-    if (typeof value === "number") return value.toString();
-    return "";
-  };
 
   const isSuggestionsOpen = () =>
     !!suggestionsDropdown &&
