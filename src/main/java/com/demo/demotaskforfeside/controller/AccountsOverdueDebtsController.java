@@ -24,6 +24,12 @@ public class AccountsOverdueDebtsController {
         return "overdue-debts";
     }
 
+    @GetMapping(value = "/overdue-debts-web")
+    public String overdueDebtsWebPage() {
+        return "overdue-debts-web";
+    }
+
+
     @GetMapping(value = "/overdue-debts/data", produces = "text/html; charset=UTF-8")
     public String getOverdueDebtsFragment(Model model,
                                           @RequestParam(value = "contractor", required = false) String contractor) throws Exception {

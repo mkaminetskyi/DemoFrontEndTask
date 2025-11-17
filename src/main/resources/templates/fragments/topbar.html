@@ -1,0 +1,29 @@
+<div th:fragment="topbar">
+    <script th:inline="javascript">
+        window.__APP_CONTEXT__ = {
+            authenticated: [[${authenticated}]],
+            displayName: /*[[${fallbackName}]]*/ 'Користувач',
+            userRole: /*[[${userRole}]]*/ 'ANONYMOUS',
+            statusText: /*[[${statusText}]]*/ null,
+            statusModifier: /*[[${statusModifier}]]*/ null,
+            userName: /*[[${userName}]]*/ null
+        };
+    </script>
+    <header class="topbar">
+        <div class="topbar__left">
+            <button class="btn ghost topbar__menu" data-nav="home" aria-label="До головного меню">
+                <img th:src="@{/images/icon-menu.svg}" src="/images/icon-menu.svg" alt="" aria-hidden="true">
+            </button>
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+        </div>
+        <div class="userinfo">
+            <div class="avatar" id="avatar">
+                <span id="initials">?</span>
+            </div>
+            <div class="name-role">
+                <div class="name" id="name" th:text="${fallbackName}">Користувач</div>
+                <div class="role" id="role">Роль: невідома</div>
+            </div>
+        </div>
+    </header>
+</div>
