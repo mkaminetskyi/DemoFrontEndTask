@@ -19,6 +19,11 @@ public class AccountsOverdueDebtsController {
         this.excelToHtmlService = excelToHtmlService;
     }
 
+    // @GetMapping(value = "/overdue-debts")
+    // public String overdueDebtsPage() {
+    //     return "pages/overdue-debts/overdue-debts-web";
+    // }
+
     @GetMapping(value = "/overdue-debts")
     public String overdueDebtsPage() {
         return "overdue-debts";

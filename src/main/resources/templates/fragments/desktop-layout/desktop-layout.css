@@ -17,10 +17,12 @@
 }
 
 .desktop-layout__main {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   gap: 18px;
-  min-height: 0;
+  max-width: 900px;
 }
 
 .desktop-layout__content {
@@ -31,5 +33,5 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   padding: 18px 14px;
-  /* height: fit-content; */
+  height: 100%;
 }
