@@ -1,6 +1,8 @@
-<!-- styles for this fragment -->
-<!-- static/css/desktop-styles/desktop-navigation.css -->
-<div th:fragment="desktop-navigation(active)">
+
+<th:block th:fragment="desktop-navigation(active)">
+
+<link rel="stylesheet" th:href="@{/fragments/desktop-navigation/desktop-navigation.css}">
+
   <nav
     class="desktop-navigation__side-nav"
     aria-label="Основна навігація"
@@ -227,4 +229,4 @@
       </section>
     </div>
   </nav>
-</div>
+</th:block>

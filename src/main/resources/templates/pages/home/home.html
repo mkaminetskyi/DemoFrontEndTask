@@ -1,0 +1,47 @@
+<!doctype html>
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title th:text="${title}">Головне меню</title>
+
+    <!-- Mobile CSS -->
+    <link
+      rel="stylesheet"
+      href="/css/app.css"
+    />
+
+    <!-- this page CSS -->
+    <link
+      rel="stylesheet"
+      href="/pages/home/home.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Mobile версія (< 1200px) -->
+      <div class="s__mobile-layout">
+        <div
+          th:replace="~{pages/home/fragments/home-mobile-content/home-mobile-content :: mobile}"
+        ></div>
+      </div>
+
+      <!-- Desktop версія (>= 1200px) -->
+      <div class="s__desktop-layout">
+        <div
+          th:replace="~{pages/home/fragments/home-desktop-content/home-desktop-content :: desktop}"
+        ></div>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

@@ -1,4 +1,7 @@
-<div th:fragment="desktop-topbar">
+<th:block th:fragment="desktop-topbar">
+
+  <link rel="stylesheet" th:href="@{/fragments/desktop-topbar/desktop-topbar.css}">
+
   <script th:inline="javascript">
     window.__APP_CONTEXT__ = {
       authenticated: /*[[${authenticated}]]*/ false,
@@ -45,4 +48,4 @@
       </div>
     </div>
   </header>
-</div>
+</th:block>

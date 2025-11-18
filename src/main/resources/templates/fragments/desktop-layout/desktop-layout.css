@@ -1,0 +1,35 @@
+.desktop-layout {
+  display: flex;
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.desktop-layout__sidebar {
+  background: var(--brand-white);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 18px 14px;
+  position: sticky;
+  top: calc(var(--shell-padding));
+  max-height: calc(100dvh - (var(--shell-padding) * 2));
+  overflow-y: auto;
+  align-self: start;
+}
+
+.desktop-layout__main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 18px;
+  min-height: 0;
+}
+
+.desktop-layout__content {
+  min-height: 0;
+  display: flex;
+  background: var(--brand-white);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 18px 14px;
+  /* height: fit-content; */
+}
