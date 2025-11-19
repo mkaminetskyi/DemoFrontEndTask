@@ -1,0 +1,13 @@
+<div th:fragment="shell(active, content)">
+    <div class="app-shell">
+        <aside class="app-shell__sidebar">
+            <div th:replace="~{web/fragments/navigation :: navigation(${active})}"></div>
+        </aside>
+        <div class="app-shell__main">
+            <header th:replace="~{web/fragments/topbar :: topbar}"></header>
+            <div class="app-shell__content">
+                <div th:replace="${content}"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>BulatPlus B2B платформа</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+      <main class="page-surface">
+        <section class="page-section">
+            <div class="card hero-card">
+                <div class="hero-eyebrow">B2B для партнерів</div>
+                <h1 class="hero-title">Єдиний кабінет для гуртових клієнтів BulatPlus</h1>
+                <p class="hero-description">
+                    Контролюйте залишки, ціни та історію закупівель в режимі 24/7. Створюйте заявки, відстежуйте відвантаження
+                    та керуйте взаєморозрахунками в одному вікні.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge yellow">📊 Аналітика по клієнту</span>
+                    <span class="badge blue">🤝 Індивідуальні умови</span>
+                    <span class="badge yellow">🔒 Безпечний доступ</span>
+                </div>
+                <div class="cta-buttons">
+                    <a class="btn primary" href="https://b2b.bulatplus.com.ua/" target="_blank" rel="noopener">
+                        Перейти на B2B платформу
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-grid cards-grid two-columns">
+                <div class="card feature-card">
+                    <h3>🛒 Оптові замовлення</h3>
+                    <p>Створюйте та дублюйте заявки, завантажуйте прайси.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>📈 Персональні ціни</h3>
+                    <p>Система автоматично застосовує ваші знижки та індивідуальні прайси для кожної категорії товарів.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>📦 Відстеження відвантажень</h3>
+                    <p>Дивіться статус кожного замовлення, ТТН, а також планові дати доставки без дзвінків менеджеру.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+  <div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+  <script src="/mobile/js/app.js" defer
+          th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+</body>
+</html>

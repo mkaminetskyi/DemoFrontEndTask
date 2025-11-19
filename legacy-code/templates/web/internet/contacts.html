@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Контакти BulatPlus</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/web/css/app.css"
+          th:href="@{/web/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div th:replace="~{web/fragments/layout :: shell('internet-contacts', ~{::main})}">
+      <main class="page-surface">
+        <section class="page-section">
+            <div class="contact-grid cards-grid two-columns">
+                <div class="card hero-card">
+                    <div class="hero-eyebrow">Контакти</div>
+                    <h1 class="hero-title">Ми завжди на зв'язку</h1>
+                    <p class="hero-description">
+                        Оберіть зручний канал для співпраці чи консультації. Наші менеджери оперативно відповідають та
+                        супроводжують
+                        замовлення від першого звернення до доставки.
+                    </p>
+                    <div class="hero-badges">
+                        <span class="badge yellow">📞 Дзвінки будні 09:00-18:00</span>
+                        <span class="badge blue">✉️ Відповідь на email до 1 роб. дня</span>
+                    </div>
+                </div>
+
+
+                <div class="card contact-card">
+                    <h3>🏢 Головний офіс</h3>
+                    <div class="contact-row"><span class="icon">📍</span><span>48120, Тернопільська обл., Тернопільський р-н,<br/>смт Микулинці, вул. Тернопільська, 35</span>
+                    </div>
+                    <div class="contact-row"><span
+                            class="icon">⏰</span><span>Пн-Пт: 09:00 – 18:00<br/>Сб-Нд: вихідний</span></div>
+                    <div class="contact-row"><span class="icon">🌐</span><span><a href="https://bulatplus.com.ua/"
+                                                                                 target="_blank" rel="noopener">bulatplus.com.ua</a></span>
+                    </div>
+                </div>
+
+                <div class="card contact-card">
+                    <h3>🤝 Відділ продажу</h3>
+                    <div class="contact-row"><span class="icon">☎️</span><span>+38 (068) 195 86 07</span></div>
+                    <div class="contact-row"><span class="icon">📦</span><span>Підбір товарів, наявність, статуси замовлень</span>
+                    </div>
+                </div>
+
+                <div class="card contact-card">
+                    <h3>🏗️ B2B співпраця</h3>
+                    <div class="contact-row"><span class="icon">📞</span><span>+38 (067) 777 45 12</span></div>
+                    <div class="contact-row"><span class="icon">📋</span><span>Умови партнерства, контракти, індивідуальні прайси</span>
+                    </div>
+                </div>
+
+                <div class="card contact-card map-card">
+                    <iframe title="Офіс BulatPlus"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.404783833181!2d25.4858303!3d49.4025366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4730d3a73d864f2f%3A0x25a05631df6aef1f!2z0JzQtdGC0LDQu9CwINCf0JDQntCf!5e0!3m2!1suk!2sua!4v1700000000000"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="feature-grid cards-grid">
+                <div class="card feature-card">
+                    <h3>📮 Як швидко ми відповідаємо?</h3>
+                    <p>На телефонні дзвінки реагуємо протягом 2 хвилин у робочі години. На електронні листи — в межах
+                        одного робочого дня.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>🚚 Служба доставки</h3>
+                    <p>Власний транспорт на Західній Україні, а також партнери: Нова Пошта, Делівері, САТ, Meest.
+                        Узгодимо найзручніший варіант для вас.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+  <script src="/web/js/app.js" defer
+          th:src="@{/web/js/app.js(v=${appVersion})}"></script>
+</body>
+</html>

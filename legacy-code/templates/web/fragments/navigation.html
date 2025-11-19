@@ -1,0 +1,141 @@
+<div th:fragment="navigation(active)">
+    <nav class="side-nav" aria-label="Основна навігація">
+        <div class="side-nav__sections">
+            <section class="side-nav__group">
+                <h3 class="side-nav__title">Продажі</h3>
+                <ul class="side-nav__list">
+                    <li>
+                        <a class="item" th:classappend="${active} == 'sales-plan' ? ' is-active' : ''"
+                           href="/api/sales/plan">
+                            <div class="item-icon">📈</div>
+                            <div class="item-title">План продажу</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'sales-product-groups' ? ' is-active' : ''"
+                           href="/api/sales/product-groups">
+                            <div class="item-icon">📊</div>
+                            <div class="item-title">Продажі за групами номенклатури</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-client-purchases' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/client-purchases">
+                            <div class="item-icon">🛍️</div>
+                            <div class="item-title">Покупки клієнта</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'sales-client-assistant' ? ' is-active' : ''"
+                           href="/api/assistants/clients">
+                            <div class="item-icon">🤝</div>
+                            <div class="item-title">Помічник продажу по клієнтах</div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="side-nav__group">
+                <h3 class="side-nav__title">Розрахунки з клієнтами</h3>
+                <ul class="side-nav__list">
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-overdue-debts' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/overdue-debts">
+                            <div class="item-icon">⏰</div>
+                            <div class="item-title">Протерміновані борги</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-reconciliation' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/accounts-reconciliation">
+                            <div class="item-icon">💱</div>
+                            <div class="item-title">Взаєморозрахунки</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-cash-registers' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/cash-registers">
+                            <div class="item-icon">💰</div>
+                            <div class="item-title">Каси</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-payment-instructions' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/payment-instructions">
+                            <div class="item-icon">🏦</div>
+                            <div class="item-title">Реквізити для оплати</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'accounts-payment-qr' ? ' is-active' : ''"
+                           href="/api/accounts-with-clients/payment-qr">
+                            <div class="item-icon">📱</div>
+                            <div class="item-title">QR код для оплати</div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="side-nav__group">
+                <h3 class="side-nav__title">Номенклатура</h3>
+                <ul class="side-nav__list">
+                    <li>
+                        <a class="item" th:classappend="${active} == 'assistant-products' ? ' is-active' : ''"
+                           href="/api/assistants/products">
+                            <div class="item-icon">🧩</div>
+                            <div class="item-title">Помічник з підбору номенклатури</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'catalogs' ? ' is-active' : ''"
+                           href="/api/catalogs">
+                            <div class="item-icon">📚</div>
+                            <div class="item-title">Каталоги</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'catalogs-prices' ? ' is-active' : ''"
+                           href="/api/catalogs/prices">
+                            <div class="item-icon">💵</div>
+                            <div class="item-title">Прайс-лист</div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="side-nav__group">
+                <h3 class="side-nav__title">Інтернет ресурси</h3>
+                <ul class="side-nav__list">
+                    <li>
+                        <a class="item" th:classappend="${active} == 'internet-shop' ? ' is-active' : ''"
+                           href="/api/internet-resources/internet-shop">
+                            <div class="item-icon">🛒</div>
+                            <div class="item-title">Інтернет магазин</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'internet-b2b' ? ' is-active' : ''"
+                           href="/api/internet-resources/b2b-platform">
+                            <div class="item-icon">🌐</div>
+                            <div class="item-title">B2B платформа</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'internet-info' ? ' is-active' : ''"
+                           href="/api/internet-resources/general-info">
+                            <div class="item-icon">ℹ️</div>
+                            <div class="item-title">Загальна інформація</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="item" th:classappend="${active} == 'internet-contacts' ? ' is-active' : ''"
+                           href="/api/internet-resources/contacts">
+                            <div class="item-icon">☎️</div>
+                            <div class="item-title">Контакти</div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </nav>
+</div>

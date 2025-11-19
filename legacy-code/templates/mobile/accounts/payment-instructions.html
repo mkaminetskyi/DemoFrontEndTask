@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Реквізити для оплати</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+    <main class="page-surface">
+        <section class="page-section">
+            <h2>Реквізити для оплати</h2>
+
+            <div class="bank-row">
+                <dt>Торкніться щоб скопіювати</dt>
+            </div>
+
+            <div class="info-wrapper">
+                <div class="card info-card">
+                    <h3>Банківські реквізити</h3>
+                    <dl class="bank-details">
+                        <div class="bank-row">
+                            <dt>Компанія</dt>
+                            <dd>
+                                <span class="highlight copyable" data-copy="ТОВ &quot;БУЛАТ+&quot;">
+                                    ТОВ &quot;БУЛАТ+&quot;
+                                </span>
+                            </dd>
+                        </div>
+                        <div class="bank-row">
+                            <dt>Рахунок (IBAN)</dt>
+                            <dd>
+                                <span class="highlight copyable" data-copy="UA363510050000026003878964631">
+                                    UA363510050000026003878964631
+                                </span>
+                            </dd>
+                        </div>
+                        <div class="bank-row">
+                            <dt>Банк</dt>
+                            <dd>
+                                <span class="highlight copyable" data-copy="ПАТ &quot;УКРСИББАНК&quot;, м. Київ">
+                                    ПАТ &quot;УКРСИББАНК&quot;, м. Київ
+                                </span>
+                            </dd>
+                        </div>
+                        <div class="bank-row">
+                            <dt>Код ЄДРПОУ</dt>
+                            <dd>
+                                <span class="highlight copyable" data-copy="43032230">43032230</span>
+                            </dd>
+                        </div>
+                        <div class="bank-row">
+                            <dt>ІПН</dt>
+                            <dd>
+                                <span class="highlight copyable" data-copy="430322319146">430322319146</span>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="info-grid two-columns">
+                    <div class="card info-card">
+                        <h3>Юридична адреса</h3>
+                        <p>
+                            48120, Тернопільська обл., Тернопільський р-н,<br/>
+                            смт Микулинці, вул. Тернопільська, буд. 35
+                        </p>
+                    </div>
+
+                    <div class="card info-card">
+                        <h3>Контакти</h3>
+                        <ul class="contact-list">
+                            <li><span class="icon">☎️</span><span>Тел.: +0355 (5) 12-67</span></li>
+                            <li>
+                                <span class="icon">📞</span>
+                                <span>
+                                    Відділ продажу:
+                                    <span class="highlight copyable" data-copy="068 195 86 07" aria-label="Скопіювати телефон">
+                                        068 195 86 07
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card info-card">
+                    <h3>Призначення платежу</h3>
+                    <p>
+                        У призначенні платежу вкажіть номер та дату рахунку, або іншої супровідної документації.
+                        За потреби додайте назву компанії платника.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+<!-- Невеликий toast для підтвердження копіювання -->
+<div id="copyToast" class="toast" role="status" aria-live="polite">Скопійовано</div>
+
+<script src="/mobile/js/app.js" defer
+        th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+<script src="/mobile/js/payment-instructions.js" defer
+        th:src="@{/mobile/js/payment-instructions.js(v=${appVersion})}"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>QR код для оплати</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+  <main class="page-surface">
+        <section class="page-section">
+            <h2>QR код для оплати</h2>
+              <div class="info-wrapper">
+                <div class="card info-card">
+                    <h3>Швидка оплата</h3>
+                    <div class="qr-wrapper">
+                        <img src="/images/qr-code.jpg" alt="QR код для оплати" loading="lazy"/>
+                        <p class="note">Відскануйте QR код у додатку банку, щоб автоматично підставити реквізити.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+  <div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+  <script src="/mobile/js/app.js" defer
+          th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+</body>
+</html>

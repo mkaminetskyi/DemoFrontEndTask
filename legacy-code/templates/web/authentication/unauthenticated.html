@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Не аутентифіковано</title>
+    <link rel="stylesheet" href="/web/css/app.css"
+          th:href="@{/web/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+
+<div th:replace="~{web/fragments/layout :: shell('home', ~{::main})}">
+    <main class="page-surface">
+        <section class="page-section">
+            <div class="card info-card">
+                <h1>Не аутентифіковано</h1>
+                <p>Ви не авторизовані в Bulat+. Будь ласка, відкрийте міні-застосунок у 2Telegram та підтвердьте вхід.</p>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

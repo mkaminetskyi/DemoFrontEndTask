@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>План продажу — Супервайзер</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+    <main class="page-surface">
+        <section class="page-section"
+                 th:attr="data-user-role=${userRole},data-representatives-cookie=${representativesCookieName}">
+            <div class="section-header">
+                <div class="plan-header">
+                    <p class="plan-period" th:text="${planPeriod}">Серпень (робочих днів: 21)</p>
+                    <div class="plan-title-row">
+                        <h2>План продажу</h2>
+                        <div class="admin-toolbar"
+                             id="downloadToolbar"
+                             style="display:none"
+                             th:if="${userRole != T(com.gen.core.dto.UserRole).ANONYMOUS}">
+                            <button type="button" class="btn accent"
+                                    id="downloadDataBtn"
+                                    disabled>
+                                Завантажити
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div id="loading" class="status">Отримую дані…</div>
+
+                <div id="adminView" class="admin-plan-view">
+                    <div id="representativesFilter" class="representatives-filter" style="display:none">
+                        <details class="representatives-dropdown">
+                            <summary id="representativesSummary">Представники</summary>
+                            <div class="representatives-dropdown-content">
+                                <p class="representatives-helper">Оберіть представників, які мають відображатися у звіті.</p>
+                                <div id="representativesOptions" class="representatives-options"></div>
+                                <div class="representatives-actions">
+                                    <button type="button" class="btn secondary" id="representativesSelectAll">Обрати всі</button>
+                                </div>
+                            </div>
+                        </details>
+                        <div class="representatives-actions representatives-fetch">
+                            <button type="button" class="btn primary" id="representativesFetchReport" disabled>Отримати звіт</button>
+                        </div>
+                    </div>
+                    <div id="adminTableContainer" class="admin-table-container" style="display:none"></div>
+                    <div id="adminError" class="status error" style="display:none"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+<script src="/mobile/js/app.js" defer
+        th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+<script src="/mobile/js/sales-plan.js" defer
+        th:src="@{/mobile/js/sales-plan.js(v=${appVersion})}"></script>
+</body>
+</html>

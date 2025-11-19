@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Перегляд каталогу BulatPlus</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+      <main class="page-surface">
+        <section class="page-section">
+            <div th:if="${catalog != null}" class="catalog-viewer">
+                <div class="section-header catalog-viewer-header">
+                    <div class="catalog-viewer-title">
+                        <h2 th:text="${catalog.title()}">BulatPlus</h2>
+                    </div>
+
+                    <div class="admin-toolbar">
+                        <a class="btn ghost" href="/api/catalogs">Назад до каталогів</a>
+                        <a class="btn accent catalog-download-btn" th:href="${catalog.pdfUrl()}" target="_blank"
+                           rel="noopener noreferrer">
+                            Завантажити
+                        </a>
+                    </div>
+                </div>
+
+                <iframe class="catalog-viewer-frame"
+                        th:src="@{https://mozilla.github.io/pdf.js/web/viewer.html(file=${catalog.pdfUrl()})}"
+                        th:attr="title=${'Каталог ' + catalog.title()}"
+                        loading="lazy"
+                        allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="card info-card" th:if="${catalog == null}">
+                <h2>Каталог не знайдено</h2>
+                <p>На жаль, не вдалося знайти запитаний каталог.</p>
+                <p th:if="${requestedFile != null}">Запитаний файл: <span th:text="${requestedFile}"></span></p>
+                <div class="cta-buttons">
+                    <a class="btn" href="/api/catalogs">Повернутися до списку</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+  <div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+  <script src="/mobile/js/app.js" defer
+          th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+</body>
+</html>

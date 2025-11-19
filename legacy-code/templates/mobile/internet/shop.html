@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Інтернет магазин BulatPlus</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/mobile/css/app.css"
+          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div class="app-shell">
+      <main class="page-surface">
+        <section class="page-section">
+            <div class="card hero-card">
+                <div class="hero-eyebrow">Магазин BulatPlus</div>
+                <h1 class="hero-title">13 000+ товарів для будівництва, ремонту та сервісу</h1>
+                <p class="hero-description">
+                    Зручний онлайн-каталог із актуальними залишками, швидким пошуком та розумними фільтрами.
+                    Оформлюйте замовлення за кілька кліків та отримуйте персональні пропозиції.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge yellow">🚚 Доставка 24 години</span>
+                    <span class="badge blue">🛡️ Гарантія виробника</span>
+                    <span class="badge yellow">💳 Оплата будь-яким способом</span>
+                </div>
+                <div class="cta-buttons">
+                    <a class="btn primary" href="https://bulatplus.com.ua/" target="_blank" rel="noopener">
+                        Відкрити магазин
+                    </a>
+                    <a class="btn secondary" href="https://bulatplus.com.ua/ua/catalog" target="_blank" rel="noopener">
+                        Переглянути каталог
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-grid cards-grid two-columns">
+                <div class="card feature-card">
+                    <h3>🔍 Розумний пошук</h3>
+                    <p>Пошук за назвою, кодом, брендом або застосуванням. Підказки й фільтри допоможуть швидко знайти потрібне.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>💬 Онлайн-підтримка</h3>
+                    <p>Чат з менеджером, консультації щодо підбору товарів та супровід від оформлення до доставки.</p>
+                </div>
+                <div class="card feature-card">
+                    <h3>⚡ Швидке замовлення</h3>
+                    <p>Додавайте товари у кошик, формуйте комерційні пропозиції та відправляйте заявки за кілька кліків.</p>
+                </div>
+            </div>
+
+            <div class="feature-grid cards-grid">
+                <div class="card link-card">
+                    <h3>📑 Популярні категорії</h3>
+                    <div class="pill-list">
+                        <span class="pill">Електроінструмент</span>
+                        <span class="pill">Будівельна хімія</span>
+                        <span class="pill">Автоаксесуари</span>
+                        <span class="pill">Садова техніка</span>
+                        <span class="pill">Охорона праці</span>
+                        <span class="pill">Освітлення</span>
+                    </div>
+                    <p>Оберіть категорію та одразу бачте доступні бренди, ціни, фото та рекомендації.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+  <div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+
+  <script src="/mobile/js/app.js" defer
+          th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
+</body>
+</html>

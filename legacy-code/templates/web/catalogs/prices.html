@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org"
+      th:with="appVersion=${@environment.getProperty('app.version')}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Прайс-лист</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/web/css/app.css"
+          th:href="@{/web/css/app.css(v=${appVersion})}"/>
+</head>
+<body>
+<div th:replace="~{web/fragments/layout :: shell('catalogs-prices', ~{::main})}">
+    <main class="page-surface">
+        <section class="page-section" id="priceListSection"
+                 data-data-endpoint="/api/catalogs/prices/data"
+                 th:data-has-session="${hasSession}">
+            <h2>Прайс-лист</h2>
+
+            <div id="authWarning" class="status error" th:if="${!hasSession}">
+                Потрібна авторизація через Telegram.
+            </div>
+
+            <div id="priceControls" class="toolbar is-hidden">
+                <div class="toolbar-grid">
+                    <div class="field full-width">
+                        <label for="priceNameFilter">Пошук за назвою</label>
+                        <input type="search" id="priceNameFilter" placeholder="Введіть назву" autocomplete="off"/>
+                    </div>
+                    <div class="field">
+                        <label for="priceBrandFilter">Бренд</label>
+                        <select id="priceBrandFilter">
+                            <option value="">Усі бренди</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="priceSort">Сортування</label>
+                        <select id="priceSort">
+                            <option value="none">Без сортування</option>
+                            <option value="name">За назвою (А→Я)</option>
+                            <option value="brand">За брендом (А→Я)</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="priceResultsSummary" class="price-results-summary is-hidden">
+                    <span id="priceResultsText" class="price-results-summary__text"></span>
+                    <div id="priceActiveFilters" class="price-results-summary__filters pill-list is-hidden"></div>
+                </div>
+            </div>
+
+            <div class="zoombar card compact is-hidden" id="priceZoomBar">
+                <div class="zoom-group">
+                    <button class="btn-zoom" id="priceZoomOut" aria-label="Зменшити масштаб">−</button>
+                    <span class="zoom-label" id="priceZoomLabel">100%</span>
+                    <button class="btn-zoom" id="priceZoomIn" aria-label="Збільшити масштаб">+</button>
+                </div>
+                <button class="btn-zoom btn-zoom-reset" id="priceZoomReset" aria-label="Скинути масштаб">
+                    <span>Скинути</span>
+                </button>
+            </div>
+
+            <div id="priceLoading" class="status">Отримую дані…</div>
+            <div id="priceTableContainer" class="table-container table-container--flush is-hidden"></div>
+            <div id="priceError" class="status error is-hidden"></div>
+        </section>
+    </main>
+    </main>
+</div>
+
+<script src="/web/js/app.js" defer
+        th:src="@{/web/js/app.js(v=${appVersion})}"></script>
+<script src="/web/js/catalog-price-list.js" defer
+        th:src="@{/web/js/catalog-price-list.js(v=${appVersion})}"></script>
+</body>
+</html>
