@@ -1,0 +1,40 @@
+<!doctype html>
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:fragment="page(pageTitle, pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title th:text="${pageTitle}"></title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link
+      rel="stylesheet"
+      href="/css/app.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/fragments/general-one-s-report-page/general-one-s-report-page.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        th:replace="~{fragments/general-one-s-report-page/content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
+      ></div>
+
+      <div th:replace="~{fragments/bottombar :: bottombar}"></div>
+    </div>
+
+    <script src="/js/app.js"></script>
+    <script
+      src="/fragments/general-one-s-report-page/general-one-s.js"
+      type="module"
+    ></script>
+  </body>
+</html>

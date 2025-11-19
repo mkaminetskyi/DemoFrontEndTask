@@ -1,0 +1,51 @@
+<th:block th:fragment="desktop-topbar">
+
+  <link rel="stylesheet" th:href="@{/fragments/desktop-topbar/desktop-topbar.css}">
+
+  <script th:inline="javascript">
+    window.__APP_CONTEXT__ = {
+      authenticated: /*[[${authenticated}]]*/ false,
+      displayName: /*[[${fallbackName}]]*/ "Користувач",
+      userRole: /*[[${userRole}]]*/ "ANONYMOUS",
+      statusText: /*[[${statusText}]]*/ null,
+      statusModifier: /*[[${statusModifier}]]*/ null,
+      userName: /*[[${userName}]]*/ null,
+    };
+  </script>
+
+  <!-- styles for this fragment -->
+  <!-- static/css/desktop-styles/desktop-topbar.css -->
+  <header class="desktop__topbar">
+    <!-- це потрібне щось?  -->
+    <!-- <div
+        class="status"
+        id="status"
+        role="status"
+        aria-live="polite"
+      ></div> -->
+
+    <div class="desktop__userinfo">
+      <div
+        class="desktop__avatar"
+        id="avatar"
+      >
+        <span id="initials">?</span>
+      </div>
+      <div class="desktop__name-role">
+        <div
+          class="desktop__name"
+          id="name"
+          th:text="${fallbackName}"
+        >
+          Користувач
+        </div>
+        <div
+          class="desktop__role"
+          id="role"
+        >
+          Роль: невідома
+        </div>
+      </div>
+    </div>
+  </header>
+</th:block>

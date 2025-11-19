@@ -65,20 +65,3 @@
 .s__btn-get-report:active {
   transform: translateY(1px);
 }
-
-.s__content__page-surface {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  /* border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  box-shadow: var(--shadow); */
-  padding: 8px;
-  padding-bottom: calc(
-    8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
-  );
-  overflow-y: auto;
-  overflow-x: hidden;
-}

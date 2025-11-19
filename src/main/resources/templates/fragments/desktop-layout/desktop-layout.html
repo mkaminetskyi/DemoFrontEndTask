@@ -1,0 +1,22 @@
+<th:block th:fragment="shell(active, content)">
+
+<link rel="stylesheet" th:href="@{/fragments/desktop-layout/desktop-layout.css}">
+
+  <div class="desktop-layout">
+    <aside class="desktop-layout__sidebar">
+      <div
+        th:replace="~{fragments/desktop-navigation/desktop-navigation :: desktop-navigation(${active})}"
+      ></div>
+    </aside>
+
+    <div class="desktop-layout__main">
+      <header
+        th:replace="~{fragments/desktop-topbar/desktop-topbar :: desktop-topbar}"
+      ></header>
+
+      <div class="desktop-layout__content">
+        <div th:replace="${content}"></div>
+      </div>
+    </div>
+  </div>
+</th:block>

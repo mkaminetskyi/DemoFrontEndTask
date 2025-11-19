@@ -5,14 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomePageController {
-
-    @GetMapping("/home")
+     @GetMapping("/home")
     public String home() {
-        return "home";
-    }
-
-    @GetMapping("/home-web")
-    public String homeDesktop() {
-        return "home-web";
+        return "pages/home/home";
     }
 }
