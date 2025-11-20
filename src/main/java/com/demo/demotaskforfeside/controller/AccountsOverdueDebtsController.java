@@ -19,21 +19,19 @@ public class AccountsOverdueDebtsController {
         this.excelToHtmlService = excelToHtmlService;
     }
 
-    // @GetMapping(value = "/overdue-debts")
-    // public String overdueDebtsPage() {
-    //     return "pages/overdue-debts/overdue-debts-web";
-    // }
-
     @GetMapping(value = "/overdue-debts")
-    public String overdueDebtsPage() {
-        return "overdue-debts";
+    // public String overdueDebtsPage() {
+        // return "overdue-debts";
+    public String overdueDebtsPage(Model model) {
+        model.addAttribute("title", "Протерміновані борги");
+        model.addAttribute("pageHeading", "Протерміновані борги");
+        model.addAttribute("dataEndpoint", "/overdue-debts/data");
+        model.addAttribute("exportEndpoint", "/overdue-debts/export");
+        model.addAttribute("renderDatePicker", false);
+        model.addAttribute("renderClientPicker", true);
+        model.addAttribute("activeNav", "accounts-overdue-debts");
+        return "pages/overdue-debts/overdue-debts";
     }
-
-    @GetMapping(value = "/overdue-debts-web")
-    public String overdueDebtsWebPage() {
-        return "overdue-debts-web";
-    }
-
 
     @GetMapping(value = "/overdue-debts/data", produces = "text/html; charset=UTF-8")
     public String getOverdueDebtsFragment(Model model,
