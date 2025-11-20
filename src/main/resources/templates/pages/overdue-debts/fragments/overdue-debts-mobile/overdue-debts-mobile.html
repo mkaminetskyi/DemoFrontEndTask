@@ -1,0 +1,14 @@
+<div th:fragment="mobile">
+  <link
+    rel="stylesheet"
+    th:href="@{/pages/overdue-debts/fragments/overdue-debts-mobile/overdue-debts-mobile.css}"
+  />
+
+  <div class="app-shell">
+    <div
+      th:replace="~{fragments/general-one-s-report-page-content/general-one-s-report-page-content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
+    ></div>
+  </div>
+
+  <div th:replace="~{fragments/bottombar :: bottombar}"></div>
+</div>

@@ -1,6 +1,8 @@
-<th:block th:fragment="mobile">
-
-    <link rel="stylesheet" th:href="@{/pages/home/fragments/home-mobile-content/home-mobile-content.css}">
+<div th:fragment="mobile">
+  <link
+    rel="stylesheet"
+    th:href="@{/pages/home/fragments/home-mobile-content/home-mobile-content.css}"
+  />
 
   <div class="app-shell">
     <main class="page-surface">
@@ -181,4 +183,4 @@
   </div>
 
   <div th:replace="~{fragments/bottombar :: bottombar}"></div>
-</th:block>
+</div>
