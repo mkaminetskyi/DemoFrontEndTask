@@ -3,6 +3,7 @@ import {
   hide,
   showAlert,
   toggle,
+  getVisibleLayout,
 } from "./utils/dom-helpers.js";
 import {
   normaliseValue,
@@ -17,9 +18,11 @@ import {
 import { createZoomController } from "./controllers/zoom-controller.js";
 
 (function () {
-  const section = document.getElementById(
-    "accountsWithClientsSection",
+  const visibleLayout = getVisibleLayout();
+  const section = visibleLayout.querySelector(
+    "#accountsWithClientsSection",
   );
+
   if (!section) return;
   const dataEndpoint = section.dataset.dataEndpoint;
   const exportEndpointRaw = section.dataset.exportEndpoint;
@@ -31,7 +34,7 @@ import { createZoomController } from "./controllers/zoom-controller.js";
   const aiEndpoint =
     aiEndpointRaw && aiEndpointRaw !== "null" ? aiEndpointRaw : null;
   if (!dataEndpoint) return;
-  const $ = id => document.getElementById(id);
+  const $ = id => visibleLayout.querySelector(`#${id}`);
   const getBtn = $("getBtn");
   const downloadBtn = $("downloadBtn");
   const tg = window.Telegram?.WebApp;
