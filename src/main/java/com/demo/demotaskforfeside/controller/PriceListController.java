@@ -29,7 +29,7 @@ public class PriceListController {
     public String priceListPage(Model model) {
         model.addAttribute("hasSession", true);
 
-        return "price-list";
+        return "/pages/price-list/price-list";
     }
 
     @GetMapping(value = "/price-list-data")
