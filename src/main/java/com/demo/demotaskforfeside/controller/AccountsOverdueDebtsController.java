@@ -45,6 +45,6 @@ public class AccountsOverdueDebtsController {
 
         model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(excelData));
 
-        return "fragments/excel-table :: table";
+        return "fragments/excel-table/excel-table :: table";
     }
 }
