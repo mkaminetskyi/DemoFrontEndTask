@@ -17,7 +17,7 @@
     />
     <link
       rel="stylesheet"
-      href="/css/price-list.css"
+      href="/pages/price-list/price-list.css"
     />
   </head>
 
@@ -125,9 +125,11 @@
       </main>
     </div>
 
-    <div th:replace="~{fragments/bottombar :: bottombar}"></div>
+    <div
+      th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+    ></div>
 
     <script src="/js/app.js"></script>
-    <script src="/js/catalog-price-list.js"></script>
+    <script src="/pages/price-list/catalog-price-list.js"></script>
   </body>
 </html>

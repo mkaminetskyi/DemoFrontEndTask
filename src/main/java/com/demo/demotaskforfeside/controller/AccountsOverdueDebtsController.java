@@ -20,16 +20,8 @@ public class AccountsOverdueDebtsController {
     }
 
     @GetMapping(value = "/overdue-debts")
-    // public String overdueDebtsPage() {
-        // return "overdue-debts";
-    public String overdueDebtsPage(Model model) {
-        model.addAttribute("title", "Протерміновані борги");
-        model.addAttribute("pageHeading", "Протерміновані борги");
-        model.addAttribute("dataEndpoint", "/overdue-debts/data");
-        model.addAttribute("exportEndpoint", "/overdue-debts/export");
-        model.addAttribute("renderDatePicker", false);
-        model.addAttribute("renderClientPicker", true);
-        model.addAttribute("activeNav", "accounts-overdue-debts");
+    
+    public String overdueDebtsPage() {   
         return "pages/overdue-debts/overdue-debts";
     }
 
@@ -45,6 +37,6 @@ public class AccountsOverdueDebtsController {
 
         model.addAttribute("tableRows", excelToHtmlService.convertExcelToTableData(excelData));
 
-        return "fragments/excel-table :: table";
+        return "fragments/excel-table/excel-table :: table";
     }
 }
