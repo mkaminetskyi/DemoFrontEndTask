@@ -2,7 +2,16 @@
 <html
   lang="uk"
   xmlns:th="http://www.thymeleaf.org"
-  th:with="appVersion=${@environment.getProperty('app.version')}"
+  th:with="
+      appVersion=${@environment.getProperty('app.version')},
+      title='Протерміновані борги',
+      pageHeading='Протерміновані борги',
+      dataEndpoint='/overdue-debts/data',
+      exportEndpoint='/overdue-debts/export',
+      renderDatePicker=false,
+      renderClientPicker=true,
+      activeNav='accounts-overdue-debts'
+    "
 >
   <head>
     <meta charset="utf-8" />
