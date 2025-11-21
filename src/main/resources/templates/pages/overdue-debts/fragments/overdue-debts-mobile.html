@@ -1,4 +1,4 @@
-<div th:fragment="mobile">
+<div th:fragment="mobile(pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)">
   <div class="app-shell">
     <div
       th:replace="~{fragments/general-one-s-report-page-content/general-one-s-report-page-content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"

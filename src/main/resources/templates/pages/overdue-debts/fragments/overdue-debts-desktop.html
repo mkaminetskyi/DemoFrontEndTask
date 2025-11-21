@@ -1,4 +1,4 @@
-<div th:fragment="desktop">
+<div th:fragment="desktop(activeNav, pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)">
   <div
     th:replace="~{fragments/desktop-layout/desktop-layout :: shell(${activeNav}, ~{::main})}"
   >
