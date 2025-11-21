@@ -923,7 +923,7 @@ body {
 }
 
 /* ================== bottombar ================== */
-.bottombar {
+/* .bottombar {
   position: fixed;
   left: 0;
   right: 0;
@@ -1009,7 +1009,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 /* ================== sections ================== */
 .page-surface {
