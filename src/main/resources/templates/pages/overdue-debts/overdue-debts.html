@@ -40,14 +40,14 @@
       <!-- Mobile (< 1200px) -->
       <div class="s__mobile-layout">
         <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-mobile :: mobile}"
+          th:replace="~{pages/overdue-debts/fragments/overdue-debts-mobile :: mobile(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
         ></div>
       </div>
 
       <!-- Desktop (>= 1200px) -->
       <div class="s__desktop-layout">
         <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-desktop :: desktop}"
+          th:replace="~{pages/overdue-debts/fragments/overdue-debts-desktop :: desktop(${activeNav}, ${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
         ></div>
       </div>
     </div>
