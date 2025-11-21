@@ -14,3 +14,26 @@ export const showAlert = message => {
     alert(message);
   }
 };
+
+export const getVisibleLayout = () => {
+  const mobileLayout = document.querySelector(".s__mobile-layout");
+  const desktopLayout = document.querySelector(".s__desktop-layout");
+
+  // Перевіряємо, який контейнер видимий через getComputedStyle
+  if (mobileLayout) {
+    const mobileStyle = window.getComputedStyle(mobileLayout);
+    if (mobileStyle.display !== "none") {
+      return mobileLayout;
+    }
+  }
+
+  if (desktopLayout) {
+    const desktopStyle = window.getComputedStyle(desktopLayout);
+    if (desktopStyle.display !== "none") {
+      return desktopLayout;
+    }
+  }
+
+  // Якщо не знайдено видимий контейнер, використовуємо document
+  return document;
+};

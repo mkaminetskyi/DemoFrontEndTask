@@ -1,100 +1,125 @@
 <div th:fragment="table">
-    <style>
-        /* мінімалістичний контейнер без рамок і тіней */
-        .excel-table-wrapper {
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
-        }
+  <style>
+    /* мінімалістичний контейнер без рамок і тіней */
+    .excel-table-wrapper {
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-        /* Контейнер зі скролом: більша висота, без “рамки в рамці” */
-        .table-scroll {
-            min-height: 520px;   /* мінімальна висота */
-            max-height: 100vh;    /* займає до 80% екрана */
-            overflow: auto;
-            background: transparent;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-        }
+    /* Контейнер зі скролом: більша висота, без “рамки в рамці” */
+    .table-scroll {
+      min-height: 520px; /* мінімальна висота */
+      max-height: 100vh; /* займає до 80% екрана */
+      overflow: auto;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
-        /* Вміст, який масштабуємо */
-        .table-zoomable {
-            display: inline-block;
-            transform-origin: top left;
-            transition: transform .2s ease;
-        }
+    /* Вміст, який масштабуємо */
+    .table-zoomable {
+      display: inline-block;
+      transform-origin: top left;
+      transition: transform 0.2s ease;
+    }
 
-        .excel-table {
-            border-collapse: separate;
-            border-spacing: 0;
-            width: 100%;
-            min-width: 720px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+    .excel-table {
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      min-width: 720px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
 
-        /* Липкий заголовок */
-        .table-scroll .excel-table thead th {
-            position: sticky;
-            top: 0;
-            z-index: 1;
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            color: #f8fafc;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-        }
+    /* Липкий заголовок */
+    .table-scroll .excel-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #f8fafc;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+    }
 
-        .excel-table tbody tr:nth-child(odd) td { background-color: rgba(148, 163, 184, 0.08); }
-        .excel-table tbody tr:hover td {
-            background-color: rgba(59, 130, 246, 0.18) !important;
-            transition: background-color 0.2s ease;
-        }
-        .excel-table td, .excel-table th {
-            border: 1px solid rgba(148, 163, 184, 0.45);
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            padding: 8px 10px;
-        }
+    .excel-table tbody tr:nth-child(odd) td {
+      background-color: rgba(148, 163, 184, 0.08);
+    }
+    .excel-table tbody tr:hover td {
+      background-color: rgba(59, 130, 246, 0.18) !important;
+      transition: background-color 0.2s ease;
+    }
+    .excel-table td,
+    .excel-table th {
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      padding: 8px 10px;
+    }
 
-        @media (max-width: 992px) {
-            .excel-table { min-width: 540px; }
-        }
-    </style>
+    @media (max-width: 992px) {
+      .excel-table {
+        min-width: 540px;
+      }
+    }
+  </style>
 
-    <div class="excel-table-wrapper" th:if="${tableRows != null}">
-        <div class="table-scroll" th:if="${!tableRows.isEmpty()}">
-            <!-- Масштабований вміст -->
-            <div class="table-zoomable" id="tableZoomTarget">
-                <table class="excel-table">
-                    <thead th:if="${tableRows.size() > 0}">
-                    <tr>
-                        <th th:each="cell : ${tableRows.get(0)}"
-                            th:text="${cell.text}"
-                            th:attr="colspan=${cell.colspan}, rowspan=${cell.rowspan}"
-                            th:style="${cell.style}">
-                            Header
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="row, ri : ${tableRows}" th:if="${ri.index > 0}">
-                        <td th:each="cell : ${row}"
-                            th:text="${cell.text}"
-                            th:attr="colspan=${cell.colspan}, rowspan=${cell.rowspan}"
-                            th:style="${cell.style}">
-                            Value
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div th:if="${tableRows.isEmpty()}" class="text-muted" style="text-align: center; padding: 24px;">
-            Дані відсутні
-        </div>
+  <div
+    class="excel-table-wrapper"
+    th:if="${tableRows != null}"
+  >
+    <div
+      class="table-scroll"
+      th:if="${!tableRows.isEmpty()}"
+    >
+      <!-- Масштабований вміст -->
+      <div
+        class="table-zoomable"
+        id="tableZoomTarget"
+      >
+        <table class="excel-table">
+          <thead th:if="${tableRows.size() > 0}">
+            <tr>
+              <th
+                th:each="cell : ${tableRows.get(0)}"
+                th:text="${cell.text}"
+                th:attr="colspan=${cell.colspan}, rowspan=${cell.rowspan}"
+                th:style="${cell.style}"
+              >
+                Header
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              th:each="row, ri : ${tableRows}"
+              th:if="${ri.index > 0}"
+            >
+              <td
+                th:each="cell : ${row}"
+                th:text="${cell.text}"
+                th:attr="colspan=${cell.colspan}, rowspan=${cell.rowspan}"
+                th:style="${cell.style}"
+              >
+                Value
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    <div
+      th:if="${tableRows.isEmpty()}"
+      class="text-muted"
+      style="text-align: center; padding: 24px"
+    >
+      Дані відсутні
+    </div>
+  </div>
 </div>
