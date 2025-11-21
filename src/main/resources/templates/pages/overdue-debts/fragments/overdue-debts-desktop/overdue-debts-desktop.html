@@ -1,9 +1,4 @@
 <div th:fragment="desktop">
-  <link
-    rel="stylesheet"
-    th:href="@{/pages/overdue-debts/fragments/overdue-debts-desktop/overdue-debts-desktop.css}"
-  />
-
   <div
     th:replace="~{fragments/desktop-layout/desktop-layout :: shell(${activeNav}, ~{::main})}"
   >
