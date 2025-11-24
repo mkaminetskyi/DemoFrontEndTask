@@ -55,6 +55,7 @@
             <label for="contractor">Клієнт</label>
             <div class="input-group combobox">
               <input
+                class="general-one-s-report-page-content__search-input"
                 type="text"
                 id="contractor"
                 name="contractor"
@@ -98,66 +99,66 @@
               ></div>
             </div>
           </div>
+        </div>
 
-          <!-- renderRepresentativesPicker -->
+        <!-- renderRepresentativesPicker -->
+        <div
+          id="adminView"
+          class="admin-plan-view"
+          th:if="${renderRepresentativesPicker}"
+        >
           <div
-            id="adminView"
-            class="admin-plan-view"
-            th:if="${renderRepresentativesPicker}"
+            id="representativesFilter"
+            class="representatives-filter"
+            style="display: none"
           >
-            <div
-              id="representativesFilter"
-              class="representatives-filter"
-              style="display: none"
-            >
-              <details class="representatives-dropdown">
-                <summary id="representativesSummary">
-                  Представники
-                </summary>
-                <div class="representatives-dropdown-content">
-                  <p class="representatives-helper">
-                    Оберіть представників, які мають відображатися у
-                    звіті.
-                  </p>
-                  <div
-                    id="representativesOptions"
-                    class="representatives-options"
-                  ></div>
-                  <div class="representatives-actions">
-                    <button
-                      type="button"
-                      class="btn secondary"
-                      id="representativesSelectAll"
-                    >
-                      Обрати всі
-                    </button>
-                  </div>
+            <details class="representatives-dropdown">
+              <summary id="representativesSummary">
+                Представники
+              </summary>
+              <div class="representatives-dropdown-content">
+                <p class="representatives-helper">
+                  Оберіть представників, які мають відображатися у
+                  звіті.
+                </p>
+                <div
+                  id="representativesOptions"
+                  class="representatives-options"
+                ></div>
+                <div class="representatives-actions">
+                  <button
+                    type="button"
+                    class="btn secondary"
+                    id="representativesSelectAll"
+                  >
+                    Обрати всі
+                  </button>
                 </div>
-              </details>
-              <!-- <div
-                class="representatives-actions representatives-fetch"
+              </div>
+            </details>
+            <!-- <div
+              class="representatives-actions representatives-fetch"
+            >
+              <button
+                type="button"
+                class="btn primary"
+                id="representativesFetchReport"
+                disabled
               >
-                <button
-                  type="button"
-                  class="btn primary"
-                  id="representativesFetchReport"
-                  disabled
-                >
-                  Отримати звіт
-                </button>
-              </div> -->
-            </div>
-            <div
-              id="adminTableContainer"
-              class="admin-table-container"
-              style="display: none"
-            ></div>
-            <div
-              id="adminError"
-              class="status error"
-              style="display: none"
-            ></div>
+                Отримати звіт
+              </button>
+            </div> -->
           </div>
+          <div
+            id="adminTableContainer"
+            class="admin-table-container"
+            style="display: none"
+          ></div>
+          <div
+            id="adminError"
+            class="status error"
+            style="display: none"
+          ></div>
         </div>
 
         <!-- toolbar start -->

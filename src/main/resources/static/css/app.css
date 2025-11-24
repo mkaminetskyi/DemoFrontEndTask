@@ -1446,6 +1446,7 @@ textarea {
     box-shadow 0.12s ease,
     border-color 0.12s ease;
 }
+
 input:focus,
 select:focus,
 textarea:focus {
