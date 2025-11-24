@@ -1,6 +1,6 @@
 <div
   class="general-one-s-report-page-content"
-  th:fragment="content(pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)"
+  th:fragment="content(pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker, renderRepresentativesPicker, userRole)"
 >
   <link
     rel="stylesheet"
@@ -11,7 +11,7 @@
     <section
       class="page-section"
       id="accountsWithClientsSection"
-      th:attr="data-data-endpoint=${dataEndpoint},data-export-endpoint=${exportEndpoint}"
+      th:attr="data-data-endpoint=${dataEndpoint},data-export-endpoint=${exportEndpoint},data-user-role=${userRole}"
     >
       <h2 th:text="${pageHeading}"></h2>
 
@@ -47,6 +47,7 @@
             </div>
           </div>
 
+          <!-- renderClientPicker -->
           <div
             class="field full-width dark-label"
             th:if="${renderClientPicker}"
@@ -96,6 +97,66 @@
                 aria-label="Результати пошуку клієнтів"
               ></div>
             </div>
+          </div>
+
+          <!-- renderRepresentativesPicker -->
+          <div
+            id="adminView"
+            class="admin-plan-view"
+            th:if="${renderRepresentativesPicker}"
+          >
+            <div
+              id="representativesFilter"
+              class="representatives-filter"
+              style="display: none"
+            >
+              <details class="representatives-dropdown">
+                <summary id="representativesSummary">
+                  Представники
+                </summary>
+                <div class="representatives-dropdown-content">
+                  <p class="representatives-helper">
+                    Оберіть представників, які мають відображатися у
+                    звіті.
+                  </p>
+                  <div
+                    id="representativesOptions"
+                    class="representatives-options"
+                  ></div>
+                  <div class="representatives-actions">
+                    <button
+                      type="button"
+                      class="btn secondary"
+                      id="representativesSelectAll"
+                    >
+                      Обрати всі
+                    </button>
+                  </div>
+                </div>
+              </details>
+              <!-- <div
+                class="representatives-actions representatives-fetch"
+              >
+                <button
+                  type="button"
+                  class="btn primary"
+                  id="representativesFetchReport"
+                  disabled
+                >
+                  Отримати звіт
+                </button>
+              </div> -->
+            </div>
+            <div
+              id="adminTableContainer"
+              class="admin-table-container"
+              style="display: none"
+            ></div>
+            <div
+              id="adminError"
+              class="status error"
+              style="display: none"
+            ></div>
           </div>
         </div>
 
@@ -180,4 +241,5 @@
     src="/fragments/general-one-s-report-page-content/general-one-s.js"
     type="module"
   ></script>
+  <!-- <script src="/"></script> -->
 </div>

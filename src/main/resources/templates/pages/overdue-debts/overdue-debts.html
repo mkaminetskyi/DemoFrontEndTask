@@ -10,7 +10,9 @@
       exportEndpoint='/overdue-debts/export',
       renderDatePicker=true,
       renderClientPicker=true,
-      activeNav='accounts-overdue-debts'
+      renderRepresentativesPicker=true,
+      activeNav='accounts-overdue-debts',
+      userRole=${userRole}
     "
 >
   <head>
@@ -40,14 +42,14 @@
       <!-- Mobile (< 1200px) -->
       <div class="s__mobile-layout">
         <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-mobile :: mobile(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
+          th:replace="~{pages/overdue-debts/fragments/overdue-debts-mobile :: mobile(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}"
         ></div>
       </div>
 
       <!-- Desktop (>= 1200px) -->
       <div class="s__desktop-layout">
         <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-desktop :: desktop(${activeNav}, ${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
+          th:replace="~{pages/overdue-debts/fragments/overdue-debts-desktop :: desktop(${activeNav}, ${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}"
         ></div>
       </div>
     </div>
