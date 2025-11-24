@@ -20,32 +20,32 @@
           class="toolbar-grid"
           th:if="${renderDatePicker or renderClientPicker}"
         >
-          <!-- Не розумію для чого тут це? Це зайве і треба видалити? Чи це заготовка під майбутній функціонал? -->
-          <!-- <div
-              class="range-field"
-              th:if="${renderDatePicker}"
-            >
-              <div class="field dark-label condensed">
-                <label for="dateFrom">Початок</label>
-                <input
-                  type="date"
-                  id="dateFrom"
-                  name="from"
-                />
-              </div>
-              <span
-                class="range-separator"
-                aria-hidden="true"
-              ></span>
-              <div class="field dark-label condensed">
-                <label for="dateTo">Кінець</label>
-                <input
-                  type="date"
-                  id="dateTo"
-                  name="to"
-                />
-              </div>
-            </div> -->
+          <!-- datе picker -->
+          <div
+            class="range-field"
+            th:if="${renderDatePicker}"
+          >
+            <div class="field dark-label condensed">
+              <label for="dateFrom">Початок</label>
+              <input
+                type="date"
+                id="dateFrom"
+                name="from"
+              />
+            </div>
+            <span
+              class="range-separator"
+              aria-hidden="true"
+            ></span>
+            <div class="field dark-label condensed">
+              <label for="dateTo">Кінець</label>
+              <input
+                type="date"
+                id="dateTo"
+                name="to"
+              />
+            </div>
+          </div>
 
           <div
             class="field full-width dark-label"
