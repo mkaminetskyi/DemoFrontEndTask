@@ -87,6 +87,10 @@
   transform: translateY(1px);
 }
 
+.general-one-s-report-page-content__btn-get-report:disabled {
+  cursor: not-allowed;
+}
+
 /* toolbar end */
 /* toolbar end */
 /* toolbar end */

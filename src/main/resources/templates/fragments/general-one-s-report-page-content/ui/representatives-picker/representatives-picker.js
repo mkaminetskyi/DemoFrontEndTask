@@ -709,8 +709,6 @@
             });
         }
 
-        // Зберігаємо порожній масив напряму, обходячи writeSelectionToCookie
-        // бо вона автоматично вибирає всіх представників, якщо передати []
         setCookieValue(representativesCookieName, JSON.stringify([]));
         const finalSelection = [];
 
