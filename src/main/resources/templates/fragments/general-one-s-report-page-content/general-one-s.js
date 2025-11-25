@@ -753,4 +753,16 @@ import { createZoomController } from "./controllers/zoom-controller.js";
         analysisButton.dataset.originalText || originalText;
     }
   });
+
+  // clear search client input
+  const clearSearchClientButton = document.getElementById(
+    "clear-search-client-button",
+  );
+  if (clearSearchClientButton) {
+    clearSearchClientButton.addEventListener("click", e => {
+      e.preventDefault();
+
+      contractorInput.value = "";
+    });
+  }
 })();
