@@ -15,7 +15,6 @@
       <!-- renderRepresentativesPicker -->
       <div
         id="adminView"
-        class="admin-plan-view"
         th:if="${renderRepresentativesPicker}"
       >
         <div
@@ -23,7 +22,8 @@
           class="representatives-filter"
           style="display: none"
         >
-          <details class="representatives-dropdown">
+          <h3 class="representatives-picker__title">Представники</h3>
+          <details class="representatives-picker__dropdown">
             <summary id="representativesSummary">
               Представники
             </summary>
