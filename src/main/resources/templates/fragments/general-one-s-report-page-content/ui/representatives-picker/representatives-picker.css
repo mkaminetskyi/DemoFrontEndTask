@@ -1,0 +1,37 @@
+.representatives-picker__button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 12px;
+  padding: 5px 0;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--brand-white);
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
+    filter 0.12s ease;
+
+  background: var(--brand-white);
+  color: var(--brand-blue);
+  border: 1px solid var(--blue-border-40);
+}
+
+.representatives-picker__button:hover {
+  /* box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); */
+
+  border-color: var(--blue-border-55);
+  box-shadow: var(--blue-shadow-soft);
+}
+
+.representatives-picker__button:active {
+  background: var(--blue-surface-10);
+  transform: translateY(1px);
+}

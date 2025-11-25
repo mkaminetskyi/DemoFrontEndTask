@@ -275,6 +275,9 @@
     const selectAllBtn = document.getElementById(
       "representativesSelectAll",
     );
+    const deselectAllBtn = document.getElementById(
+      "representativesDeselectAll",
+    );
     const fetchReportBtn = document.getElementById(
       "representativesFetchReport",
     );
@@ -429,12 +432,17 @@
         return;
       }
 
-      if (
-        !selection.length ||
+      // Якщо нічого не обрано
+      if (!selection.length) {
+        // summaryEl.textContent = "Представників не вибрано";
+        summaryEl.textContent = "Представники: не вибрано";
+      } else if (
         selection.length === availableRepresentatives.length
       ) {
+        // Якщо обрано всіх
         summaryEl.textContent = "Представники: всі";
       } else {
+        // Якщо обрано частину
         summaryEl.textContent = `Представники: ${selection.length}`;
       }
     };
@@ -679,6 +687,33 @@
         const finalSelection = writeSelectionToCookie([
           ...availableRepresentatives,
         ]);
+        updateSummaryLabel(finalSelection);
+        resetTableView();
+        updateFetchButtonState();
+      });
+    }
+
+    if (deselectAllBtn) {
+      deselectAllBtn.addEventListener("click", e => {
+        e.preventDefault();
+
+        if (!availableRepresentatives.length) {
+          return;
+        }
+
+        if (optionsContainer) {
+          optionsContainer
+            .querySelectorAll('input[type="checkbox"]')
+            .forEach(checkbox => {
+              checkbox.checked = false;
+            });
+        }
+
+        // Зберігаємо порожній масив напряму, обходячи writeSelectionToCookie
+        // бо вона автоматично вибирає всіх представників, якщо передати []
+        setCookieValue(representativesCookieName, JSON.stringify([]));
+        const finalSelection = [];
+
         updateSummaryLabel(finalSelection);
         resetTableView();
         updateFetchButtonState();

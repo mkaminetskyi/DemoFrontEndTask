@@ -3,9 +3,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
   <body>
     <div
-      class="general-one-s-report-page-content__representatives-picker"
       th:fragment="representatives-picker(renderRepresentativesPicker, userRole)"
     >
+      <link
+        rel="stylesheet"
+        th:href="@{/fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker.css}"
+      />
+
       <script src="/fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker.js"></script>
 
       <!-- renderRepresentativesPicker -->
@@ -28,17 +32,28 @@
                 Оберіть представників, які мають відображатися у
                 звіті.
               </p>
+
+              <!-- optionsContainer -->
               <div
                 id="representativesOptions"
                 class="representatives-options"
               ></div>
+
               <div class="representatives-actions">
                 <button
                   type="button"
-                  class="btn secondary"
+                  class="representatives-picker__button"
                   id="representativesSelectAll"
                 >
                   Обрати всі
+                </button>
+
+                <button
+                  type="button"
+                  class="representatives-picker__button"
+                  id="representativesDeselectAll"
+                >
+                  Відмінити всі
                 </button>
               </div>
             </div>
