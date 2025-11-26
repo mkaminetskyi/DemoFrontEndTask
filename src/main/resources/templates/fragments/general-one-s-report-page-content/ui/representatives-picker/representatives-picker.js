@@ -1,21 +1,38 @@
 (function () {
+  // Визначаємо видимий layout
+  const getVisibleLayout = () => {
+    const mobile = document.querySelector(".s__mobile-layout");
+    const desktop = document.querySelector(".s__desktop-layout");
+
+    if (desktop && window.getComputedStyle(desktop).display !== "none") {
+      return desktop;
+    }
+    if (mobile && window.getComputedStyle(mobile).display !== "none") {
+      return mobile;
+    }
+    return document;
+  };
+
+  const visibleLayout = getVisibleLayout();
+
   // Перевірка, чи елемент вже ініціалізований
-  const adminView = document.getElementById("adminView");
+  const adminView = visibleLayout.querySelector("#adminView");
   if (!adminView || adminView.dataset.initialized === "true") {
     return;
   }
   adminView.dataset.initialized = "true";
 
   const section =
-    document.querySelector(".section") ||
-    document.querySelector(".page-section") ||
-    document.querySelector("[data-user-role]");
+    visibleLayout.querySelector(".section") ||
+    visibleLayout.querySelector(".page-section") ||
+    visibleLayout.querySelector("[data-user-role]");
   const userRole = section?.dataset?.userRole || "ANONYMOUS";
   const representativesCookieName =
     section?.dataset?.representativesCookie ||
     "salesPlanRepresentatives";
-  const downloadToolbar = document.getElementById("downloadToolbar");
-  const downloadDataBtn = document.getElementById("downloadDataBtn");
+  const $ = id => visibleLayout.querySelector(`#${id}`);
+  const downloadToolbar = $("downloadToolbar");
+  const downloadDataBtn = $("downloadDataBtn");
 
   const showAlert = message => {
     if (window.Telegram?.WebApp) {
@@ -123,7 +140,6 @@
   }
 
   if (userRole === "MANAGER") {
-    const $ = id => document.getElementById(id);
     const loading = $("loading");
     const planContent = $("planContent");
     const errorEl = $("error");
@@ -258,29 +274,15 @@
     hideDownloadButton();
     loadManagerData().catch(() => {});
   } else if (userRole === "SUPERVISOR" || userRole === "OWNER") {
-    const loading = document.getElementById("loading");
-    const tableContainer = document.getElementById(
-      "adminTableContainer",
-    );
-    const errorEl = document.getElementById("adminError");
-    const filterContainer = document.getElementById(
-      "representativesFilter",
-    );
-    const optionsContainer = document.getElementById(
-      "representativesOptions",
-    );
-    const summaryEl = document.getElementById(
-      "representativesSummary",
-    );
-    const selectAllBtn = document.getElementById(
-      "representativesSelectAll",
-    );
-    const deselectAllBtn = document.getElementById(
-      "representativesDeselectAll",
-    );
-    const fetchReportBtn = document.getElementById(
-      "representativesFetchReport",
-    );
+    const loading = $("loading");
+    const tableContainer = $("adminTableContainer");
+    const errorEl = $("adminError");
+    const filterContainer = $("representativesFilter");
+    const optionsContainer = $("representativesOptions");
+    const summaryEl = $("representativesSummary");
+    const selectAllBtn = $("representativesSelectAll");
+    const deselectAllBtn = $("representativesDeselectAll");
+    const fetchReportBtn = $("representativesFetchReport");
 
     hideDownloadButton();
 
