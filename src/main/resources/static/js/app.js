@@ -23,8 +23,8 @@
       return;
     }
 
-    roleEl.textContent =
-      ROLE_TITLES[roleCode] || ROLE_TITLES.ANONYMOUS;
+    const roleTitle = ROLE_TITLES[roleCode] || ROLE_TITLES.ANONYMOUS;
+    roleEl.textContent = `Роль: ${roleTitle}`;
   }
 
   function setAvatar(photoUrl, firstName, username) {

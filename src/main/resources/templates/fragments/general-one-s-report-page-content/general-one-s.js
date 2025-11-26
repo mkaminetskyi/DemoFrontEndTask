@@ -755,9 +755,7 @@ import { createZoomController } from "./controllers/zoom-controller.js";
   });
 
   // clear search client input
-  const clearSearchClientButton = document.getElementById(
-    "clear-search-client-button",
-  );
+  const clearSearchClientButton = $("clear-search-client-button");
   if (clearSearchClientButton) {
     clearSearchClientButton.addEventListener("click", e => {
       e.preventDefault();
