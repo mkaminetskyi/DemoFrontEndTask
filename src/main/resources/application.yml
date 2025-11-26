@@ -11,3 +11,7 @@ spring:
       additional-exclude: static/**,templates/**
     livereload:
       enabled: true
+
+
+telegram:
+  bot-username: ${TELEGRAM_BOT_USERNAME}
