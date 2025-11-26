@@ -16,9 +16,13 @@
       rel="stylesheet"
       href="/css/app.css"
     />
+    <link
+      rel="stylesheet"
+      href="/pages/auth-gateway/auth-gateway.css"
+    />
   </head>
   <body class="auth-gateway">
-    <div class="app-shell app-shell--auth">
+    <div class="app-shell--auth">
       <header class="gateway-header">
         <h1 class="gateway-title">Bulat+</h1>
       </header>
@@ -29,25 +33,46 @@
             id="authLoader"
             aria-hidden="true"
           ></div>
-          <p id="authMessage">Перевіряємо ваш доступ…</p>
-          <button
-            class="btn secondary is-hidden"
-            id="retryButton"
-            type="button"
-          >
-            Спробувати ще раз
-          </button>
-          <div class="gateway-actions">
+          <div class="auth-gateway__card-inner">
+            <p
+              class="auth-gateway__status"
+              id="authMessage"
+            >
+              Перевіряємо ваш доступ…
+            </p>
+
+            <button
+              class="btn secondary is-hidden"
+              id="retryButton"
+              type="button"
+            >
+              Спробувати ще раз
+            </button>
+
             <div
               class="telegram-login is-hidden"
               id="telegramWidgetContainer"
               aria-live="polite"
               th:attr="data-bot=${telegramBotUsername}"
             ></div>
+
             <p
               class="gateway-hint is-hidden"
               id="browserHint"
             ></p>
+          </div>
+          <div class="gateway-actions">
+            <!-- <div
+              class="telegram-login is-hidden"
+              id="telegramWidgetContainer"
+              aria-live="polite"
+              th:attr="data-bot=${telegramBotUsername}"
+            ></div>
+
+            <p
+              class="gateway-hint is-hidden"
+              id="browserHint"
+            ></p> -->
           </div>
         </div>
       </main>

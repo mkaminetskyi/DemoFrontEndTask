@@ -290,7 +290,11 @@
       return;
     }
     element.textContent = text;
-    element.className = "status" + (modifier ? " " + modifier : "");
+
+    element.classList.remove("warning", "error", "success");
+    if (modifier) {
+      element.classList.add(modifier);
+    }
   }
 
   function setLoading(ui, isLoading) {
