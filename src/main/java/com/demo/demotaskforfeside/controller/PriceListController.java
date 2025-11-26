@@ -25,7 +25,7 @@ public class PriceListController {
 //There was an unexpected error (type=Not Found, status=404).
 
 // @GetMapping
-    @GetMapping({"/", "/price-list"}) // без цього не запускалось
+    @GetMapping( "/price-list") // без цього не запускалось
     public String priceListPage(Model model) {
         model.addAttribute("hasSession", true);
 
