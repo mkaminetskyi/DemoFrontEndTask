@@ -42,6 +42,43 @@ import { createZoomController } from "./controllers/zoom-controller.js";
   const dateToEl = $("dateTo");
   const hasDateRange = !!dateFromEl || !!dateToEl;
 
+  const getCookieValue = name => {
+    const cookies = document.cookie ? document.cookie.split(";") : [];
+    const prefix = `${name}=`;
+    for (const cookie of cookies) {
+      const trimmed = cookie.trim();
+      if (trimmed.startsWith(prefix)) {
+        return trimmed.substring(prefix.length);
+      }
+    }
+
+    return null;
+  };
+
+  const getSelectedRepresentatives = () => {
+    const cookieName = "salesPlanRepresentatives";
+    const rawValue = getCookieValue(cookieName);
+    if (!rawValue) {
+      return [];
+    }
+    try {
+      const decoded = decodeURIComponent(rawValue);
+      const parsed = JSON.parse(decoded);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (err) {
+      return [];
+    }
+  };
+
+  const updateGetBtnState = () => {
+    if (!getBtn) return;
+
+    const selectedReps = getSelectedRepresentatives();
+    const hasSelection = selectedReps.length > 0;
+
+    getBtn.disabled = !hasSelection;
+  };
+
   if (hasDateRange) {
     setDefaultRange(dateFromEl, dateToEl, dataEndpoint);
   }
@@ -593,8 +630,16 @@ import { createZoomController } from "./controllers/zoom-controller.js";
     }
   });
 
+  updateGetBtnState();
+  window.addEventListener("storage", updateGetBtnState);
+
   getBtn?.addEventListener("click", async () => {
     hideSuggestions();
+    const selectedReps = getSelectedRepresentatives();
+    if (selectedReps.length === 0) {
+      showError("Будь ласка, оберіть хоча б одного представника");
+      return;
+    }
     const from = dateFromEl?.value;
     const to = dateToEl?.value;
 
@@ -612,6 +657,7 @@ import { createZoomController } from "./controllers/zoom-controller.js";
 
     showLoading();
 
+    // todo [25.11.2025]: add sending renderRepresentativesPicker
     const params = new URLSearchParams();
     if (hasDateRange) {
       params.set("from", from);
@@ -707,4 +753,16 @@ import { createZoomController } from "./controllers/zoom-controller.js";
         analysisButton.dataset.originalText || originalText;
     }
   });
+
+  // clear search client input
+  const clearSearchClientButton = document.getElementById(
+    "clear-search-client-button",
+  );
+  if (clearSearchClientButton) {
+    clearSearchClientButton.addEventListener("click", e => {
+      e.preventDefault();
+
+      contractorInput.value = "";
+    });
+  }
 })();

@@ -1,6 +1,6 @@
 <div
   class="general-one-s-report-page-content"
-  th:fragment="content(pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)"
+  th:fragment="content(pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker, renderRepresentativesPicker, userRole)"
 >
   <link
     rel="stylesheet"
@@ -11,7 +11,7 @@
     <section
       class="page-section"
       id="accountsWithClientsSection"
-      th:attr="data-data-endpoint=${dataEndpoint},data-export-endpoint=${exportEndpoint}"
+      th:attr="data-data-endpoint=${dataEndpoint},data-export-endpoint=${exportEndpoint},data-user-role=${userRole}"
     >
       <h2 th:text="${pageHeading}"></h2>
 
@@ -20,33 +20,34 @@
           class="toolbar-grid"
           th:if="${renderDatePicker or renderClientPicker}"
         >
-          <!-- Не розумію для чого тут це? Це зайве і треба видалити? Чи це заготовка під майбутній функціонал? -->
-          <!-- <div
-              class="range-field"
-              th:if="${renderDatePicker}"
-            >
-              <div class="field dark-label condensed">
-                <label for="dateFrom">Початок</label>
-                <input
-                  type="date"
-                  id="dateFrom"
-                  name="from"
-                />
-              </div>
-              <span
-                class="range-separator"
-                aria-hidden="true"
-              ></span>
-              <div class="field dark-label condensed">
-                <label for="dateTo">Кінець</label>
-                <input
-                  type="date"
-                  id="dateTo"
-                  name="to"
-                />
-              </div>
-            </div> -->
+          <!-- datе picker -->
+          <div
+            class="range-field"
+            th:if="${renderDatePicker}"
+          >
+            <div class="field dark-label condensed">
+              <label for="dateFrom">Початок</label>
+              <input
+                type="date"
+                id="dateFrom"
+                name="from"
+              />
+            </div>
+            <span
+              class="range-separator"
+              aria-hidden="true"
+            ></span>
+            <div class="field dark-label condensed">
+              <label for="dateTo">Кінець</label>
+              <input
+                type="date"
+                id="dateTo"
+                name="to"
+              />
+            </div>
+          </div>
 
+          <!-- renderClientPicker -->
           <div
             class="field full-width dark-label"
             th:if="${renderClientPicker}"
@@ -54,6 +55,7 @@
             <label for="contractor">Клієнт</label>
             <div class="input-group combobox">
               <input
+                class="general-one-s-report-page-content__search-input"
                 type="text"
                 id="contractor"
                 name="contractor"
@@ -65,6 +67,19 @@
                 aria-controls="contractorSuggestions"
                 autocomplete="off"
               />
+
+              <!-- clear search-input button -->
+              <button
+                type="button"
+                class="general-one-s-report-page-content__btn-clear"
+                id="clear-search-client-button"
+              >
+                <img
+                  src="/images/svg-icons/clear-horizontal.svg"
+                  alt="очистити поле введення пошуку клієнта"
+                />
+              </button>
+
               <button
                 type="button"
                 class="btn-search"
@@ -98,6 +113,12 @@
             </div>
           </div>
         </div>
+
+        <!-- renderRepresentativesPicker -->
+        <div
+          th:replace="~{fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker :: 
+          representatives-picker(${renderRepresentativesPicker}, ${userRole})}"
+        ></div>
 
         <!-- toolbar start -->
         <!-- toolbar start -->
@@ -180,4 +201,5 @@
     src="/fragments/general-one-s-report-page-content/general-one-s.js"
     type="module"
   ></script>
+  <!-- <script src="/"></script> -->
 </div>

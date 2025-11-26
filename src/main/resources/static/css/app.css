@@ -570,7 +570,7 @@ body {
 }
 
 .btn-search:active {
-  transform: translateY(1px);
+  transform: translateY(calc(-50% + 2px));
 }
 
 .btn-search.loading {
@@ -1446,6 +1446,7 @@ textarea {
     box-shadow 0.12s ease,
     border-color 0.12s ease;
 }
+
 input:focus,
 select:focus,
 textarea:focus {

@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <div
+      th:fragment="representatives-picker(renderRepresentativesPicker, userRole)"
+    >
+      <link
+        rel="stylesheet"
+        th:href="@{/fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker.css}"
+      />
+
+      <script src="/fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker.js"></script>
+
+      <!-- renderRepresentativesPicker -->
+      <div
+        id="adminView"
+        th:if="${renderRepresentativesPicker}"
+      >
+        <div
+          id="representativesFilter"
+          class="representatives-filter"
+          style="display: none"
+        >
+          <h3 class="representatives-picker__title">Представники</h3>
+          <details class="representatives-picker__dropdown">
+            <summary id="representativesSummary">
+              Представники
+            </summary>
+            <div class="representatives-dropdown-content">
+              <p class="representatives-helper">
+                Оберіть представників, які мають відображатися у
+                звіті.
+              </p>
+
+              <!-- optionsContainer -->
+              <div
+                id="representativesOptions"
+                class="representatives-options"
+              ></div>
+
+              <div class="representatives-actions">
+                <button
+                  type="button"
+                  class="representatives-picker__button"
+                  id="representativesSelectAll"
+                >
+                  Обрати всі
+                </button>
+
+                <button
+                  type="button"
+                  class="representatives-picker__button"
+                  id="representativesDeselectAll"
+                >
+                  Відмінити всі
+                </button>
+              </div>
+            </div>
+          </details>
+          <!-- <div
+          class="representatives-actions representatives-fetch"
+        >
+          <button
+            type="button"
+            class="btn primary"
+            id="representativesFetchReport"
+            disabled
+          >
+            Отримати звіт
+          </button>
+        </div> -->
+        </div>
+        <div
+          id="adminTableContainer"
+          class="admin-table-container"
+          style="display: none"
+        ></div>
+        <div
+          id="adminError"
+          class="status error"
+          style="display: none"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

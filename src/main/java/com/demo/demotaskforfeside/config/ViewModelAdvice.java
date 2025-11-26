@@ -17,8 +17,14 @@ public class ViewModelAdvice {
 
         model.addAttribute("authenticated", authenticated);
         model.addAttribute("fallbackName", "Гість");
-        model.addAttribute("userRole", "ANONYMOUS");
-        model.addAttribute("userName", "Гість");
-        model.addAttribute("userRoleName", "ANONYMOUS");
+
+        model.addAttribute("userRole", "OWNER");
+        // model.addAttribute("userRole", "ANONYMOUS");
+
+        model.addAttribute("userName", "Власник (Максим)");
+        // model.addAttribute("userName", "Гість");
+
+        model.addAttribute("userRoleName", "OWNER");
+        // model.addAttribute("userRoleName", "ANONYMOUS");
     }
 }

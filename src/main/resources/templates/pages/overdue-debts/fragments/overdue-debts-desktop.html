@@ -1,9 +1,11 @@
-<div th:fragment="desktop(activeNav, pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker)">
+<div
+  th:fragment="desktop(activeNav, pageHeading, dataEndpoint, exportEndpoint, renderDatePicker, renderClientPicker, renderRepresentativesPicker, userRole)"
+>
   <div
     th:replace="~{fragments/desktop-layout/desktop-layout :: shell(${activeNav}, ~{::main})}"
   >
     <main
-      th:replace="~{fragments/general-one-s-report-page-content/general-one-s-report-page-content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker})}"
+      th:replace="~{fragments/general-one-s-report-page-content/general-one-s-report-page-content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}"
     ></main>
   </div>
 </div>
