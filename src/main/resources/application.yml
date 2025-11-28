@@ -12,6 +12,5 @@ spring:
     livereload:
       enabled: true
 
-
 telegram:
-  bot-username: ${TELEGRAM_BOT_USERNAME}
+  bot-username: springTaskBot_bot

@@ -10,6 +10,8 @@
   --brand-blue-dark: #004799;
   --brand-success: #16a34a;
   --brand-success-dark: #15803d;
+  --brand-error: #dc2626;
+  --brand-warning: #d97706;
 
   --card-radius: 16px;
   --card-padding: 18px;
@@ -760,7 +762,7 @@ body {
 }
 
 /* ================== auth gateway ================== */
-.app-shell--auth {
+/* .app-shell--auth {
   display: grid;
   place-items: center;
   background: linear-gradient(
@@ -837,7 +839,7 @@ body {
   padding: 16px;
   color: var(--brand-muted);
   font-size: 13px;
-}
+} */
 
 .loader {
   width: 48px;
