@@ -83,6 +83,7 @@
         >
       </footer>
     </div>
+
     <script th:inline="javascript">
       window.__APP_CONTEXT__ = Object.assign(
         {},
@@ -92,11 +93,10 @@
         },
       );
     </script>
+
     <script
-      src="/pages/auth-gateway/telegram-auth.js"
-      defer
+      type="module"
+      th:src="@{/pages/auth-gateway/js/main.js(v=${appVersion})}"
     ></script>
   </body>
 </html>
-
-<!-- th:src="@{/pages/auth-gateway/telegram-auth.js(v=${appVersion})}" -->
