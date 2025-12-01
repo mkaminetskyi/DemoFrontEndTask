@@ -138,6 +138,7 @@ body {
 /* Padding для Telegram WebApp */
 body.telegram-app .container {
   padding-top: 100px;
+  background: var(--surface);
 }
 
 .is-hidden {
