@@ -155,6 +155,52 @@ body.telegram-app .container {
   min-width: 0;
 }
 
+/* ===== page-heading ===== */
+/* ===== page-heading ===== */
+/* ===== page-heading ===== */
+
+.heading--underlined {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--brand-blue);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+/* .page-section h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  color: var(--brand-blue);
+  display: inline-block;
+  font-family:
+    "Montserrat",
+    "Manrope",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+.page-section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 6px;
+  background: var(--brand-yellow);
+  border-radius: 3px;
+} */
+
+/* ===== page-heading ===== */
+/* ===== page-heading ===== */
+/* ===== page-heading ===== */
+
 /* ================== shared components ================== */
 .card {
   background: var(--brand-white);
@@ -1034,33 +1080,6 @@ body.telegram-app .container {
   overflow-x: hidden;
 }
 
-.page-section h2 {
-  font-size: 18px;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid
-    color-mix(in srgb, var(--brand-blue) 18%, transparent);
-  color: var(--brand-blue);
-  display: inline-block;
-  font-family:
-    "Montserrat",
-    "Manrope",
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
-}
-.page-section h2::after {
-  content: "";
-  display: block;
-  width: 56px;
-  height: 3px;
-  margin-top: 6px;
-  background: var(--brand-yellow);
-  border-radius: 3px;
-}
 ul.sublist {
   list-style: none;
   display: flex;
