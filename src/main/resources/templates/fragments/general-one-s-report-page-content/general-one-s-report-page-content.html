@@ -9,11 +9,13 @@
 
   <main class="general-one-s-report-page-content__page-surface">
     <section
-      class="page-section"
       id="accountsWithClientsSection"
       th:attr="data-data-endpoint=${dataEndpoint},data-export-endpoint=${exportEndpoint},data-user-role=${userRole}"
     >
-      <h2 th:text="${pageHeading}"></h2>
+      <h2
+        class="heading--underlined"
+        th:text="${pageHeading}"
+      ></h2>
 
       <div class="toolbar card">
         <div

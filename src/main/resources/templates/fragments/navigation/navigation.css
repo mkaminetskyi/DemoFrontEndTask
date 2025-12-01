@@ -15,10 +15,12 @@
 
 .navigation__side-nav__title {
   font-size: 13px;
-  font-weight: 700;
-  color: var(--brand-muted-dark);
+  font-weight: 900;
+  color: var(--brand-blue);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  width: fit-content;
+  margin-top: 8px;
 }
 
 .navigation__side-nav__list {
