@@ -1,9 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 html,
 body.auth-gateway {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
 }
 
 .app-shell--auth {
@@ -44,21 +48,22 @@ body.auth-gateway {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 0 auto;
+  padding: 0 16px;
 }
 
 .gateway-card {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 16px;
-  /* justify-content: center; */
-  align-items: center;
+  justify-items: center;
+  text-align: center;
   padding: 32px 28px;
   border-radius: 20px;
   background: var(--brand-white);
   box-shadow: var(--shadow);
-  border: 10px solid var(--border);
+  border: 1px solid var(--border);
   width: min(320px, 90vw);
+  margin: 0 auto;
+  /* TEST: якщо бачите цей коментар у DevTools - CSS завантажується */
 }
 
 .gateway-actions {

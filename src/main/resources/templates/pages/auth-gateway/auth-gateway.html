@@ -14,11 +14,11 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link
       rel="stylesheet"
-      href="/css/app.css"
+      th:href="@{/css/app.css(v=${appVersion})}"
     />
     <link
       rel="stylesheet"
-      href="/pages/auth-gateway/auth-gateway.css"
+      th:href="@{/pages/auth-gateway/auth-gateway.css(v=${appVersion})}"
     />
   </head>
   <body class="auth-gateway">
@@ -92,6 +92,22 @@
           authenticated: /*[[${authenticated}]]*/ false,
         },
       );
+
+      // Виправлення позиціонування для Telegram WebApp
+      (function () {
+        const body = document.body;
+        const html = document.documentElement;
+
+        // Обнуляємо всі можливі відступи
+        body.style.margin = "0";
+        body.style.padding = "0";
+        body.style.width = "100%";
+        body.style.overflow = "hidden";
+
+        html.style.margin = "0";
+        html.style.padding = "0";
+        html.style.width = "100%";
+      })();
     </script>
 
     <script
