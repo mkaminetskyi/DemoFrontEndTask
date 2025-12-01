@@ -123,17 +123,16 @@ body {
     Roboto,
     Arial,
     sans-serif;
-  background: var(--brand-white);
   color: var(--brand-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--surface);
 }
 
 .container {
-  max-width: 1200px; /* 1200px */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 6px;
-  background: var(--surface);
 }
 
 /* Padding для Telegram WebApp */

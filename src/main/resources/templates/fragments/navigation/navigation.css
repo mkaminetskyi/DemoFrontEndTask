@@ -19,6 +19,8 @@
   color: var(--brand-muted-dark);
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  border-bottom: 2px solid var(--brand-muted);
+  width: fit-content;
 }
 
 .navigation__side-nav__list {
