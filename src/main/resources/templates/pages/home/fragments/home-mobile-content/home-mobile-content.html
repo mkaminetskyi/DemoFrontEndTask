@@ -6,7 +6,11 @@
 
   <div class="app-shell">
     <main class="page-surface">
-      <section class="page-section">
+      <div
+        th:replace="~{fragments/navigation/navigation :: navigation(${active})}"
+      ></div>
+
+      <!-- <section class="page-section">
         <h2>Продажі</h2>
         <ul class="sublist">
           <li>
@@ -178,7 +182,7 @@
             </a>
           </li>
         </ul>
-      </section>
+      </section> -->
     </main>
   </div>
 

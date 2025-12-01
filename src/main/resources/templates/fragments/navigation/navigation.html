@@ -1,0 +1,299 @@
+<div th:fragment="navigation(active)">
+  <link
+    rel="stylesheet"
+    th:href="@{/fragments/navigation/navigation.css}"
+  />
+
+  <nav
+    class="navigation__side-nav"
+    aria-label="Основна навігація"
+  >
+    <div class="navigation__side-nav__sections">
+      <section class="navigation__side-nav__group">
+        <h3 class="navigation__side-nav__title">Продажі</h3>
+        <ul class="navigation__side-nav__list">
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'sales-plan' ? ' is-active' : ''"
+              href="/api/sales/plan"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">План продажу</div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'sales-product-groups' ? ' is-active' : ''"
+              href="/api/sales/product-groups"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Продажі за групами номенклатури
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-client-purchases' ? ' is-active' : ''"
+              href="/api/accounts-with-clients/client-purchases"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/savings.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Покупки клієнта
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'sales-client-assistant' ? ' is-active' : ''"
+              href="/api/assistants/clients"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/cooperate.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Помічник продажу по клієнтах
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="navigation__side-nav__group">
+        <h3 class="navigation__side-nav__title">
+          Розрахунки з клієнтами
+        </h3>
+        <ul class="navigation__side-nav__list">
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-overdue-debts' ? ' is-active' : ''"
+              href="/overdue-debts"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Протерміновані борги
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-reconciliation' ? ' is-active' : ''"
+              href="/api/accounts-with-clients/accounts-reconciliation"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Взаєморозрахунки
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-cash-registers' ? ' is-active' : ''"
+              href="/api/accounts-with-clients/cash-registers"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">Каси</div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-payment-instructions' ? ' is-active' : ''"
+              href="/api/accounts-with-clients/payment-instructions"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Реквізити для оплати
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'accounts-payment-qr' ? ' is-active' : ''"
+              href="/api/accounts-with-clients/payment-qr"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                QR код для оплати
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="navigation__side-nav__group">
+        <h3 class="navigation__side-nav__title">Номенклатура</h3>
+        <ul class="navigation__side-nav__list">
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'assistant-products' ? ' is-active' : ''"
+              href="/api/assistants/products"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Помічник з підбору номенклатури
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'catalogs' ? ' is-active' : ''"
+              href="/api/catalogs"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">Каталоги</div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'catalogs-prices' ? ' is-active' : ''"
+              href="/api/catalogs/prices"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">Прайс-лист</div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="navigation__side-nav__group">
+        <h3 class="navigation__side-nav__title">Інтернет ресурси</h3>
+        <ul class="navigation__side-nav__list">
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'internet-shop' ? ' is-active' : ''"
+              href="/api/internet-resources/internet-shop"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Інтернет магазин
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'internet-b2b' ? ' is-active' : ''"
+              href="/api/internet-resources/b2b-platform"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">B2B платформа</div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'internet-info' ? ' is-active' : ''"
+              href="/api/internet-resources/general-info"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Загальна інформація
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'internet-contacts' ? ' is-active' : ''"
+              href="/api/internet-resources/contacts"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">Контакти</div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </nav>
+</div>

@@ -133,8 +133,12 @@ body {
   max-width: 1200px; /* 1200px */
   margin: 0 auto;
   padding: 0 6px;
-  /* --shell-max-width: 1200px; */
-  /* --shell-padding: clamp(16px, 4vw, 24px); */
+  background: var(--surface);
+}
+
+/* Padding для Telegram WebApp */
+body.telegram-app .container {
+  padding-top: 100px;
 }
 
 .is-hidden {

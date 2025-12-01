@@ -77,7 +77,11 @@
   ).toString();
   applyRole(contextRole);
 
-  if (tg) {
+  // Перевірка чи це справді Telegram WebApp (а не просто завантажений скрипт у браузері)
+  const isTelegramApp = tg && (tg.initData || tg.platform !== "unknown");
+
+  if (isTelegramApp) {
+    document.body.classList.add('telegram-app');
     try {
       tg.ready();
       tg.expand();
@@ -109,7 +113,7 @@
   const logoutBtn = byId("logoutBtn");
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
-      if (tg) {
+      if (isTelegramApp) {
         try {
           tg.close();
           return;
