@@ -137,7 +137,7 @@ body {
 
 /* Padding для Telegram WebApp */
 body.telegram-app .container {
-  padding-top: 100px;
+  padding-top: 80px;
   background: var(--surface);
 }
 
@@ -641,6 +641,7 @@ body.telegram-app .container {
   border-top-color: var(--brand-blue);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
 }
 
 @keyframes spin {
@@ -890,6 +891,14 @@ body.telegram-app .container {
   color: var(--brand-muted);
   font-size: 13px;
 } */
+/* ===== */
+/* ===== */
+/* ===== */
+/* ===== */
+/* ===== */
+/* ===== */
+/* ===== */
+/* ===== */
 
 .loader {
   width: 48px;
@@ -899,6 +908,7 @@ body.telegram-app .container {
     color-mix(in srgb, var(--brand-blue) 25%, transparent);
   border-top-color: var(--brand-blue);
   animation: spin 0.9s linear infinite;
+  flex-shrink: 0;
 }
 
 .status.success {
