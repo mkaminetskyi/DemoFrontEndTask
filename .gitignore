@@ -36,3 +36,6 @@ node_modules
 
 src/main/resources/static/images/to-do.png
 src/main/resources/static/images/screen-now.png
+
+
+docs/cheat-sheet.md

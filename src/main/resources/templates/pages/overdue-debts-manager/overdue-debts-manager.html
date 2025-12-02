@@ -1,0 +1,55 @@
+<!doctype html>
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>overdue-debts-manager</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link
+      rel="stylesheet"
+      th:href="@{/css/app.css(v=${appVersion})}"
+    />
+
+    <link
+      rel="stylesheet"
+      th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
+    />
+
+    <link
+      rel="stylesheet"
+      th:href="@{/pages/overdue-debts-manager/fragments/content.css(v=${appVersion})}"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="s__mobile-layout">
+        <div
+          th:replace="~{/pages/overdue-debts-manager/fragments/content.html :: content}"
+        ></div>
+
+        <div
+          th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+        ></div>
+      </div>
+
+      <div class="s__desktop-layout">
+        <div
+          th:replace="~{fragments/desktop-layout/desktop-layout :: shell('accounts-overdue-debts', ~{::main})}"
+        >
+          <main
+            th:replace="~{/pages/overdue-debts-manager/fragments/content.html :: content}"
+          ></main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<main
+  class="s__content"
+  th:fragment="content"
+>
+  <div th:text="|Грудень (робочих днів: ${totalWorkDays})|"></div>
+
+  <div class="s__heading-wrapper">
+    <h1 class="heading--underlined">План продажу</h1>
+    <button class="s__download-btn">Завантажити</button>
+  </div>
+
+  <section class="s__section">
+    <h2 class="s__section-title">Зведення</h2>
+
+    <ul class="s__cards-list">
+      <li class="s__card">
+        <span class="s__card-label">Виконання</span>
+        <span
+          class="s__card-value"
+          th:text="|${totalExecution} грн|"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">План</span>
+        <span
+          class="s__card-value"
+          th:text="|${overallPlan} грн|"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Залишилось до виконання</span>
+        <span
+          class="s__card-value"
+          th:text="|${remainingAmount} грн|"
+        ></span>
+      </li>
+    </ul>
+
+    <div class="s__card s__progress-bar-card">
+      <div class="s__card-inner">
+        <span class="s__card-label">Виконання плану</span>
+        <span
+          class="s__card-value--blue"
+          th:text="|${percent}%|"
+        ></span>
+      </div>
+
+      <div class="s__progress-bar">
+        <div
+          class="s__progress-bar--filled"
+          th:style="|width: ${percent}%;|"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s__section">
+    <h2 class="s__section-title">Робочі дні</h2>
+
+    <ul class="s__cards-list">
+      <li class="s__card">
+        <span class="s__card-label"
+          >Відпрацьовано робочого часу, днів</span
+        >
+        <span
+          class="s__card-value"
+          th:text="${workedDays}"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Залишилось робочих днів</span>
+        <span
+          class="s__card-value"
+          th:text="${remainingWorkDays}"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Відпрацьовано %</span>
+        <span
+          class="s__card-value"
+          th:text="${workedPercent}"
+        ></span>
+      </li>
+    </ul>
+  </section>
+</main>

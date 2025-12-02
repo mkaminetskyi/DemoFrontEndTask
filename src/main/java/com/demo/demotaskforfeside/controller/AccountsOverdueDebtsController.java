@@ -44,7 +44,8 @@ public class AccountsOverdueDebtsController {
         model.addAttribute("workedRatio", 0.545);
         model.addAttribute("workedPercent", 54.5);
 
-        return "pages/overdue-debts-manager/plan-manager";
+        return "pages/overdue-debts-manager/overdue-debts-manager";
+        // return "pages/overdue-debts-manager/plan-manager";
     }
 
     @GetMapping(value = "/overdue-debts/data", produces = "text/html; charset=UTF-8")
