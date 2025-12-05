@@ -83,4 +83,117 @@
       </li>
     </ul>
   </section>
+
+  <section>
+    <h2 class="s__section-title">Деталізація</h2>
+
+    <ul class="s__card s__detailing-list">
+      <li class="s__detailing-item">
+        <span class="s__card-label">Основний менеджер покупця</span>
+        <span th:text="${representativeName}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">План (грн)</span>
+        <span
+          th:text="${#numbers.formatInteger(overallPlan, 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Виконання плану (грн)</span>
+        <span
+          th:text="${#numbers.formatInteger(totalExecution, 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Виконання плану %</span>
+        <span th:text="|${workedPercent}%|"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Прогноз по виконанню (грн)</span>
+        <!-- <span></span> -->
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Прогноз по виконанню %</span>
+        <!-- <span th:text="${}"></span> -->
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Залишилося до виконання (грн)</span
+        >
+        <span th:text="${remainingAmount}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Мініммальна сума/день</span>
+        <span
+          th:text="${#numbers.formatInteger((overallPlan / totalWorkDays), 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Протермінована заборгованість (грн)</span
+        >
+        <span th:text="${overdueDebtAmount}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Протермінована заборгованість %</span
+        >
+        <span th:text="${overdueDebtPercent}"></span>
+      </li>
+    </ul>
+
+    <!-- <table class="s__table">
+      <thead>
+        <tr class="s__table-header">
+          <th class="s__cell">Основний менеджер покупця</th>
+          <th class="s__cell">План (грн)</th>
+          <th class="s__cell">Виконання плану (грн)</th>
+          <th class="s__cell">Виконання плану %</th>
+          <th class="s__cell">Прогноз по виконанню (грн)</th>
+          <th class="s__cell">Прогноз по виконанню %</th>
+          <th class="s__cell">Залишилося до виконання (грн)</th>
+          <th class="s__cell">Мініммальна сума/день</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="s__table-row">
+          <td
+            class="s__cell"
+            th:text="${representativeName}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger(overallPlan, 1, 'WHITESPACE')}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger(totalExecution, 1, 'WHITESPACE')}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="|${workedPercent}%|"
+          ></td>
+          <td class="s__cell"></td>
+          <td class="s__cell"></td>
+          <td
+            class="s__cell"
+            th:text="${remainingAmount}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger((overallPlan / totalWorkDays), 1, 'WHITESPACE')}"
+          ></td>
+        </tr>
+      </tbody>
+    </table> -->
+  </section>
 </main>

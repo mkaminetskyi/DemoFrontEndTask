@@ -53,6 +53,7 @@
   font-size: 15px;
   margin-bottom: 10px;
   color: var(--brand-dark);
+  font-weight: 700;
 }
 
 .s__cards-list {
@@ -125,4 +126,21 @@
 
 .s__progress-bar-card {
   margin-top: 20px;
+}
+
+.s__detailing-list {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+  .s__detailing-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.s__detailing-item {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
