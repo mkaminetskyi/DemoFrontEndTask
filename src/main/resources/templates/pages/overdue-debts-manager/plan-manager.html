@@ -1,138 +1,267 @@
 <!doctype html>
-<html lang="uk" xmlns:th="http://www.thymeleaf.org"
-      th:with="appVersion=${@environment.getProperty('app.version')}">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
     <title>План продажу</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link rel="stylesheet" href="/mobile/css/app.css"
-          th:href="@{/mobile/css/app.css(v=${appVersion})}"/>
-</head>
-<body>
-<div class="app-shell">
-    <main class="page-surface">
-        <section class="page-section"
-                 th:attr="data-user-role=${userRole},data-representatives-cookie=${representativesCookieName}">
-            <div class="section-header">
-                <div class="plan-header">
-                    <p class="plan-period" th:text="${planPeriod}">Серпень (робочих днів: 21)</p>
-                    <div class="plan-title-row">
-                        <h2>План продажу</h2>
-                        <div class="admin-toolbar"
-                             id="downloadToolbar"
-                             style="display:none"
-                             th:if="${userRole != T(com.gen.core.dto.UserRole).ANONYMOUS}">
-                            <button type="button" class="btn accent"
-                                    id="downloadDataBtn"
-                                    disabled>
-                                Завантажити
-                            </button>
-                        </div>
-                    </div>
+    <link
+      rel="stylesheet"
+      href="/mobile/css/app.css"
+      th:href="@{/mobile/css/app.css(v=${appVersion})}"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="page-surface">
+        <section
+          class="page-section"
+          th:attr="data-user-role=${userRole},data-representatives-cookie=${representativesCookieName}"
+        >
+          <div class="section-header">
+            <div class="plan-header">
+              <p
+                class="plan-period"
+                th:text="${planPeriod}"
+              >
+                Серпень (робочих днів: 21)
+              </p>
+              <div class="plan-title-row">
+                <h2>План продажу</h2>
+                <div
+                  class="admin-toolbar"
+                  id="downloadToolbar"
+                  style="display: none"
+                  th:if="${userRole != T(com.gen.core.dto.UserRole).ANONYMOUS}"
+                >
+                  <button
+                    type="button"
+                    class="btn accent"
+                    id="downloadDataBtn"
+                    disabled
+                  >
+                    Завантажити
+                  </button>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div
+              id="loading"
+              class="status"
+            >
+              Отримую дані…
             </div>
 
-            <div>
-                <div id="loading" class="status">Отримую дані…</div>
-
-                <div class="plan-layout" id="planContent" style="display:none">
-                    <section class="totals">
-                        <h3>Зведення</h3>
-                        <div class="totals-grid">
-                            <div class="total-card">
-                                <p class="total-label">Виконання</p>
-                                <p class="total-value" id="totalExecution">0 грн</p>
-                            </div>
-                            <div class="total-card">
-                                <p class="total-label">План</p>
-                                <p class="total-value" id="overallPlan">0 грн</p>
-                            </div>
-                            <div class="total-card">
-                                <p class="total-label">Залишилось до виконання</p>
-                                <p class="total-value" id="remainingAmount">0 грн</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="plan-progress">
-                        <div class="progress-panel">
-                            <div class="progress-info">
-                                <span>Виконання плану</span>
-                                <strong id="percent">0%</strong>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-bar-fill" id="progressBar"></div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="metrics">
-                        <h3>Робочі дні</h3>
-                        <div class="metrics-grid">
-                            <article class="metric-card">
-                                <p class="metric-label">Відпрацьовано робочого часу, днів</p>
-                                <p class="total-value" id="workedDays">0</p>
-                            </article>
-                            <article class="metric-card">
-                                <p class="metric-label">Залишилось робочих днів</p>
-                                <p class="total-value" id="remainingDays">0</p>
-                            </article>
-                            <article class="metric-card">
-                                <p class="metric-label">Відпрацьовано, %</p>
-                                <p class="total-value" id="workedPercent">0%</p>
-                            </article>
-                        </div>
-                    </section>
-
-                    <section class="plan-table">
-                        <h3>Деталізація</h3>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Основний менеджер покупця</th>
-                                    <th>План (грн)</th>
-                                    <th>Виконання плану (грн)</th>
-                                    <th>Виконання плану %</th>
-                                    <th>Прогноз по виконанню (грн)</th>
-                                    <th>Прогноз по виконанню %</th>
-                                    <th>Залишилось до виконання (грн)</th>
-                                    <th>Мінімальна сума/день</th>
-                                    <th>Протермінована заборгованість %</th>
-                                    <th>Протермінована заборгованість (грн)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td id="managerName" data-label="Основний менеджер покупця">—</td>
-                                    <td id="tablePlan" data-label="План (грн)">0</td>
-                                    <td id="tableExecution" data-label="Виконання плану (грн)">0</td>
-                                    <td id="tablePercent" data-label="Виконання плану %">0%</td>
-                                    <td id="tableForecastAmount" data-label="Прогноз по виконанню (грн)">0</td>
-                                    <td id="tableForecastPercent" data-label="Прогноз по виконанню %">0%</td>
-                                    <td id="tableRemaining" data-label="Залишилось до виконання (грн)">0</td>
-                                    <td id="tableDailyNeed" data-label="Мінімальна сума/день">0</td>
-                                    <td id="tableDebtPercent" data-label="Протермінована заборгованість %">0%</td>
-                                    <td id="tableDebtAmount" data-label="Протермінована заборгованість (грн)">0</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
+            <div
+              class="plan-layout"
+              id="planContent"
+              style="display: none"
+            >
+              <section class="totals">
+                <h3>Зведення</h3>
+                <div class="totals-grid">
+                  <div class="total-card">
+                    <p class="total-label">Виконання</p>
+                    <p
+                      class="total-value"
+                      id="totalExecution"
+                    >
+                      0 грн
+                    </p>
+                  </div>
+                  <div class="total-card">
+                    <p class="total-label">План</p>
+                    <p
+                      class="total-value"
+                      id="overallPlan"
+                    >
+                      0 грн
+                    </p>
+                  </div>
+                  <div class="total-card">
+                    <p class="total-label">Залишилось до виконання</p>
+                    <p
+                      class="total-value"
+                      id="remainingAmount"
+                    >
+                      0 грн
+                    </p>
+                  </div>
                 </div>
+              </section>
 
-                <div id="error" class="status error" style="display:none"></div>
+              <section class="plan-progress">
+                <div class="progress-panel">
+                  <div class="progress-info">
+                    <span>Виконання плану</span>
+                    <strong id="percent">0%</strong>
+                  </div>
+                  <div class="progress-bar">
+                    <div
+                      class="progress-bar-fill"
+                      id="progressBar"
+                    ></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="metrics">
+                <h3>Робочі дні</h3>
+                <div class="metrics-grid">
+                  <article class="metric-card">
+                    <p class="metric-label">
+                      Відпрацьовано робочого часу, днів
+                    </p>
+                    <p
+                      class="total-value"
+                      id="workedDays"
+                    >
+                      0
+                    </p>
+                  </article>
+                  <article class="metric-card">
+                    <p class="metric-label">
+                      Залишилось робочих днів
+                    </p>
+                    <p
+                      class="total-value"
+                      id="remainingDays"
+                    >
+                      0
+                    </p>
+                  </article>
+                  <article class="metric-card">
+                    <p class="metric-label">Відпрацьовано, %</p>
+                    <p
+                      class="total-value"
+                      id="workedPercent"
+                    >
+                      0%
+                    </p>
+                  </article>
+                </div>
+              </section>
+
+              <section class="plan-table">
+                <h3>Деталізація</h3>
+                <div class="table-wrapper">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Основний менеджер покупця</th>
+                        <th>План (грн)</th>
+                        <th>Виконання плану (грн)</th>
+                        <th>Виконання плану %</th>
+                        <th>Прогноз по виконанню (грн)</th>
+                        <th>Прогноз по виконанню %</th>
+                        <th>Залишилось до виконання (грн)</th>
+                        <th>Мінімальна сума/день</th>
+                        <th>Протермінована заборгованість %</th>
+                        <th>Протермінована заборгованість (грн)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td
+                          id="managerName"
+                          data-label="Основний менеджер покупця"
+                        >
+                          —
+                        </td>
+                        <td
+                          id="tablePlan"
+                          data-label="План (грн)"
+                        >
+                          0
+                        </td>
+                        <td
+                          id="tableExecution"
+                          data-label="Виконання плану (грн)"
+                        >
+                          0
+                        </td>
+                        <td
+                          id="tablePercent"
+                          data-label="Виконання плану %"
+                        >
+                          0%
+                        </td>
+                        <td
+                          id="tableForecastAmount"
+                          data-label="Прогноз по виконанню (грн)"
+                        >
+                          0
+                        </td>
+                        <td
+                          id="tableForecastPercent"
+                          data-label="Прогноз по виконанню %"
+                        >
+                          0%
+                        </td>
+                        <td
+                          id="tableRemaining"
+                          data-label="Залишилось до виконання (грн)"
+                        >
+                          0
+                        </td>
+                        <td
+                          id="tableDailyNeed"
+                          data-label="Мінімальна сума/день"
+                        >
+                          0
+                        </td>
+                        <td
+                          id="tableDebtPercent"
+                          data-label="Протермінована заборгованість %"
+                        >
+                          0%
+                        </td>
+                        <td
+                          id="tableDebtAmount"
+                          data-label="Протермінована заборгованість (грн)"
+                        >
+                          0
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
             </div>
+
+            <div
+              id="error"
+              class="status error"
+              style="display: none"
+            ></div>
+          </div>
         </section>
-    </main>
-</div>
+      </main>
+    </div>
 
-<div th:replace="~{mobile/fragments/bottombar :: bottombar}"></div>
+    <div
+      th:replace="~{mobile/fragments/bottombar :: bottombar}"
+    ></div>
 
-<script src="/mobile/js/app.js" defer
-        th:src="@{/mobile/js/app.js(v=${appVersion})}"></script>
-<script src="/mobile/js/sales-plan.js" defer
-        th:src="@{/mobile/js/sales-plan.js(v=${appVersion})}"></script>
-</body>
+    <script
+      src="/mobile/js/app.js"
+      defer
+      th:src="@{/mobile/js/app.js(v=${appVersion})}"
+    ></script>
+    <script
+      src="/mobile/js/sales-plan.js"
+      defer
+      th:src="@{/mobile/js/sales-plan.js(v=${appVersion})}"
+    ></script>
+  </body>
 </html>

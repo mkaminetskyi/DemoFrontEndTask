@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@600;700&display=swap");
 
+@import "/css/reset.css";
+
 :root {
   --brand-blue: #005bbb;
   --brand-yellow: #ffd500;
@@ -132,7 +134,13 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 6px;
+  padding: 0 10px 100px 10px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 10px 15px 10px;
+  }
 }
 
 /* Padding для Telegram WebApp */

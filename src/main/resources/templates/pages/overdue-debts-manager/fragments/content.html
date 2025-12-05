@@ -1,0 +1,211 @@
+<main
+  class="s__content"
+  th:fragment="content"
+>
+  <div th:text="|Грудень (робочих днів: ${totalWorkDays})|"></div>
+
+  <div class="s__heading-wrapper">
+    <h1 class="heading--underlined">План продажу</h1>
+    <!-- <button class="s__download-btn">Завантажити</button> -->
+
+    <button
+      type="button"
+      class="s__download-btn"
+    >
+      <img
+        src="/images/icon-download.svg"
+        alt="Завантажити звіт"
+        width="30"
+        height="30"
+      />
+    </button>
+  </div>
+
+  <section class="s__section">
+    <h2 class="s__section-title">Зведення</h2>
+
+    <ul class="s__cards-list">
+      <li class="s__card">
+        <span class="s__card-label">Виконання</span>
+        <span
+          class="s__card-value"
+          th:text="|${totalExecution} грн|"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">План</span>
+        <span
+          class="s__card-value"
+          th:text="|${overallPlan} грн|"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Залишилось до виконання</span>
+        <span
+          class="s__card-value"
+          th:text="|${remainingAmount} грн|"
+        ></span>
+      </li>
+    </ul>
+
+    <div class="s__card s__progress-bar-card">
+      <div class="s__card-inner">
+        <span class="s__card-label">Виконання плану</span>
+        <span
+          class="s__card-value--blue"
+          th:text="|${percent}%|"
+        ></span>
+      </div>
+
+      <div class="s__progress-bar">
+        <div
+          class="s__progress-bar--filled"
+          th:style="|width: ${percent}%;|"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s__section">
+    <h2 class="s__section-title">Робочі дні</h2>
+
+    <ul class="s__cards-list">
+      <li class="s__card">
+        <span class="s__card-label"
+          >Відпрацьовано робочого часу, днів</span
+        >
+        <span
+          class="s__card-value"
+          th:text="${workedDays}"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Залишилось робочих днів</span>
+        <span
+          class="s__card-value"
+          th:text="${remainingWorkDays}"
+        ></span>
+      </li>
+      <li class="s__card">
+        <span class="s__card-label">Відпрацьовано %</span>
+        <span
+          class="s__card-value"
+          th:text="${workedPercent}"
+        ></span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="s__section-title">Деталізація</h2>
+
+    <ul class="s__card s__detailing-list">
+      <li class="s__detailing-item">
+        <span class="s__card-label">Основний менеджер покупця</span>
+        <span th:text="${representativeName}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">План (грн)</span>
+        <span
+          th:text="${#numbers.formatInteger(overallPlan, 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Виконання плану (грн)</span>
+        <span
+          th:text="${#numbers.formatInteger(totalExecution, 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Виконання плану %</span>
+        <span th:text="|${workedPercent}%|"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Прогноз по виконанню (грн)</span>
+        <!-- <span></span> -->
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Прогноз по виконанню %</span>
+        <!-- <span th:text="${}"></span> -->
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Залишилося до виконання (грн)</span
+        >
+        <span th:text="${remainingAmount}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label">Мініммальна сума/день</span>
+        <span
+          th:text="${#numbers.formatInteger((overallPlan / totalWorkDays), 1, 'WHITESPACE')}"
+        ></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Протермінована заборгованість (грн)</span
+        >
+        <span th:text="${overdueDebtAmount}"></span>
+      </li>
+
+      <li class="s__detailing-item">
+        <span class="s__card-label"
+          >Протермінована заборгованість %</span
+        >
+        <span th:text="${overdueDebtPercent}"></span>
+      </li>
+    </ul>
+
+    <!-- <table class="s__table">
+      <thead>
+        <tr class="s__table-header">
+          <th class="s__cell">Основний менеджер покупця</th>
+          <th class="s__cell">План (грн)</th>
+          <th class="s__cell">Виконання плану (грн)</th>
+          <th class="s__cell">Виконання плану %</th>
+          <th class="s__cell">Прогноз по виконанню (грн)</th>
+          <th class="s__cell">Прогноз по виконанню %</th>
+          <th class="s__cell">Залишилося до виконання (грн)</th>
+          <th class="s__cell">Мініммальна сума/день</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="s__table-row">
+          <td
+            class="s__cell"
+            th:text="${representativeName}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger(overallPlan, 1, 'WHITESPACE')}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger(totalExecution, 1, 'WHITESPACE')}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="|${workedPercent}%|"
+          ></td>
+          <td class="s__cell"></td>
+          <td class="s__cell"></td>
+          <td
+            class="s__cell"
+            th:text="${remainingAmount}"
+          ></td>
+          <td
+            class="s__cell"
+            th:text="${#numbers.formatInteger((overallPlan / totalWorkDays), 1, 'WHITESPACE')}"
+          ></td>
+        </tr>
+      </tbody>
+    </table> -->
+  </section>
+</main>
