@@ -5,10 +5,30 @@
 .s__heading-wrapper {
   display: flex;
   justify-content: space-between;
-  /* background-color: #8d6262; */
 }
 
 .s__download-btn {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 5px;
+  min-height: 5px;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.s__download-btn:active {
+  transform: translateY(2px);
+}
+.s__download-btn:active img {
+  scale: 0.93;
+}
+
+/* 
   margin-bottom: 8px;
 
   display: flex;
@@ -43,7 +63,7 @@
 .s__download-btn:active {
   transform: translateY(1px);
   filter: brightness(0.96);
-}
+} */
 
 .s__section {
   margin-bottom: 30px;
