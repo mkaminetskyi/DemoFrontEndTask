@@ -78,10 +78,13 @@
   applyRole(contextRole);
 
   // Перевірка чи це справді Telegram WebApp (а не просто завантажений скрипт у браузері)
-  const isTelegramApp = tg && (tg.initData || tg.platform !== "unknown");
+  const isTelegramApp =
+    tg && (tg.initData || tg.platform !== "unknown");
 
   if (isTelegramApp) {
-    document.body.classList.add('telegram-app');
+    document.body.classList.add("telegram-app");
+    document.body.classList.add("telegram-app-blur-header");
+
     try {
       tg.ready();
       tg.expand();

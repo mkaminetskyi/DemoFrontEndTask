@@ -151,6 +151,17 @@ body.telegram-app .container {
   background: var(--surface);
 }
 
+body.telegram-app-blur-header::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
 .is-hidden {
   display: none !important;
 }
