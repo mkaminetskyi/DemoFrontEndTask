@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@600;700&display=swap");
+
+@import "/css/reset.css";
+
+:root {
+  --brand-blue: #005bbb;
+  --brand-yellow: #ffd500;
+  --brand-white: #ffffff;
+  --brand-dark: #0f172a;
+  --brand-muted: #6b7280;
+  --brand-muted-dark: #4b5563;
+  --brand-blue-dark: #004799;
+  --brand-success: #16a34a;
+  --brand-success-dark: #15803d;
+  --brand-error: #dc2626;
+  --brand-warning: #d97706;
+
+  --card-radius: 16px;
+  --card-padding: 18px;
+  --card-gap: 12px;
+
+  --shell-max-width: 1100px;
+  --shell-padding: 16px;
+  --bottom-nav-height: 96px;
+
+  --accent-gradient-start: #6366f1;
+  --accent-gradient-end: #4338ca;
+
+  --surface: #f6f8fb;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  /* Синій колір з 12% непрозорістю */
+  --blue-overlay-12: color-mix(
+    in srgb,
+    var(--brand-blue) 12%,
+    transparent
+  );
+
+  --blue-overlay-14: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    transparent
+  );
+  --blue-surface-10: color-mix(
+    in srgb,
+    var(--brand-blue) 10%,
+    var(--brand-white)
+  );
+  --blue-surface-12: color-mix(
+    in srgb,
+    var(--brand-blue) 12%,
+    var(--brand-white)
+  );
+  --blue-surface-20: color-mix(
+    in srgb,
+    var(--brand-blue) 20%,
+    var(--brand-white)
+  );
+  --blue-border-tint-14: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    var(--brand-white)
+  );
+  --blue-border-40: color-mix(
+    in srgb,
+    var(--brand-blue) 40%,
+    transparent
+  );
+  --blue-border-55: color-mix(
+    in srgb,
+    var(--brand-blue) 55%,
+    transparent
+  );
+  --blue-text-strong: color-mix(
+    in srgb,
+    var(--brand-blue) 80%,
+    var(--brand-dark) 20%
+  );
+  --yellow-surface-20: color-mix(
+    in srgb,
+    var(--brand-yellow) 20%,
+    var(--brand-white)
+  );
+  --yellow-surface-24: color-mix(
+    in srgb,
+    var(--brand-yellow) 24%,
+    var(--brand-white)
+  );
+  --yellow-text-strong: color-mix(
+    in srgb,
+    var(--brand-dark) 80%,
+    var(--brand-yellow) 20%
+  );
+  --yellow-text-soft: color-mix(
+    in srgb,
+    var(--brand-dark) 75%,
+    var(--brand-yellow) 25%
+  );
+
+  --blue-shadow-soft: 0 8px 18px rgba(0, 91, 187, 0.12);
+
+  --tg-viewport-height: 100vh;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font:
+    16px/1.6 "Manrope",
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--brand-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--surface);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px 100px 10px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 10px 15px 10px;
+  }
+}
+
+/* Padding для Telegram WebApp */
+body.telegram-app .container {
+  padding-top: 80px;
+  background: var(--surface);
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.border-neutral {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+  min-height: 36px;
+  line-height: 1;
+  min-width: 0;
+}
+
+.heading--underlined {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--brand-blue);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  width: fit-content;
+  margin-bottom: 8px;
+}

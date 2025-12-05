@@ -2,11 +2,13 @@
   class="s__content"
   th:fragment="content"
 >
-  <div th:text="|Грудень (робочих днів: ${totalWorkDays})|"></div>
+  <div
+    class="s__card-label"
+    th:text="|Грудень (робочих днів: ${totalWorkDays})|"
+  ></div>
 
   <div class="s__heading-wrapper">
     <h1 class="heading--underlined">План продажу</h1>
-    <!-- <button class="s__download-btn">Завантажити</button> -->
 
     <button
       type="button"
