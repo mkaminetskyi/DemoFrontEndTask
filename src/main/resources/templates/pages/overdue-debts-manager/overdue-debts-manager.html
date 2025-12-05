@@ -17,6 +17,10 @@
       rel="stylesheet"
       th:href="@{/css/app.css(v=${appVersion})}"
     />
+    <link
+      rel="stylesheet"
+      th:href="@{/css/main.css(v=${appVersion})}"
+    />
 
     <link
       rel="stylesheet"
@@ -51,5 +55,7 @@
         </div>
       </div>
     </div>
+
+    <script th:src="@{/js/app.js(v=${appVersion})}"></script>
   </body>
 </html>

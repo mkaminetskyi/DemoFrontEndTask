@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Попередній перегляд кольорів CSS</title>
+  <style>
+    :root {
+      --brand-blue: #005bbb;
+      --brand-yellow: #ffd500;
+      --brand-white: #ffffff;
+      --brand-dark: #0f172a;
+
+      --blue-overlay-12: color-mix(in srgb, var(--brand-blue) 12%, transparent);
+      --blue-overlay-14: color-mix(in srgb, var(--brand-blue) 14%, transparent);
+      --blue-surface-10: color-mix(in srgb, var(--brand-blue) 10%, var(--brand-white));
+      --blue-surface-12: color-mix(in srgb, var(--brand-blue) 12%, var(--brand-white));
+      --blue-surface-20: color-mix(in srgb, var(--brand-blue) 20%, var(--brand-white));
+      --blue-border-tint-14: color-mix(in srgb, var(--brand-blue) 14%, var(--brand-white));
+      --blue-border-40: color-mix(in srgb, var(--brand-blue) 40%, transparent);
+      --blue-border-55: color-mix(in srgb, var(--brand-blue) 55%, transparent);
+      --blue-text-strong: color-mix(in srgb, var(--brand-blue) 80%, var(--brand-dark) 20%);
+      --yellow-surface-20: color-mix(in srgb, var(--brand-yellow) 20%, var(--brand-white));
+      --yellow-surface-24: color-mix(in srgb, var(--brand-yellow) 24%, var(--brand-white));
+      --yellow-text-strong: color-mix(in srgb, var(--brand-dark) 80%, var(--brand-yellow) 20%);
+      --yellow-text-soft: color-mix(in srgb, var(--brand-dark) 75%, var(--brand-yellow) 25%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      padding: 40px 20px;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+      color: #555;
+      font-size: 20px;
+      border-bottom: 2px solid #005bbb;
+      padding-bottom: 10px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .color-item {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .color-swatch {
+      height: 100px;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+
+    .color-swatch-overlay {
+      background: white;
+      border: 2px dashed #999;
+      margin: 10px;
+      height: calc(100% - 20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #666;
+    }
+
+    .color-info {
+      padding: 15px;
+    }
+
+    .color-name {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 14px;
+      font-family: monospace;
+    }
+
+    .color-description {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .base-colors {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .base-color {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .base-color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      border: 2px solid #ddd;
+    }
+
+    .base-color-name {
+      font-weight: 600;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .formula {
+      background: #f8f8f8;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      margin-top: 5px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Попередній перегляд кольорів CSS</h1>
+
+    <div class="section">
+      <h2>Базові кольори</h2>
+      <div class="base-colors">
+        <div class="base-color">
+          <div class="base-color-swatch" style="background: var(--brand-blue);"></div>
+          <div>
+            <div class="base-color-name">--brand-blue</div>
+            <div style="font-size: 12px; color: #888;">#005bbb</div>
+          </div>
+        </div>
+        <div class="base-color">
+          <div class="base-color-swatch" style="background: var(--brand-yellow);"></div>
+          <div>
+            <div class="base-color-name">--brand-yellow</div>
+            <div style="font-size: 12px; color: #888;">#ffd500</div>
+          </div>
+        </div>
+        <div class="base-color">
+          <div class="base-color-swatch" style="background: var(--brand-white); border-color: #ccc;"></div>
+          <div>
+            <div class="base-color-name">--brand-white</div>
+            <div style="font-size: 12px; color: #888;">#ffffff</div>
+          </div>
+        </div>
+        <div class="base-color">
+          <div class="base-color-swatch" style="background: var(--brand-dark);"></div>
+          <div>
+            <div class="base-color-name">--brand-dark</div>
+            <div style="font-size: 12px; color: #888;">#0f172a</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Сині відтінки (Blue variants)</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch">
+            <div class="color-swatch-overlay" style="background: var(--blue-overlay-12);">
+              Фон для перевірки прозорості
+            </div>
+          </div>
+          <div class="color-info">
+            <div class="color-name">--blue-overlay-12</div>
+            <div class="color-description">12% синього, 88% прозорий. Підходить для легких накладень на будь-який фон.</div>
+            <div class="formula">12% #005bbb + transparent</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch">
+            <div class="color-swatch-overlay" style="background: var(--blue-overlay-14);">
+              Фон для перевірки прозорості
+            </div>
+          </div>
+          <div class="color-info">
+            <div class="color-name">--blue-overlay-14</div>
+            <div class="color-description">14% синього, 86% прозорий. Трохи насиченіше за overlay-12.</div>
+            <div class="formula">14% #005bbb + transparent</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--blue-surface-10);"></div>
+          <div class="color-info">
+            <div class="color-name">--blue-surface-10</div>
+            <div class="color-description">Дуже світлий синій фон. Ідеально для фонів карток або секцій.</div>
+            <div class="formula">10% #005bbb + 90% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--blue-surface-12);"></div>
+          <div class="color-info">
+            <div class="color-name">--blue-surface-12</div>
+            <div class="color-description">Світлий синій фон, трохи насиченіший.</div>
+            <div class="formula">12% #005bbb + 88% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--blue-surface-20);"></div>
+          <div class="color-info">
+            <div class="color-name">--blue-surface-20</div>
+            <div class="color-description">Помірно насичений синій фон. Добре помітний на білому.</div>
+            <div class="formula">20% #005bbb + 80% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--blue-border-tint-14);"></div>
+          <div class="color-info">
+            <div class="color-name">--blue-border-tint-14</div>
+            <div class="color-description">Пастельний синій відтінок для рамок або фонів.</div>
+            <div class="formula">14% #005bbb + 86% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch">
+            <div class="color-swatch-overlay" style="border-color: var(--blue-border-40); border-width: 4px;">
+              Рамка 40% прозорості
+            </div>
+          </div>
+          <div class="color-info">
+            <div class="color-name">--blue-border-40</div>
+            <div class="color-description">Напівпрозора синя рамка. Для тонких обводок.</div>
+            <div class="formula">40% #005bbb + transparent</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch">
+            <div class="color-swatch-overlay" style="border-color: var(--blue-border-55); border-width: 4px;">
+              Рамка 55% прозорості
+            </div>
+          </div>
+          <div class="color-info">
+            <div class="color-name">--blue-border-55</div>
+            <div class="color-description">Більш насичена синя рамка для hover-ефектів.</div>
+            <div class="formula">55% #005bbb + transparent</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--blue-text-strong); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+            Приклад тексту
+          </div>
+          <div class="color-info">
+            <div class="color-name">--blue-text-strong</div>
+            <div class="color-description">Темно-синій колір для тексту з хорошим контрастом.</div>
+            <div class="formula">80% #005bbb + 20% #0f172a</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Жовті відтінки (Yellow variants)</h2>
+      <div class="color-grid">
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--yellow-surface-20);"></div>
+          <div class="color-info">
+            <div class="color-name">--yellow-surface-20</div>
+            <div class="color-description">Світлий жовтий фон. Для акцентів і виділення.</div>
+            <div class="formula">20% #ffd500 + 80% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--yellow-surface-24);"></div>
+          <div class="color-info">
+            <div class="color-name">--yellow-surface-24</div>
+            <div class="color-description">Трохи насиченіший жовтий фон.</div>
+            <div class="formula">24% #ffd500 + 76% #ffffff</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--yellow-text-strong); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+            Приклад тексту
+          </div>
+          <div class="color-info">
+            <div class="color-name">--yellow-text-strong</div>
+            <div class="color-description">Темний колір з відтінком жовтого для тексту.</div>
+            <div class="formula">80% #0f172a + 20% #ffd500</div>
+          </div>
+        </div>
+
+        <div class="color-item">
+          <div class="color-swatch" style="background: var(--yellow-text-soft); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">
+            Приклад тексту
+          </div>
+          <div class="color-info">
+            <div class="color-name">--yellow-text-soft</div>
+            <div class="color-description">М'який темний колір з більшим відтінком жовтого.</div>
+            <div class="formula">75% #0f172a + 25% #ffd500</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>📝 Пояснення color-mix()</h2>
+      <div style="line-height: 1.8; color: #555;">
+        <p><strong>color-mix(in srgb, колір1 X%, колір2)</strong> — змішує два кольори:</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+          <li><strong>X%</strong> першого кольору + <strong>(100-X)%</strong> другого кольору</li>
+          <li><strong>transparent</strong> — повністю прозорий, дає напівпрозорі кольори</li>
+          <li><strong>#ffffff</strong> (білий) — освітлює колір, робить пастельні відтінки</li>
+          <li><strong>#0f172a</strong> (темний) — затемнює колір</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

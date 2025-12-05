@@ -30,11 +30,13 @@
   --border: rgba(0, 0, 0, 0.06);
   --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 
+  /* Синій колір з 12% непрозорістю */
   --blue-overlay-12: color-mix(
     in srgb,
     var(--brand-blue) 12%,
     transparent
   );
+
   --blue-overlay-14: color-mix(
     in srgb,
     var(--brand-blue) 14%,
