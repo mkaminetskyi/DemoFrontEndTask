@@ -1,8 +1,8 @@
-.representatives-picker__title {
-  font-size: 13px;
-  color: var(--brand-dark);
-  font-weight: 600;
-  margin-bottom: 6px;
+.representatives-picker__filter {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .representatives-picker__dropdown {
@@ -34,6 +34,37 @@
 
 .representatives-picker__dropdown[open] > summary::after {
   content: "▴";
+}
+
+.representatives-picker__dropdown-content {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.representatives-picker__helper {
+  font-size: 13px;
+  color: var(--brand-muted);
+}
+
+.representatives-picker__options {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.representatives-option {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.representatives-picker__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .representatives-picker__button {
@@ -72,4 +103,13 @@
 .representatives-picker__button:active {
   background: var(--blue-surface-10);
   transform: translateY(1px);
+}
+
+.admin-plan-view .admin-table-container {
+  display: block;
+  background: transparent;
+}
+
+.admin-plan-view .admin-table-container .excel-table-wrapper {
+  margin: 0;
 }

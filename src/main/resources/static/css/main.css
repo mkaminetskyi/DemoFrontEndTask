@@ -203,3 +203,42 @@ body.telegram-app-blur-header::before {
 .status.error {
   color: var(--brand-error);
 }
+
+.label {
+  font-size: 13px;
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+.input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--brand-white);
+  color: inherit;
+  outline: none;
+  transition:
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 55%,
+    var(--border)
+  );
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--brand-blue) 25%, transparent);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+  flex: 0 0 auto;
+}

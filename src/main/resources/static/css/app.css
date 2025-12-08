@@ -1915,9 +1915,9 @@ textarea:focus {
   margin: 0;
 }
 
-.representatives-filter {
+/* .representatives-filter {
   margin-bottom: 8px;
-}
+} */
 
 .representatives-dropdown {
   background: var(--brand-white);
