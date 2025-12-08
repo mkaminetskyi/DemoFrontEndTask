@@ -1,0 +1,70 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <!-- Фрагмент для однієї карточки товару -->
+    <li
+      th:fragment="price-card(item)"
+      data-price-card
+      class="f__card f__tight f__price-card"
+      th:data-name="${item.name != null ? item.name.toLowerCase() : ''}"
+      th:data-article="${item.article != null ? item.article.toLowerCase() : ''}"
+      th:data-brand="${item.brand != null ? item.brand.toLowerCase() : ''}"
+      th:data-price="${item.price}"
+    >
+      <!-- Header: Назва та ціна -->
+      <div class="f__price-card__header">
+        <h3
+          class="f__price-card__title"
+          th:text="${item.name ?: (item.article ?: '—')}"
+        ></h3>
+        <div
+          class="f__price-card__price"
+          th:if="${item.price != null}"
+          th:text="${#numbers.formatDecimal(item.price, 1, 2)}"
+        ></div>
+      </div>
+
+      <!-- Мета-інформація: Артикул, Марка, Одиниця -->
+      <div
+        class="f__price-card__meta"
+        th:if="${item.article != null || item.brand != null || item.storageUnit != null}"
+      >
+        <!-- Артикул -->
+        <div
+          class="f__price-card__meta-item"
+          th:if="${item.article != null && !#strings.isEmpty(item.article)}"
+        >
+          <span class="f__price-card__meta-label">Артикул</span>
+          <span
+            class="f__price-card__meta-value"
+            th:text="${item.article}"
+          ></span>
+        </div>
+
+        <!-- Марка -->
+        <div
+          class="f__price-card__meta-item"
+          th:if="${item.brand != null && !#strings.isEmpty(item.brand)}"
+        >
+          <span class="f__price-card__meta-label">Марка</span>
+          <span
+            class="f__price-card__meta-value"
+            th:text="${item.brand}"
+          ></span>
+        </div>
+
+        <!-- Одиниця -->
+        <div
+          class="f__price-card__meta-item"
+          th:if="${item.storageUnit != null && !#strings.isEmpty(item.storageUnit)}"
+        >
+          <span class="f__price-card__meta-label">Одиниця</span>
+          <span
+            class="f__price-card__meta-value"
+            th:text="${item.storageUnit}"
+          ></span>
+        </div>
+      </div>
+    </li>
+  </body>
+</html>

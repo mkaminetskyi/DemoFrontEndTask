@@ -1,0 +1,66 @@
+.f__card {
+  background: var(--brand-white);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: var(--card-padding);
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.f__card.f__tight {
+  padding: 12px;
+  gap: 8px;
+}
+
+.f__price-card {
+  gap: 10px;
+}
+
+.f__price-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.f__price-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.f__price-card__price {
+  font-weight: 700;
+  color: var(--brand-blue);
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.f__price-card__meta {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.f__price-card__meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--brand-muted-dark);
+}
+
+.f__price-card__meta-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--brand-muted);
+}
+
+.f__price-card__meta-value {
+  font-weight: 600;
+  color: var(--brand-dark);
+}

@@ -186,3 +186,20 @@ body.telegram-app-blur-header::before {
   width: fit-content;
   margin-bottom: 8px;
 }
+
+.status {
+  font-size: 13px;
+  color: var(--brand-muted);
+  margin-top: 4px;
+  text-align: center;
+  margin-bottom: calc(
+    16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
+}
+
+/* .status.success {
+  color: #0a7f2e;
+} */
+.status.error {
+  color: var(--brand-error);
+}
