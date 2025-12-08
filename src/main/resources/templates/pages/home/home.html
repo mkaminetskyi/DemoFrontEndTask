@@ -13,16 +13,24 @@
     <title th:text="${title}">Головне меню</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <!-- Mobile CSS -->
     <link
       rel="stylesheet"
-      href="/css/app.css"
+      th:href="@{/css/main.css(v=${appVersion})}"
     />
 
-    <!-- this page CSS -->
     <link
       rel="stylesheet"
-      href="/css/responsive-pages-layout.css"
+      th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
+    />
+
+    <!-- fragments CSS -->
+    <link
+      rel="stylesheet"
+      th:href="@{/pages/home/fragments/home-mobile-content/home-mobile-content.css(v=${appVersion})}"
+    />
+    <link
+      rel="stylesheet"
+      th:href="@{/pages/home/fragments/home-desktop-content/home-desktop-content.css(v=${appVersion})}"
     />
   </head>
 

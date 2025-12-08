@@ -1,9 +1,4 @@
 <div th:fragment="desktop">
-  <link
-    rel="stylesheet"
-    th:href="@{/pages/home/fragments/home-desktop-content/home-desktop-content.css}"
-  />
-
   <div
     th:replace="~{fragments/desktop-layout/desktop-layout :: shell('home', ~{::main})}"
   >

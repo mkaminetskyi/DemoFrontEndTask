@@ -1,7 +1,7 @@
 <div th:fragment="shell(active, content)">
   <link
     rel="stylesheet"
-    th:href="@{/fragments/desktop-layout/desktop-layout.css}"
+    th:href="@{/fragments/desktop-layout/desktop-layout.css(v=${appVersion})}"
   />
 
   <div class="desktop-layout">
