@@ -18,46 +18,12 @@
 }
 
 .price-list__content {
-  /* .page-section h2 { */
-
-  /* } */
-  /* .page-section h2::after { */
-
-  /* } */
 }
-
-/* CSS Nesting підтримується тільки в сучасних браузерах:
-  - Chrome 120+ (серпень 2023)
-  - Safari 16.5+ (травень 2023)
-  - Firefox 117+ (серпень 2023) */
-/* .price-list__main-heading {
-  font-size: 18px;
-  margin-bottom: 8px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent);
-  color: var(--brand-blue);
-  display: inline-block;
-  font-family: "Montserrat", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
-    sans-serif;
-
-  &::after {
-    content: "";
-    display: block;
-    width: 56px;
-    height: 3px;
-    margin-top: 6px;
-    background: var(--brand-yellow);
-    border-radius: 3px;
-  }
-} */
 
 .price-list__main-heading {
   font-size: 18px;
   margin-bottom: 8px;
   padding-bottom: 6px;
-
-  /* забрав нижній відступ бо виглядало погано */
-  /* border-bottom: 2px solid color-mix(in srgb, var(--brand-blue) 18%, transparent); */
   color: var(--brand-blue);
   display: inline-block;
   font-family:
@@ -128,4 +94,73 @@
 
 .search-results-summary__filters {
   gap: 8px;
+}
+
+.p__table-container {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--brand-white);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.p__table-container--flush {
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.p__pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.p__select {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--brand-white);
+  color: inherit;
+  outline: none;
+  transition:
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.p__input {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--brand-white);
+  color: inherit;
+  outline: none;
+  transition:
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+/* ========= */
+
+.cards-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.cards-grid.two-columns {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.price-list {
+  display: grid;
+  gap: 14px;
+}
+
+.price-list-empty {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--brand-muted);
 }

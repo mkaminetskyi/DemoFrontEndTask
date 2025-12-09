@@ -17,9 +17,9 @@
         th:text="${pageHeading}"
       ></h2>
 
-      <div class="toolbar card">
+      <div class="general-one-s-report-page-content__filters-card">
         <div
-          class="toolbar-grid"
+          class="general-one-s-report-page-content__toolbar-grid"
           th:if="${renderDatePicker or renderClientPicker}"
         >
           <!-- datе picker -->
@@ -27,9 +27,15 @@
             class="range-field"
             th:if="${renderDatePicker}"
           >
-            <div class="field dark-label condensed">
-              <label for="dateFrom">Початок</label>
+            <div class="general-one-s-report-page-content__field">
+              <!-- <div class="field dark-label condensed"> -->
+              <label
+                class="label"
+                for="dateFrom"
+                >Початок</label
+              >
               <input
+                class="input"
                 type="date"
                 id="dateFrom"
                 name="from"
@@ -39,9 +45,11 @@
               class="range-separator"
               aria-hidden="true"
             ></span>
-            <div class="field dark-label condensed">
+
+            <div class="general-one-s-report-page-content__field">
               <label for="dateTo">Кінець</label>
               <input
+                class="input"
                 type="date"
                 id="dateTo"
                 name="to"
@@ -51,13 +59,20 @@
 
           <!-- renderClientPicker -->
           <div
-            class="field full-width dark-label"
+            class="general-one-s-report-page-content__render-client-picker"
             th:if="${renderClientPicker}"
           >
-            <label for="contractor">Клієнт</label>
-            <div class="input-group combobox">
+            <label
+              class="label"
+              for="contractor"
+              >Клієнт</label
+            >
+            <div
+              class="general-one-s-report-page-content__search-field"
+            >
+              <!-- <div class="input-group combobox"> -->
               <input
-                class="general-one-s-report-page-content__search-input"
+                class="general-one-s-report-page-content__search-input input"
                 type="text"
                 id="contractor"
                 name="contractor"
@@ -118,7 +133,7 @@
 
         <!-- renderRepresentativesPicker -->
         <div
-          th:replace="~{fragments/general-one-s-report-page-content/ui/representatives-picker/representatives-picker :: 
+          th:replace="~{fragments/general-one-s-report-page-content/fragments/representatives-picker/representatives-picker :: 
           representatives-picker(${renderRepresentativesPicker}, ${userRole})}"
         ></div>
 
@@ -200,8 +215,7 @@
   </main>
 
   <script
-    src="/fragments/general-one-s-report-page-content/general-one-s.js"
+    th:src="@{/fragments/general-one-s-report-page-content/general-one-s.js(v=${appVersion})}"
     type="module"
   ></script>
-  <!-- <script src="/"></script> -->
 </div>

@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Montserrat:wght@600;700&display=swap");
+
+@import "/css/reset.css";
+
+:root {
+  --brand-blue: #005bbb;
+  --brand-yellow: #ffd500;
+  --brand-white: #ffffff;
+  --brand-dark: #0f172a;
+  --brand-muted: #6b7280;
+  --brand-muted-dark: #4b5563;
+  --brand-blue-dark: #004799;
+  --brand-success: #16a34a;
+  --brand-success-dark: #15803d;
+  --brand-error: #dc2626;
+  --brand-warning: #d97706;
+
+  --card-radius: 16px;
+  --card-padding: 18px;
+  --card-gap: 12px;
+
+  --shell-max-width: 1100px;
+  --shell-padding: 16px;
+  --bottom-nav-height: 96px;
+
+  --accent-gradient-start: #6366f1;
+  --accent-gradient-end: #4338ca;
+
+  --surface: #f6f8fb;
+  --border: rgba(0, 0, 0, 0.06);
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+
+  /* Синій колір з 12% непрозорістю */
+  --blue-overlay-12: color-mix(
+    in srgb,
+    var(--brand-blue) 12%,
+    transparent
+  );
+
+  --blue-overlay-14: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    transparent
+  );
+  --blue-surface-10: color-mix(
+    in srgb,
+    var(--brand-blue) 10%,
+    var(--brand-white)
+  );
+  --blue-surface-12: color-mix(
+    in srgb,
+    var(--brand-blue) 12%,
+    var(--brand-white)
+  );
+  --blue-surface-20: color-mix(
+    in srgb,
+    var(--brand-blue) 20%,
+    var(--brand-white)
+  );
+  --blue-border-tint-14: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    var(--brand-white)
+  );
+  --blue-border-40: color-mix(
+    in srgb,
+    var(--brand-blue) 40%,
+    transparent
+  );
+  --blue-border-55: color-mix(
+    in srgb,
+    var(--brand-blue) 55%,
+    transparent
+  );
+  --blue-text-strong: color-mix(
+    in srgb,
+    var(--brand-blue) 80%,
+    var(--brand-dark) 20%
+  );
+  --yellow-surface-20: color-mix(
+    in srgb,
+    var(--brand-yellow) 20%,
+    var(--brand-white)
+  );
+  --yellow-surface-24: color-mix(
+    in srgb,
+    var(--brand-yellow) 24%,
+    var(--brand-white)
+  );
+  --yellow-text-strong: color-mix(
+    in srgb,
+    var(--brand-dark) 80%,
+    var(--brand-yellow) 20%
+  );
+  --yellow-text-soft: color-mix(
+    in srgb,
+    var(--brand-dark) 75%,
+    var(--brand-yellow) 25%
+  );
+
+  --blue-shadow-soft: 0 8px 18px rgba(0, 91, 187, 0.12);
+
+  --tg-viewport-height: 100vh;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100vh;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font:
+    16px/1.6 "Manrope",
+    "Montserrat",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--brand-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--surface);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px 100px 10px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 10px 15px 10px;
+  }
+}
+
+/* Padding для Telegram WebApp */
+body.telegram-app .container {
+  padding-top: 80px;
+  background: var(--surface);
+}
+
+body.telegram-app-blur-header::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.border-neutral {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+  min-height: 36px;
+  line-height: 1;
+  min-width: 0;
+}
+
+.heading--underlined {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--brand-blue);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--brand-blue) 18%, transparent);
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--brand-muted);
+  margin-top: 4px;
+  text-align: center;
+  margin-bottom: calc(
+    16px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
+  );
+}
+
+/* .status.success {
+  color: #0a7f2e;
+} */
+.status.error {
+  color: var(--brand-error);
+}
+
+.label {
+  font-size: 13px;
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+
+.input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--brand-white);
+  color: inherit;
+  outline: none;
+  transition:
+    box-shadow 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 55%,
+    var(--border)
+  );
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--brand-blue) 25%, transparent);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--brand-blue);
+  flex: 0 0 auto;
+}
+
+.btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--brand-white);
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
+    filter 0.12s ease;
+}
+.btn:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn.primary {
+  background: var(--brand-blue);
+  color: var(--brand-white);
+  border-color: var(--brand-blue);
+}
+.btn.primary:hover {
+  background: color-mix(in srgb, var(--brand-blue) 88%, black 0%);
+}
+.btn.primary:active {
+  background: color-mix(in srgb, var(--brand-blue) 80%, black 0%);
+}
+.btn.ghost {
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 18%,
+    var(--border)
+  );
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 5%,
+    var(--brand-white)
+  );
+  color: color-mix(
+    in srgb,
+    var(--brand-blue) 75%,
+    var(--brand-dark) 25%
+  );
+}
+.btn.ghost:hover {
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    var(--brand-white)
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 28%,
+    var(--border)
+  );
+}
+.btn.ghost:active {
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 20%,
+    var(--brand-white)
+  );
+}
+.btn-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+.btn.accent {
+  border: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--brand-success) 94%, white),
+    var(--brand-success-dark)
+  );
+  color: var(--brand-white);
+  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.22);
+}
+.btn.accent:hover {
+  box-shadow: 0 16px 30px rgba(22, 163, 74, 0.28);
+  filter: brightness(1.02);
+}
+.btn.accent:active {
+  filter: brightness(0.96);
+}

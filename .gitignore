@@ -39,3 +39,8 @@ src/main/resources/static/images/screen-now.png
 
 
 docs/cheat-sheet.md
+
+  # Overdue debts manager JS and HTML file
+src/main/resources/templates/pages/overdue-debts-manager/sales-plan.js
+src/main/resources/templates/pages/overdue-debts-manager/plan-manager.html
+todo.excalidraw.png

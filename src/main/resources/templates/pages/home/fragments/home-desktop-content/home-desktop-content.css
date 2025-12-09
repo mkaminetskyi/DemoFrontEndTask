@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 24px;
   overflow: auto;
+  width: 100%;
 }
 
 .desktop-home__page-section {
@@ -22,10 +23,14 @@
 }
 
 .desktop-home__hero-title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .desktop-home__hero-description {
   font-size: 15px;
-  color: var(--brand-muted-dark);
+  color: var(--brand-muted);
   line-height: 1.7;
+  font-weight: 600;
 }

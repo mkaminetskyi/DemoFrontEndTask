@@ -34,4 +34,5 @@
   box-shadow: var(--shadow);
   padding: 18px 14px;
   height: 100%;
+  width: 100%;
 }

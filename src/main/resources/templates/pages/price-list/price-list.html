@@ -11,19 +11,24 @@
     />
     <title>Прайс-лист</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
     <link
       rel="stylesheet"
-      href="/css/app.css"
+      th:href="@{/css/main.css(v=${appVersion})}"
+    />
+
+    <link
+      rel="stylesheet"
+      th:href="@{/pages/price-list/price-list.css(v=${appVersion})}"
     />
     <link
       rel="stylesheet"
-      href="/pages/price-list/price-list.css"
+      th:href="@{/pages/price-list/fragments/price-card.css(v=${appVersion})}"
     />
   </head>
 
   <body>
     <div class="container">
-      <!-- кожну оцю приставку "price-list__" можна буде видалити коли я повністю розберуся зі всіма стилями в app.css. Поки небезпечно, бо стилі можуть пересіктися -->
       <main class="price-list__page">
         <div
           class="price-list__content"
@@ -52,6 +57,7 @@
                 >Пошук за назвою або артикулом</label
               >
               <input
+                class="p__input"
                 type="search"
                 id="search-input"
                 placeholder="Введіть назву"
@@ -66,7 +72,10 @@
                   for="brand-filter"
                   >Бренд</label
                 >
-                <select id="brand-filter">
+                <select
+                  class="p__select"
+                  id="brand-filter"
+                >
                   <option value="">Усі бренди</option>
                 </select>
               </div>
@@ -77,7 +86,10 @@
                   for="sort-select"
                   >Сортування</label
                 >
-                <select id="sort-select">
+                <select
+                  class="p__select"
+                  id="sort-select"
+                >
                   <option value="none">Без сортування</option>
                   <option value="name">За назвою (А→Я)</option>
                   <option value="brand">За брендом (А→Я)</option>
@@ -103,20 +115,40 @@
             ></span>
             <div
               id="search-active-filters"
-              class="search-results-summary__filters pill-list is-hidden"
+              class="search-results-summary__filters p__pill-list is-hidden"
             ></div>
           </div>
 
           <div
             id="priceLoading"
-            class="status"
+            class="status is-hidden"
           >
             Отримую дані…
           </div>
           <div
             id="priceTableContainer"
-            class="table-container table-container--flush is-hidden"
-          ></div>
+            class="p__table-container p__table-container--flush"
+          >
+            <!-- Рендеринг карточок через Thymeleaf -->
+            <ul
+              class="cards-grid two-columns price-list"
+              th:if="${items != null && !items.isEmpty()}"
+            >
+              <th:block th:each="item : ${items}">
+                <div
+                  th:replace="~{pages/price-list/fragments/price-card :: price-card(${item})}"
+                ></div>
+              </th:block>
+            </ul>
+
+            <!-- Повідомлення, якщо немає даних -->
+            <div
+              th:if="${items == null || items.isEmpty()}"
+              class="price-list-empty"
+            >
+              Немає даних для відображення.
+            </div>
+          </div>
           <div
             id="priceError"
             class="status error is-hidden"
@@ -129,7 +161,9 @@
       th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
     ></div>
 
-    <script src="/js/app.js"></script>
-    <script src="/pages/price-list/catalog-price-list.js"></script>
+    <script th:src="@{/js/app.js(v=${appVersion})}"></script>
+    <script
+      th:src="@{/pages/price-list/catalog-price-list.js(v=${appVersion})}"
+    ></script>
   </body>
 </html>

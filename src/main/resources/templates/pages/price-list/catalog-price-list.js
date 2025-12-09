@@ -1,17 +1,7 @@
 (function () {
   /**
-   * @typedef {Object} PriceListItem
-   * @property {string} article - article/SKU code
-   * @property {string} name - product name
-   * @property {string} storageUnit - unit of measurement (e.g., "шт", "кг")
-   * @property {string} brand - brand name
-   * @property {number} price - numeric price value
-   * @property {string} [priceText] - formatted price text (optional)
-   */
-
-  /**
-   * @typedef {Object} PriceListResponse
-   * @property {PriceListItem[]} items - array of price list items
+   * ГІБРИДНИЙ ПІДХІД: Карточки рендеряться на сервері через Thymeleaf,
+   * JavaScript тільки фільтрує/сортує існуючі DOM елементи
    */
 
   const section = document.getElementById("priceListContent");
@@ -19,13 +9,13 @@
     return;
   }
 
-  const dataEndpoint = section.dataset.dataEndpoint;
   const hasSession = section.dataset.hasSession !== "false";
   const loadingEl = document.getElementById("priceLoading");
   const errorEl = document.getElementById("priceError");
   const tableContainer = document.getElementById(
     "priceTableContainer",
   );
+  const cardsGrid = tableContainer?.querySelector(".cards-grid");
   const controls = document.getElementById("price-list-controls");
   const searchInput = document.getElementById("search-input");
   const brandFilterSelect = document.getElementById("brand-filter");
@@ -39,11 +29,6 @@
   const activeFiltersContainer = document.getElementById(
     "search-active-filters",
   );
-  const zoomBar = document.getElementById("priceZoomBar");
-  const zoomLabel = document.getElementById("priceZoomLabel");
-  const zoomInBtn = document.getElementById("priceZoomIn");
-  const zoomOutBtn = document.getElementById("priceZoomOut");
-  const zoomResetBtn = document.getElementById("priceZoomReset");
   const tg = window.Telegram?.WebApp;
 
   // Додаємо відступ тільки в Telegram версії
@@ -61,16 +46,9 @@
     return;
   }
 
-  if (!dataEndpoint) {
-    return;
-  }
-
-  /** @type {PriceListItem[]} */
-  let allItems = [];
-
-  // let selectedBrands = new Set();
-
-  let zoom = 1;
+  // Зчитуємо всі карточки, які вже є в DOM (створені Thymeleaf)
+  /** @type {HTMLElement[]} */
+  let allCards = [];
 
   function show(el) {
     if (el) {
@@ -89,87 +67,12 @@
     el.textContent = text;
   }
 
-  function showLoading() {
-    show(loadingEl);
-    hide(errorEl);
-    hide(zoomBar);
-    hide(controls);
-    hide(resultsSummary);
-    if (tableContainer) {
-      tableContainer.innerHTML = "";
-      hide(tableContainer);
-    }
-  }
-
-  function showError(message) {
-    hide(loadingEl);
-    if (errorEl) {
-      setText(errorEl, message || "Сталася помилка");
-      show(errorEl);
-    } else if (tg && typeof tg.showAlert === "function") {
-      tg.showAlert(message || "Сталася помилка");
-    } else {
-      alert(message || "Сталася помилка");
-    }
-    hide(controls);
-    hide(resultsSummary);
-  }
-
-  function normalisePrice(value) {
-    if (value == null || value === "") {
-      return "—";
-    }
-
-    try {
-      const number =
-        typeof value === "number" ? value : Number(value);
-      if (Number.isNaN(number)) {
-        return value;
-      }
-      const formatter = new Intl.NumberFormat("uk-UA", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-      return formatter.format(number);
-    } catch (err) {
-      return value;
-    }
-  }
-
-  function applyZoom() {
-    const zoomTarget = tableContainer
-      ? tableContainer.querySelector("#priceTableZoomTarget")
-      : null;
-    if (!zoomTarget) {
-      return;
-    }
-    zoomTarget.style.transform = `scale(${zoom})`;
-    if (zoomLabel) {
-      zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
-    }
-  }
-
-  zoomInBtn?.addEventListener("click", () => {
-    zoom = Math.min(2, zoom + 0.1);
-    applyZoom();
-  });
-
-  zoomOutBtn?.addEventListener("click", () => {
-    zoom = Math.max(0.5, zoom - 0.1);
-    applyZoom();
-  });
-
-  zoomResetBtn?.addEventListener("click", () => {
-    zoom = 1;
-    applyZoom();
-  });
-
   function updateResultsSummary(visibleCount, filters = {}) {
     if (!resultsSummary) {
       return;
     }
 
-    if (!allItems.length) {
+    if (!allCards.length) {
       hide(resultsSummary);
       if (activeFiltersContainer) {
         activeFiltersContainer.classList.add("is-hidden");
@@ -178,7 +81,7 @@
       return;
     }
 
-    const totalCount = allItems.length;
+    const totalCount = allCards.length;
     const label =
       totalCount === visibleCount
         ? `Показано ${visibleCount} позицій`
@@ -194,34 +97,10 @@
     show(resultsSummary);
   }
 
-  function createMetaRow(label, value) {
-    if (value == null || value === "") {
-      return null;
-    }
-
-    const row = document.createElement("div");
-    row.className = "price-card__meta-item";
-
-    const labelEl = document.createElement("span");
-    labelEl.className = "price-card__meta-label";
-    labelEl.textContent = label;
-
-    const valueEl = document.createElement("span");
-    valueEl.className = "price-card__meta-value";
-    valueEl.textContent = value;
-
-    row.appendChild(labelEl);
-    row.appendChild(valueEl);
-    return row;
-  }
-
   /**
-   * Extracts unique brands from items and populates the brand fillter dropdown.
-   * Preserves the previously selected brand if it still exists after repopulation
-   *
-   * @param {PriceListItem[]} items - array of price list items to extract brands from
+   * Extracts unique brands from card DOM elements and populates the brand filter dropdown
    */
-  function populateBrandFilterOptions(items) {
+  function populateBrandFilterOptions() {
     if (!brandFilterSelect) {
       return;
     }
@@ -229,22 +108,17 @@
     const previousValue = brandFilterSelect.value;
     const brandMap = new Map();
 
-    if (Array.isArray(items)) {
-      items.forEach(item => {
-        const rawBrand = item?.brand;
-        if (rawBrand == null) {
-          return;
-        }
-        const brand = rawBrand.toString().trim();
-        if (!brand) {
-          return;
-        }
-        const key = brand.toLocaleLowerCase("uk");
-        if (!brandMap.has(key)) {
-          brandMap.set(key, brand);
-        }
-      });
-    }
+    // Збираємо унікальні бренди з data-brand атрибутів карточок
+    allCards.forEach(card => {
+      const brand = card.dataset.brand?.trim();
+      if (!brand) {
+        return;
+      }
+      const key = brand.toLocaleLowerCase("uk");
+      if (!brandMap.has(key)) {
+        brandMap.set(key, brand);
+      }
+    });
 
     const brands = Array.from(brandMap.values());
     brands.sort((a, b) =>
@@ -334,266 +208,159 @@
     activeFiltersContainer.classList.remove("is-hidden");
   }
 
-  function renderItems(items, filters = {}) {
-    if (!tableContainer) {
-      return;
-    }
+  /**
+   * Фільтрує та показує/ховає карточки на основі критеріїв
+   * @param {Function} filterFn - функція фільтрації (card) => boolean
+   * @param {Object} filters - об'єкт з інформацією про активні фільтри
+   */
+  function filterAndDisplayCards(filterFn, filters = {}) {
+    let visibleCount = 0;
 
-    tableContainer.innerHTML = "";
-    const hasItems = Array.isArray(items) && items.length > 0;
-    const visibleCount = Array.isArray(items) ? items.length : 0;
+    allCards.forEach(card => {
+      if (filterFn(card)) {
+        card.style.display = "";
+        visibleCount++;
+      } else {
+        card.style.display = "none";
+      }
+    });
 
-    if (!hasItems) {
-      const message = document.createElement("div");
-      message.className = "price-list-empty";
-      message.textContent = allItems.length
-        ? "Немає результатів за вказаними критеріями."
-        : "Немає даних для відображення.";
-      tableContainer.appendChild(message);
-    } else {
-      const list = document.createElement("div");
-      list.className = "cards-grid two-columns price-list";
+    updateResultsSummary(visibleCount, filters);
 
-      items.forEach(item => {
-        const card = document.createElement("article");
-        card.className = "card tight price-card";
-
-        const header = document.createElement("div");
-        header.className = "price-card__header";
-
-        const title = document.createElement("h3");
-        title.className = "price-card__title";
-        title.textContent = item?.name || item?.article || "—";
-        header.appendChild(title);
-
-        const priceValue = normalisePrice(
-          item?.price ?? item?.priceText,
-        );
-        if (priceValue) {
-          const priceEl = document.createElement("div");
-          priceEl.className = "price-card__price";
-          priceEl.textContent = priceValue;
-          header.appendChild(priceEl);
-        }
-
-        card.appendChild(header);
-
-        const metaRows = [
-          createMetaRow("Артикул", item?.article),
-          createMetaRow("Марка", item?.brand),
-          createMetaRow("Одиниця", item?.storageUnit),
-          createMetaRow(
-            "ID",
-            item?.id != null && item.id !== ""
-              ? String(item.id)
-              : null,
-          ),
-        ].filter(Boolean);
-
-        if (metaRows.length) {
-          const meta = document.createElement("div");
-          meta.className = "price-card__meta";
-          metaRows.forEach(row => meta.appendChild(row));
-          card.appendChild(meta);
-        }
-
-        list.appendChild(card);
-      });
-
-      tableContainer.appendChild(list);
-    }
-
+    // Показуємо/ховаємо контроли
     if (controls) {
-      if (allItems.length) {
+      if (allCards.length) {
         show(controls);
       } else {
         hide(controls);
       }
     }
-
-    hide(loadingEl);
-    hide(errorEl);
-    hide(zoomBar);
-    show(tableContainer);
-    updateResultsSummary(visibleCount, filters);
-    zoom = 1;
-  }
-
-  function createSorter(key) {
-    return (a, b) => {
-      const aValue = a?.[key];
-      const bValue = b?.[key];
-      if (!aValue && !bValue) {
-        return 0;
-      }
-      if (!aValue) {
-        return 1;
-      }
-      if (!bValue) {
-        return -1;
-      }
-      return aValue
-        .toString()
-        .localeCompare(bValue.toString(), "uk", {
-          sensitivity: "base",
-        });
-    };
   }
 
   /**
-   * Meant to be used on PriceListItem.sort()
-   * @param {("lowest-first"|"highest-first")} order - order for sorting
-   * @returns {(1|0|-1)} value for .sort() method
+   * Сортує карточки в DOM за певним data-атрибутом
+   * @param {string} dataKey - назва data-атрибуту (name, brand, price)
    */
-  function createPriceSorter(order) {
-    /**
-     * @param {PriceListItem} a
-     * @param {PriceListItem} b
-     */
-    return (a, b) => {
-      const aPrice = a?.price;
-      const bPrice = b?.price;
+  function sortCardsByAttribute(dataKey) {
+    if (!cardsGrid) return;
 
-      if (aPrice == null && bPrice == null) return 0;
-      if (aPrice == null) return 1;
-      if (bPrice == null) return -1;
+    const sortedCards = [...allCards].sort((a, b) => {
+      const aValue = a.dataset[dataKey] || "";
+      const bValue = b.dataset[dataKey] || "";
+      return aValue.localeCompare(bValue, "uk", {
+        sensitivity: "base",
+      });
+    });
 
-      const aNum =
-        typeof aPrice === "number" ? aPrice : Number(aPrice);
-      const bNum =
-        typeof bPrice === "number" ? bPrice : Number(bPrice);
-
-      return order === "highest-first" ? bNum - aNum : aNum - bNum;
-    };
+    // Перевставляємо карточки у відсортованому порядку
+    sortedCards.forEach(card => cardsGrid.appendChild(card));
   }
 
   /**
-   * Applies all active filters (search, brand, sorting) to the price list.
-   * Creates a filtered copy of allItems and renders the results
+   * Сортує карточки за ціною
+   * @param {("lowest-first"|"highest-first")} order
+   */
+  function sortCardsByPrice(order) {
+    if (!cardsGrid) return;
+
+    const sortedCards = [...allCards].sort((a, b) => {
+      const aPrice = parseFloat(a.dataset.price) || 0;
+      const bPrice = parseFloat(b.dataset.price) || 0;
+
+      return order === "highest-first"
+        ? bPrice - aPrice
+        : aPrice - bPrice;
+    });
+
+    // Перевставляємо карточки у відсортованому порядку
+    sortedCards.forEach(card => cardsGrid.appendChild(card));
+  }
+
+  /**
+   * Застосовує всі активні фільтри (пошук, бренд, сортування)
    */
   function applyFilters() {
-    const nameQueryRaw = searchInput?.value ?? "";
-    const nameQuery = nameQueryRaw.trim();
-    const brandValueRaw = brandFilterSelect?.value ?? "";
-    const brandValue = brandValueRaw.trim();
+    const nameQuery = searchInput?.value?.trim().toLowerCase() || "";
+    const brandValue =
+      brandFilterSelect?.value?.trim().toLowerCase() || "";
     /** @type {('none'|'name'|'brand'|'price-lowest-first'|'price-highest-first')} */
     const sortValue = sortSelect?.value || "none";
 
     const brandLabel = brandValue
-      ? brandFilterSelect && brandFilterSelect.selectedIndex >= 0
-        ? brandFilterSelect.options[brandFilterSelect.selectedIndex]
-            ?.textContent || brandValue
-        : brandValue
+      ? brandFilterSelect?.options[brandFilterSelect.selectedIndex]
+          ?.textContent || brandValue
       : "";
 
-    if (!Array.isArray(allItems)) {
-      renderItems([], { name: nameQuery, brandLabel });
+    // Функція фільтрації для карточок
+    const filterFn = card => {
+      // Фільтр за назвою/артикулом
+      if (nameQuery) {
+        const cardName = card.dataset.name || "";
+        const cardArticle = card.dataset.article || "";
+        const matchesName = cardName.includes(nameQuery);
+        const matchesArticle = cardArticle.includes(nameQuery);
+
+        if (!matchesName && !matchesArticle) {
+          return false;
+        }
+      }
+
+      // Фільтр за брендом
+      if (brandValue) {
+        const cardBrand = card.dataset.brand || "";
+        if (cardBrand !== brandValue) {
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+    // Застосовуємо фільтрацію
+    filterAndDisplayCards(filterFn, { name: nameQuery, brandLabel });
+
+    // Застосовуємо сортування
+    if (sortValue === "name") {
+      sortCardsByAttribute("name");
+    } else if (sortValue === "brand") {
+      sortCardsByAttribute("brand");
+    } else if (sortValue === "price-lowest-first") {
+      sortCardsByPrice("lowest-first");
+    } else if (sortValue === "price-highest-first") {
+      sortCardsByPrice("highest-first");
+    }
+  }
+
+  /**
+   * Ініціалізує карточки з DOM (карточки вже створені Thymeleaf на сервері)
+   */
+  function initializeCards() {
+    // Зчитуємо всі карточки з DOM
+    if (cardsGrid) {
+      allCards = Array.from(
+        cardsGrid.querySelectorAll('[data-price-card]'),
+      );
+    }
+
+    if (!allCards.length) {
+      // Немає карточок - показуємо повідомлення
+      if (controls) {
+        hide(controls);
+      }
+      hide(resultsSummary);
       return;
     }
 
-    // creates shallow copy of the allItems
-    let filtered = allItems.slice();
+    // Заповнюємо фільтр брендів
+    populateBrandFilterOptions();
 
-    if (nameQuery) {
-      const normalisedQuery = nameQuery.toLocaleLowerCase("uk"); // якщо всі товари (і артикули) англійською мовою, то треба забрати "uk" (нижче по коду). Це додаткова нагузка + може щось поламатися в майбутньому. Можна залишити .toLocaleLowerCase().
-
-      // правильна строчка якщо всі товари англійською мовою
-      // const normalisedQuery = nameQuery.toLocaleLowerCase();
-
-      filtered = filtered.filter(item => {
-        const name = item?.name;
-        const article = item?.article;
-
-        const nameMatches =
-          name != null &&
-          name
-            .toString()
-            .toLocaleLowerCase("uk")
-            .includes(normalisedQuery);
-
-        const articleMatches =
-          article != null &&
-          article
-            .toString()
-            .toLocaleLowerCase("uk")
-            .includes(normalisedQuery);
-
-        return nameMatches || articleMatches;
-      });
+    // Показуємо контроли
+    if (controls) {
+      show(controls);
     }
 
-    // видалити з 5 завданням
-    if (brandValue) {
-      const brandQuery = brandValue.toLocaleLowerCase("uk");
-
-      // // завдання 5 недороблене
-      // if (selectedBrands.size > 0) {
-
-      filtered = filtered.filter(item => {
-        const brand = item?.brand;
-        if (brand == null) {
-          return false;
-        }
-
-        // видалити з 5 завданням
-        return (
-          brand.toString().trim().toLocaleLowerCase("uk") ===
-          brandQuery
-        );
-
-        // // завдання 5 недороблене
-        // const brandKey = brand
-        //   .toString()
-        //   .trim()
-        //   .toLocaleLowerCase("uk");
-        // return selectedBrands.has(brandKey);
-      });
-    }
-
-    if (sortValue === "name") {
-      filtered.sort(createSorter("name"));
-    } else if (sortValue === "brand") {
-      filtered.sort(createSorter("brand"));
-    } else if (sortValue === "price-lowest-first") {
-      filtered.sort(createPriceSorter("lowest-first"));
-    } else if (sortValue === "price-highest-first") {
-      filtered.sort(createPriceSorter("highest-first"));
-    }
-
-    renderItems(filtered, { name: nameQuery, brandLabel });
-  }
-
-  async function loadData() {
-    showLoading();
-
-    try {
-      const response = await fetch(dataEndpoint, {
-        headers: {
-          Accept: "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        let message = "Не вдалося отримати дані.";
-        try {
-          const body = await response.json();
-          if (body && typeof body.message === "string") {
-            message = body.message;
-          }
-        } catch (err) {
-          // ignore
-        }
-        throw new Error(message);
-      }
-
-      /** @type {PriceListResponse} */
-      const data = await response.json();
-      allItems = Array.isArray(data?.items) ? data.items : [];
-      populateBrandFilterOptions(allItems);
-      applyFilters();
-    } catch (err) {
-      showError(err?.message || "Сталася помилка");
-    }
+    // Застосовуємо початкові фільтри
+    applyFilters();
   }
 
   searchInput?.addEventListener("input", () => {
@@ -601,22 +368,6 @@
   });
 
   brandFilterSelect?.addEventListener("change", event => {
-    // завдання 5 недороблене
-    // /** @type {string} */
-    // const selectedValue = event.target.value.trim();
-
-    // if (!selectedValue) return;
-
-    // const brandKey = selectedValue.toLocaleLowerCase("uk");
-
-    // if (selectedBrands.has(brandKey)) {
-    //   selectedBrands.delete(brandKey);
-    // } else {
-    //   selectedBrands.add(brandKey);
-    // }
-
-    // event.target.value = "";
-
     applyFilters();
   });
 
@@ -624,5 +375,6 @@
     applyFilters();
   });
 
-  loadData();
+  // Ініціалізуємо карточки з DOM (замість AJAX запиту)
+  initializeCards();
 })();

@@ -60,6 +60,10 @@
   transform: translateY(1px);
 }
 
+.navigation__is-active {
+  background: color-mix(in srgb, var(--brand-blue) 12%, white);
+}
+
 .navigation__item.item--static {
   cursor: default;
 }
