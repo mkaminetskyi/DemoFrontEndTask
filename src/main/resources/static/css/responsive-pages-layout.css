@@ -2,9 +2,11 @@
 @media (max-width: 1199px) {
   .s__desktop-layout {
     display: none !important;
+    min-height: 100vh;
   }
   .s__mobile-layout {
     display: block;
+    min-height: 100vh;
   }
 }
 
@@ -12,9 +14,11 @@
 @media (min-width: 1200px) {
   .s__mobile-layout {
     display: none !important;
+    min-height: 100vh;
   }
 
   .s__desktop-layout {
     display: block;
+    min-height: 100vh;
   }
 }
