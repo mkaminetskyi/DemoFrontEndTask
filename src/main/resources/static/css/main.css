@@ -242,3 +242,99 @@ input[type="checkbox"] {
   accent-color: var(--brand-blue);
   flex: 0 0 auto;
 }
+
+.btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--brand-blue);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--brand-white);
+  color: var(--brand-blue);
+  text-decoration: none;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.06s ease,
+    filter 0.12s ease;
+}
+.btn:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn.primary {
+  background: var(--brand-blue);
+  color: var(--brand-white);
+  border-color: var(--brand-blue);
+}
+.btn.primary:hover {
+  background: color-mix(in srgb, var(--brand-blue) 88%, black 0%);
+}
+.btn.primary:active {
+  background: color-mix(in srgb, var(--brand-blue) 80%, black 0%);
+}
+.btn.ghost {
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 18%,
+    var(--border)
+  );
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 5%,
+    var(--brand-white)
+  );
+  color: color-mix(
+    in srgb,
+    var(--brand-blue) 75%,
+    var(--brand-dark) 25%
+  );
+}
+.btn.ghost:hover {
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 14%,
+    var(--brand-white)
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--brand-blue) 28%,
+    var(--border)
+  );
+}
+.btn.ghost:active {
+  background: color-mix(
+    in srgb,
+    var(--brand-blue) 20%,
+    var(--brand-white)
+  );
+}
+.btn-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+.btn.accent {
+  border: 0;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--brand-success) 94%, white),
+    var(--brand-success-dark)
+  );
+  color: var(--brand-white);
+  box-shadow: 0 12px 24px rgba(22, 163, 74, 0.22);
+}
+.btn.accent:hover {
+  box-shadow: 0 16px 30px rgba(22, 163, 74, 0.28);
+  filter: brightness(1.02);
+}
+.btn.accent:active {
+  filter: brightness(0.96);
+}
