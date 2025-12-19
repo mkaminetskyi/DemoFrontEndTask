@@ -137,6 +137,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 10px 100px 10px;
+  min-height: 100vh;
 }
 
 @media (min-width: 1200px) {
@@ -211,8 +212,8 @@ body.telegram-app-blur-header::before {
 }
 
 .input,
-select,
-textarea {
+.select,
+.textarea {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 10px 12px;
@@ -225,8 +226,8 @@ textarea {
 }
 
 .input:focus,
-select:focus,
-textarea:focus {
+.select:focus,
+.textarea:focus {
   border-color: color-mix(
     in srgb,
     var(--brand-blue) 55%,
