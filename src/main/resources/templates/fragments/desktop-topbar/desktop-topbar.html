@@ -1,7 +1,7 @@
 <div th:fragment="desktop-topbar">
   <link
     rel="stylesheet"
-    th:href="@{/fragments/desktop-topbar/desktop-topbar.css}"
+    th:href="@{/fragments/desktop-topbar/desktop-topbar.css(v=${@environment.getProperty('app.version')})}"
   />
 
   <script th:inline="javascript">
@@ -25,6 +25,12 @@
         role="status"
         aria-live="polite"
       ></div> -->
+
+    <img
+      class="desktop-topbar__logo"
+      th:src="@{/images/logo/temp-logo.png}"
+      alt=""
+    />
 
     <div class="desktop__userinfo">
       <div
