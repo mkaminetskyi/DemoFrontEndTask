@@ -14,6 +14,10 @@
   min-height: var(--topbar-height);
 }
 
+.desktop-topbar__logo {
+  height: 40px;
+}
+
 .desktop__userinfo {
   display: flex;
   align-items: center;
