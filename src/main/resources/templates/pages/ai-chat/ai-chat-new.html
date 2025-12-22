@@ -1,0 +1,33 @@
+<!doctype html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>AI-пошук товарів | Bulat+</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link
+      rel="stylesheet"
+      href="/pages/ai-chat/ai-chat.css"
+      th:href="@{/pages/ai-chat/ai-chat.css(v=${appVersion})}"
+    />
+    <link
+      rel="stylesheet"
+      href="/css/main.css"
+      th:href="@{/css/main.css(v=${appVersion})}"
+    />
+  </head>
+  <body>
+    <div>
+      <div
+        th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
+      ></div>
+    </div>
+  </body>
+</html>
