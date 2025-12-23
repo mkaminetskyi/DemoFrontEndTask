@@ -14,19 +14,31 @@
   gap: 8px;
 }
 
+/* description section [start] */
+/* description section [start] */
+/* description section [start] */
+
 .ai-chat__description-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 6px;
   font-weight: 400;
 }
 
 .ai-chat__desc-list {
   margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* .ai-chat__desc-list-item::before {
+.ai-chat__desc-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ai-chat__desc-list-item::before {
   content: "";
   flex-shrink: 0;
   width: 6px;
@@ -34,7 +46,11 @@
   border-radius: 50%;
   line-height: 40px;
   background-color: var(--brand-blue);
-} */
+}
+
+/* description section [end] */
+/* description section [end] */
+/* description section [end] */
 
 .ai-chat__assistant-message {
   max-width: 90%;
