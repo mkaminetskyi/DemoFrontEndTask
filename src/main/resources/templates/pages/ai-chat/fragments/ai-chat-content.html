@@ -1,3 +1,89 @@
-<div th:fragment="ai-chat-content">
+<div
+  th:fragment="ai-chat-content"
+  class="ai-chat"
+>
   <h2 class="heading--underlined">AI-пошук товарів</h2>
+
+  <section class="ai-chat__description-block">
+    <p>Пошук за описом або потребою</p>
+    <p>
+      Опишіть, які товари вам потрібні, і AI запропонує
+      найрелевантніші позиції з каталогу.
+    </p>
+
+    <ul class="ai-chat__desc-list">
+      <li class="ai-chat__desc-list-item">
+        <p>Формулюйте запит природною мовою</p>
+      </li>
+      <li class="ai-chat__desc-list-item">
+        <p>
+          Уточнюйте потрібні характеристики або сферу застосування
+        </p>
+      </li>
+      <li class="ai-chat__desc-list-item">
+        <p>Отримайте пояснення, чому товари підібрано саме так</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="ai-chat__chat">
+    <!-- AI first message  -->
+    <div class="card ai-chat__assistant-message">
+      <div class="ai-chat__label">AI консультант</div>
+      <p class="ai-chat__text-message">
+        Опишіть, які товари вам потрібні, а я вам запропоную вам
+        найкращі позиції з каталогу
+      </p>
+    </div>
+
+    <!-- user message -->
+    <div class="card ai-chat__user-message">
+      <div class="ai-chat__label">Ім'я Користувача</div>
+      <p class="ai-chat__text-message">
+        Я хочу купити хрестову викрутку у Львові
+      </p>
+    </div>
+
+    <!-- AI message from controller -->
+    <div class="card ai-chat__assistant-message">
+      <div class="ai-chat__label">AI консультант</div>
+      <p
+        class="ai-chat__text-message"
+        th:text="${mockedResponse}"
+      ></p>
+    </div>
+  </section>
+
+  <!-- search backdrop blur -->
+  <div class="ai-chat__search-backdrop-blur"></div>
+
+  <!-- search bar -->
+  <form
+    class="ai-chat__search-bar"
+    action=""
+  >
+    <input
+      class="input ai-chat__search-input"
+      type="search"
+      placeholder="Опишіть потрібні товари..."
+    />
+
+    <button class="ai-chat__search-button">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-label="іконка пошуку"
+      >
+        <path
+          d="M21 21l-3.8-3.8M10.8 18.6a7.8 7.8 0 1 1 0-15.6 7.8 7.8 0 0 1 0 15.6Z"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </form>
 </div>

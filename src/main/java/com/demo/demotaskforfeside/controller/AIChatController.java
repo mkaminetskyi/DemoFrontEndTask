@@ -128,6 +128,7 @@ public class AIChatController {
 
     @GetMapping("/ai-chat-new")
     public String aiChatPageNew(Model model) {
+        model.addAttribute("mockedResponse", MOCKED_CHAT_RESPONSE);
         return "/pages/ai-chat/ai-chat-new";
     }
 

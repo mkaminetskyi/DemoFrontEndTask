@@ -102,6 +102,7 @@
 
   --tg-viewport-height: 100vh;
 
+  --mobile-bottombar-height: 74px;
   color-scheme: light;
 }
 
@@ -136,7 +137,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 10px 100px 10px;
+  padding: 8px 10px calc(var(--mobile-bottombar-height) + 10px) 10px;
   min-height: 100vh;
 }
 
@@ -168,6 +169,17 @@ body.telegram-app-blur-header::before {
 }
 
 .border-neutral {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 6px 6px;
+  border-radius: 10px;
+  font-weight: 700;
+  min-height: 36px;
+  line-height: 1;
+  min-width: 0;
+}
+
+.card {
   border: 1px solid var(--border);
   background: #fff;
   padding: 6px 6px;

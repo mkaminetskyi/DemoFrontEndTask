@@ -14,7 +14,6 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link
       rel="stylesheet"
-      href="/pages/ai-chat/ai-chat.css"
       th:href="@{/pages/ai-chat/ai-chat.css(v=${appVersion})}"
     />
     <link
@@ -22,12 +21,36 @@
       href="/css/main.css"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
+    <link
+      rel="stylesheet"
+      th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
+    />
   </head>
   <body>
     <div>
-      <div
-        th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
-      ></div>
+      <div class="container">
+        <div class="s__mobile-layout">
+          <div
+            th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
+          ></div>
+
+          <div
+            th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+          ></div>
+        </div>
+
+        <div class="s__desktop-layout">
+          <div
+            th:replace="~{fragments/desktop-layout/desktop-layout :: shell('accounts-overdue-debts', ~{::main})}"
+          >
+            <main
+              th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
+            ></main>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script th:src="@{/js/app.js(v=${appVersion})}"></script>
   </body>
 </html>

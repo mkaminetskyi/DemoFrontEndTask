@@ -44,3 +44,4 @@ docs/cheat-sheet.md
 src/main/resources/templates/pages/overdue-debts-manager/sales-plan.js
 src/main/resources/templates/pages/overdue-debts-manager/plan-manager.html
 todo.excalidraw.png
+src/main/resources/templates/pages/ai-chat/to-ask.md
