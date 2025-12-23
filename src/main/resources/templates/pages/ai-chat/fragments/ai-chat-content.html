@@ -1,6 +1,8 @@
 <div
   th:fragment="ai-chat-content"
   class="ai-chat"
+  id="ai-chat-content"
+  data-js-ai-chat-content-fragment
 >
   <h2 class="heading--underlined">AI-пошук товарів</h2>
 
@@ -55,7 +57,10 @@
   </section>
 
   <!-- search backdrop blur -->
-  <div class="ai-chat__search-backdrop-blur"></div>
+  <div
+    class="ai-chat__search-backdrop-blur"
+    data-js-search-backdrop-blur
+  ></div>
 
   <!-- search bar -->
   <form
@@ -64,6 +69,7 @@
   >
     <input
       class="input ai-chat__search-input"
+      data-js-search-input
       type="search"
       placeholder="Опишіть потрібні товари..."
     />
