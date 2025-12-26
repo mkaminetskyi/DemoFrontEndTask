@@ -1,0 +1,36 @@
+<div th:fragment="responsive-layout(content, activePage)">
+  <div class="responsive__layout-wrapper container">
+    <link
+      rel="stylesheet"
+      th:href="@{/fragments/responsive-layout/responsive.css(v=${@environment.getProperty('app.version')})}"
+    />
+    <!-- Desktop sidebar з navigation (показується тільки на desktop) -->
+    <aside class="responsive__desktop-navigation-sidebar">
+      <div
+        th:replace="~{fragments/navigation/navigation :: navigation(${activePage})}"
+      ></div>
+    </aside>
+
+    <!-- Основний контент (ОДИН РАЗ) -->
+    <main class="responsive__main-content">
+      <!-- Desktop topbar (показується тільки на desktop) -->
+      <div class="responsive__desktop-topbar-wrapper">
+        <div
+          th:replace="~{fragments/desktop-topbar/desktop-topbar :: desktop-topbar}"
+        ></div>
+      </div>
+
+      <!-- Content area -->
+      <div class="responsive__content-area">
+        <div th:replace="${content}"></div>
+      </div>
+    </main>
+
+    <!-- Mobile bottombar (показується тільки на mobile) -->
+    <div class="responsive__mobile-bottombar-wrapper">
+      <div
+        th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+      ></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html
+  lang="uk"
+  xmlns:th="http://www.thymeleaf.org"
+  th:with="appVersion=${@environment.getProperty('app.version')}"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>AI-пошук товарів | Bulat+</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link
+      rel="stylesheet"
+      th:href="@{/pages/ai-chat-page/app.css(v=${appVersion})}"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="page-surface">
+        <section class="page-section assistant-page">
+          <h2>AI-пошук товарів</h2>
+
+          <div
+            class="card assistant-card"
+            id="assistantApp"
+            data-endpoint="/ai-chat/chat"
+            th:attr="data-user-name=${userLabel != null ? userLabel : 'Користувач'}"
+          >
+            <div
+              class="chat-window"
+              id="chatWindow"
+            >
+              <div class="chat-message card compact assistant">
+                <div class="message-label">AI консультант</div>
+                <p
+                  th:utext="'Пошук за описом або потребою<br/><br/>Опишіть, які товари вам потрібні, і AI запропонує найрелевантніші позиції з каталогу.<br/><br/>🔍 Формулюйте запит природною мовою<br/>🧾 Уточнюйте потрібні характеристики або сферу застосування<br/>🤖 Отримайте пояснення, чому товари підібрано саме так'"
+                >
+                  Пошук за описом або потребою<br /><br />Опишіть, які
+                  товари вам потрібні, і AI запропонує найрелевантніші
+                  позиції з каталогу.<br /><br />🔍 Формулюйте запит
+                  природною мовою<br />🧾 Уточнюйте потрібні
+                  характеристики або сферу застосування<br />🤖
+                  Отримайте пояснення, чому товари підібрано саме так
+                </p>
+                <div class="message-note">
+                  Наприклад: «кабель живлення для ноутбука Lenovo» або
+                  «антисептик для дерева зовнішній».
+                </div>
+              </div>
+            </div>
+
+            <form
+              id="chatForm"
+              class="chat-form"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="messageInput"
+                  name="message"
+                  placeholder="Опишіть потрібні товари…"
+                  autocomplete="off"
+                />
+                <button
+                  type="submit"
+                  class="btn-search"
+                  id="sendBtn"
+                  title="Знайти"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M21 21l-3.8-3.8M10.8 18.6a7.8 7.8 0 1 1 0-15.6 7.8 7.8 0 0 1 0 15.6Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div
+      th:replace="~{/fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+    ></div>
+
+    <script
+      src="/js/app.js"
+      defer
+      th:src="@{/js/app.js(v=${appVersion})}"
+    ></script>
+    <script
+      src="/pages/ai-chat-page/assistant-chat.js"
+      defer
+      th:src="@{/pages/ai-chat-page/assistant-chat.js(v=${appVersion})}"
+    ></script>
+  </body>
+</html>

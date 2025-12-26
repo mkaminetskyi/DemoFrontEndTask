@@ -1,38 +1,27 @@
 <!doctype html>
 <html
-  lang="uk"
+  lang="en"
   xmlns:th="http://www.thymeleaf.org"
   th:with="appVersion=${@environment.getProperty('app.version')}"
 >
   <head>
     <meta charset="UTF-8" />
-
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>overdue-debts-manager</title>
+    <title>AI-пошук товарів | Bulat+</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
     <link
       rel="stylesheet"
+      href="/css/main.css"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
-
-    <link
-      rel="stylesheet"
-      th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
-    />
-
-    <link
-      rel="stylesheet"
-      th:href="@{/pages/overdue-debts-manager/fragments/content.css(v=${appVersion})}"
-    />
   </head>
-
   <body>
     <div
-      th:replace="~{/fragments/responsive-layout/responsive-layout :: responsive-layout(content=~{/pages/overdue-debts-manager/fragments/content :: content}, activePage='overdue-debts-manager')}"
+      th:replace="~{/fragments/responsive-layout/responsive-layout :: responsive-layout(content=~{/fragments/ai-chat/ai-chat :: ai-chat}, activePage='ai-chat-page')}"
     ></div>
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>

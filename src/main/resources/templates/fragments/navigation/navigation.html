@@ -30,6 +30,21 @@
           <li>
             <a
               class="navigation__item"
+              th:classappend="${active} == 'ai-chat-page' ? ' navigation__is-active' : ''"
+              href="/ai-chat-new"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">ai chat page</div>
+            </a>
+          </li>
+          <li>
+            <a
+              class="navigation__item"
               th:classappend="${active} == 'sales-product-groups' ? ' navigation__is-active' : ''"
               href="/api/sales/product-groups"
             >
@@ -103,6 +118,25 @@
               </div>
             </a>
           </li>
+
+          <li>
+            <a
+              class="navigation__item"
+              th:classappend="${active} == 'overdue-debts-manager' ? ' navigation__is-active' : ''"
+              href="/overdue-debts/manager"
+            >
+              <img
+                class="navigation__item-icon"
+                th:src="@{/images/nav-icons/performance-increase.svg}"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="navigation__item-title">
+                Протерміновані борги менеджер
+              </div>
+            </a>
+          </li>
+
           <li>
             <a
               class="navigation__item"
