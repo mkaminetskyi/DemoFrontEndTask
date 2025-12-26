@@ -1,5 +1,6 @@
 .general-one-s-report-page-content {
   width: 100%;
+  min-width: 0;
 }
 
 .general-one-s-report-page-content__page-surface {
@@ -7,12 +8,12 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  min-width: 0;
   padding: 8px;
   padding-bottom: calc(
     8px + var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)
   );
   overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .general-one-s-report-page-content__filters-card {
@@ -390,6 +391,9 @@
   border-radius: 0;
   box-shadow: none;
   background: transparent;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 /* ================ Client Purchases Table ================ */

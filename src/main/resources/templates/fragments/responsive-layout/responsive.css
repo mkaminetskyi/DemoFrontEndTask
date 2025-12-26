@@ -50,6 +50,8 @@
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .responsive__desktop-topbar-wrapper {
@@ -58,6 +60,7 @@
 
   .responsive__content-area {
     min-height: 0;
+    min-width: 0;
     display: flex;
     background: var(--brand-white);
     border-radius: 20px;

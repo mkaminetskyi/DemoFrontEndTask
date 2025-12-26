@@ -24,36 +24,16 @@
     <title th:text="${title}">Протерміновані борги</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <!-- Mobile CSS -->
-
     <link
       rel="stylesheet"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
-
-    <!-- This page CSS -->
-    <link
-      rel="stylesheet"
-      href="/css/responsive-pages-layout.css"
-    />
   </head>
 
   <body>
-    <div class="container">
-      <!-- Mobile (< 1200px) -->
-      <div class="s__mobile-layout">
-        <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-mobile :: mobile(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}"
-        ></div>
-      </div>
-
-      <!-- Desktop (>= 1200px) -->
-      <div class="s__desktop-layout">
-        <div
-          th:replace="~{pages/overdue-debts/fragments/overdue-debts-desktop :: desktop(${activeNav}, ${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}"
-        ></div>
-      </div>
-    </div>
+    <div
+      th:replace="~{/fragments/responsive-layout/responsive-layout :: responsive-layout(content=~{fragments/general-one-s-report-page-content/general-one-s-report-page-content :: content(${pageHeading}, ${dataEndpoint}, ${exportEndpoint}, ${renderDatePicker}, ${renderClientPicker}, ${renderRepresentativesPicker}, ${userRole})}, activePage='overdue-debts')}"
+    ></div>
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>
   </body>
