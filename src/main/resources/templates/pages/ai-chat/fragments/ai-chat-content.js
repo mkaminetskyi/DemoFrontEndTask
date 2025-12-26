@@ -1,19 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const aiChatContent = document.getElementById(
+    "ai-chat-content-fragment",
+  );
+  const searchBackdropBlur = aiChatContent?.querySelector(
+    "[data-js-search-backdrop-blur]",
+  );
+  const searchInput = aiChatContent?.querySelector(
+    "[data-js-search-input]",
+  );
+
+  if (!aiChatContent || !searchBackdropBlur || !searchInput) {
+    return;
+  }
+
+  /**
+   * Оновлює ширину та позицію search bar і backdrop blur
+   * на основі розмірів контейнера ai-chat-content
+   */
   const updateSearchWidth = () => {
-    const aiChatContent = document.getElementById(
-      "ai-chat-content-fragment",
-    );
-    const searchBackdropBlur = aiChatContent?.querySelector(
-      "[data-js-search-backdrop-blur]",
-    );
-    const searchInput = aiChatContent?.querySelector(
-      "[data-js-search-input]",
-    );
-
-    if (!aiChatContent || !searchBackdropBlur || !searchInput) {
-      return;
-    }
-
     const widthAiChatContent = aiChatContent.offsetWidth;
     const rect = aiChatContent.getBoundingClientRect();
 
@@ -26,11 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateSearchWidth();
 
-  let resizeTimeout;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-      updateSearchWidth();
-    }, 10);
+  const resizeObserver = new ResizeObserver(() => {
+    updateSearchWidth();
+  });
+
+  resizeObserver.observe(aiChatContent);
+
+  window.addEventListener("beforeunload", () => {
+    resizeObserver.disconnect();
   });
 });
