@@ -14,8 +14,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link
       rel="stylesheet"
-      href="/pages/ai-chat/app.css"
-      th:href="@{/pages/ai-chat/app.css(v=${appVersion})}"
+      th:href="@{/pages/ai-chat-page/app.css(v=${appVersion})}"
     />
   </head>
   <body>
@@ -104,9 +103,9 @@
       th:src="@{/js/app.js(v=${appVersion})}"
     ></script>
     <script
-      src="/pages/ai-chat/assistant-chat.js"
+      src="/pages/ai-chat-page/assistant-chat.js"
       defer
-      th:src="@{/pages/ai-chat/assistant-chat.js(v=${appVersion})}"
+      th:src="@{/pages/ai-chat-page/assistant-chat.js(v=${appVersion})}"
     ></script>
   </body>
 </html>

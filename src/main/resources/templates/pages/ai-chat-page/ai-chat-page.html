@@ -14,17 +14,13 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <link
       rel="stylesheet"
-      th:href="@{/pages/ai-chat/ai-chat.css(v=${appVersion})}"
+      th:href="@{/fragments/ai-chat/ai-chat.css(v=${appVersion})}"
     />
     <link
       rel="stylesheet"
       href="/css/main.css"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
-    <!-- <link
-      rel="stylesheet"
-      th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
-    /> -->
     <link
       rel="stylesheet"
       th:href="@{/css/responsive.css(v=${appVersion})}"
@@ -51,7 +47,7 @@
         <!-- Content area -->
         <div class="responsive__content-area">
           <div
-            th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
+            th:replace="~{/fragments/ai-chat/ai-chat :: ai-chat}"
           ></div>
         </div>
       </main>
@@ -66,7 +62,7 @@
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>
     <script
-      th:src="@{/pages/ai-chat/fragments/ai-chat-content.js(v=${appVersion})}"
+      th:src="@{/fragments/ai-chat/ai-chat-ui.js(v=${appVersion})}"
     ></script>
   </body>
 </html>

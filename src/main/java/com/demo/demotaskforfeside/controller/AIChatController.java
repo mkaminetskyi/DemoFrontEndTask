@@ -123,13 +123,13 @@ public class AIChatController {
 
     @GetMapping("/ai-chat")
     public String aiChatPageOld(Model model) {
-        return "/pages/ai-chat/ai-chat";
+        return "/pages/ai-chat-page/ai-chat-old";
     }
 
     @GetMapping("/ai-chat-new")
     public String aiChatPageNew(Model model) {
         model.addAttribute("mockedResponse", MOCKED_CHAT_RESPONSE);
-        return "/pages/ai-chat/ai-chat-new";
+        return "/pages/ai-chat-page/ai-chat-page";
     }
 
     @ResponseBody
