@@ -31,27 +31,9 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="s__mobile-layout">
-        <div
-          th:replace="~{/pages/overdue-debts-manager/fragments/content.html :: content}"
-        ></div>
-
-        <div
-          th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
-        ></div>
-      </div>
-
-      <div class="s__desktop-layout">
-        <div
-          th:replace="~{fragments/desktop-layout/desktop-layout :: shell('accounts-overdue-debts', ~{::main})}"
-        >
-          <main
-            th:replace="~{/pages/overdue-debts-manager/fragments/content.html :: content}"
-          ></main>
-        </div>
-      </div>
-    </div>
+    <div
+      th:replace="~{/fragments/responsive-layout/responsive-layout :: responsive-layout(content=~{/pages/overdue-debts-manager/fragments/content :: content}, activePage='overdue-debts-manager')}"
+    ></div>
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>
   </body>

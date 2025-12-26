@@ -42,12 +42,14 @@
     overflow-y: auto;
     align-self: start;
     min-width: 250px;
+    max-width: 250px;
   }
 
   .responsive__main-content {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
   }
 
   .responsive__desktop-topbar-wrapper {
