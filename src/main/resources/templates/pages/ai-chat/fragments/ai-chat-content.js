@@ -1,58 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let aiChatContent = null;
-  let searchBackdropBlur = null;
-  let searchInput = null;
-
-  const findVisibleContainer = () => {
-    // first element
-    const chatContainers = document.querySelectorAll(
-      "[data-js-ai-chat-content-fragment]",
+  const updateSearchWidth = () => {
+    // Використовуємо getVisibleElement() з рядків 1-80
+    const aiChatContent = getVisibleElement(
+      "ai-chat-content-fragment",
     );
 
-    let visibleContainer = null;
-
-    chatContainers.forEach(container => {
-      if (container.offsetParent !== null) {
-        visibleContainer = container;
-      }
-    });
-
-    if (!visibleContainer) {
+    if (!aiChatContent) {
       console.error("Visible chat container not found");
-      return false;
+      return;
     }
 
-    aiChatContent = visibleContainer;
-
-    // second element
-    const backdrop = visibleContainer.querySelector(
+    // Шукаємо дочірні елементи всередині видимого контейнера
+    const searchBackdropBlur = aiChatContent.querySelector(
       "[data-js-search-backdrop-blur]",
     );
 
-    if (!backdrop) {
+    if (!searchBackdropBlur) {
       console.error("Backdrop not found inside container");
-      return false;
+      return;
     }
 
-    searchBackdropBlur = backdrop;
-
-    // third element
-    const input = visibleContainer.querySelector(
+    const searchInput = aiChatContent.querySelector(
       "[data-js-search-input]",
     );
 
-    if (!input) {
+    if (!searchInput) {
       console.error("Search input not found inside container");
-      return false;
-    }
-
-    searchInput = input;
-
-    return true;
-  };
-
-  const updateSearchWidth = () => {
-    if (!findVisibleContainer()) {
       return;
     }
 
