@@ -94,6 +94,12 @@
   backdrop-filter: blur(3px);
 }
 
+@media (min-width: 1200px) {
+  .ai-chat__search-backdrop-blur {
+    bottom: 0px;
+  }
+}
+
 /* search backdrop blur [end] */
 /* search backdrop blur [end] */
 /* search backdrop blur [end] */
@@ -105,6 +111,12 @@
 .ai-chat__search-bar {
   position: fixed;
   bottom: calc(var(--mobile-bottombar-height) + 20px);
+}
+
+@media (min-width: 1200px) {
+  .ai-chat__search-bar {
+    bottom: 10px;
+  }
 }
 
 .ai-chat__search-input {
