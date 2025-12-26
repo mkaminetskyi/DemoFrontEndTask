@@ -21,38 +21,50 @@
       href="/css/main.css"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
-    <link
+    <!-- <link
       rel="stylesheet"
       th:href="@{/css/responsive-pages-layout.css(v=${appVersion})}"
+    /> -->
+    <link
+      rel="stylesheet"
+      th:href="@{/css/responsive.css(v=${appVersion})}"
     />
   </head>
   <body>
-    <div>
-      <div class="container">
-        <div class="s__mobile-layout">
+    <div class="responsive__layout-wrapper container">
+      <!-- Desktop sidebar з navigation (показується тільки на desktop) -->
+      <aside class="responsive__desktop-navigation-sidebar">
+        <div
+          th:replace="~{fragments/navigation/navigation :: navigation('ai-chat')}"
+        ></div>
+      </aside>
+
+      <!-- Основний контент (ОДИН РАЗ) -->
+      <main class="responsive__main-content">
+        <!-- Desktop topbar (показується тільки на desktop) -->
+        <div class="responsive__desktop-topbar-wrapper">
+          <div
+            th:replace="~{fragments/desktop-topbar/desktop-topbar :: desktop-topbar}"
+          ></div>
+        </div>
+
+        <!-- Content area -->
+        <div class="responsive__content-area">
           <div
             th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
           ></div>
-
-          <div
-            th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
-          ></div>
         </div>
+      </main>
 
-        <div class="s__desktop-layout">
-          <div
-            th:replace="~{fragments/desktop-layout/desktop-layout :: shell('accounts-overdue-debts', ~{::main})}"
-          >
-            <main
-              th:replace="~{/pages/ai-chat/fragments/ai-chat-content.html :: ai-chat-content}"
-            ></main>
-          </div>
-        </div>
+      <!-- Mobile bottombar (показується тільки на mobile) -->
+      <div class="responsive__mobile-bottombar-wrapper">
+        <div
+          th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
+        ></div>
       </div>
     </div>
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>
-    <script th:src="@{/js/responsive.js(v=${appVersion})}"></script>
     <script
       th:src="@{/pages/ai-chat/fragments/ai-chat-content.js(v=${appVersion})}"
     ></script>
