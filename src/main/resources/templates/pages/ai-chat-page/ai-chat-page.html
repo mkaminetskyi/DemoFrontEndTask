@@ -12,57 +12,18 @@
     />
     <title>AI-пошук товарів | Bulat+</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <link
-      rel="stylesheet"
-      th:href="@{/fragments/ai-chat/ai-chat.css(v=${appVersion})}"
-    />
+
     <link
       rel="stylesheet"
       href="/css/main.css"
       th:href="@{/css/main.css(v=${appVersion})}"
     />
-    <link
-      rel="stylesheet"
-      th:href="@{/css/responsive.css(v=${appVersion})}"
-    />
   </head>
   <body>
-    <div class="responsive__layout-wrapper container">
-      <!-- Desktop sidebar з navigation (показується тільки на desktop) -->
-      <aside class="responsive__desktop-navigation-sidebar">
-        <div
-          th:replace="~{fragments/navigation/navigation :: navigation('ai-chat')}"
-        ></div>
-      </aside>
-
-      <!-- Основний контент (ОДИН РАЗ) -->
-      <main class="responsive__main-content">
-        <!-- Desktop topbar (показується тільки на desktop) -->
-        <div class="responsive__desktop-topbar-wrapper">
-          <div
-            th:replace="~{fragments/desktop-topbar/desktop-topbar :: desktop-topbar}"
-          ></div>
-        </div>
-
-        <!-- Content area -->
-        <div class="responsive__content-area">
-          <div
-            th:replace="~{/fragments/ai-chat/ai-chat :: ai-chat}"
-          ></div>
-        </div>
-      </main>
-
-      <!-- Mobile bottombar (показується тільки на mobile) -->
-      <div class="responsive__mobile-bottombar-wrapper">
-        <div
-          th:replace="~{fragments/mobile-bottombar/mobile-bottombar :: mobile-bottombar}"
-        ></div>
-      </div>
-    </div>
+    <div
+      th:replace="~{/fragments/responsive-layout/responsive-layout :: responsive-layout(content=~{/fragments/ai-chat/ai-chat :: ai-chat}, activePage='ai-chat-page')}"
+    ></div>
 
     <script th:src="@{/js/app.js(v=${appVersion})}"></script>
-    <script
-      th:src="@{/fragments/ai-chat/ai-chat-ui.js(v=${appVersion})}"
-    ></script>
   </body>
 </html>
